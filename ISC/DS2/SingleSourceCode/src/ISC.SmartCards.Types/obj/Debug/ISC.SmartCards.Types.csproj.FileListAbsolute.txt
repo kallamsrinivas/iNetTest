@@ -1,0 +1,6 @@
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.SmartCards.Types\bin\Debug\ISC.SmartCards.Types.dll
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.SmartCards.Types\bin\Debug\ISC.SmartCards.Types.pdb
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.SmartCards.Types\obj\Debug\ISC.SmartCards.Types.csprojAssemblyReference.cache
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.SmartCards.Types\obj\Debug\ISC.SmartCards.Types.csproj.CoreCompileInputs.cache
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.SmartCards.Types\obj\Debug\ISC.SmartCards.Types.dll
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.SmartCards.Types\obj\Debug\ISC.SmartCards.Types.pdb

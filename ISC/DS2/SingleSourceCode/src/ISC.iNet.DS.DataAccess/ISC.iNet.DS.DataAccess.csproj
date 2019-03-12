@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{48D0222D-C8A7-4311-B2E5-BC25B1F3AC3E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ISC.iNet.DS.DataAccess</RootNamespace>
+    <AssemblyName>ISC.iNet.DS.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TEST|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TEST\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;TEST</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SQLite, Version=1.0.66.0, Culture=neutral, PublicKeyToken=1fdb50b1b62b4c84, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\System.Data.SQLite.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CriticalErrorDataAccess.cs" />
+    <Compile Include="DataAccess.cs" />
+    <Compile Include="DataAccessException.cs" />
+    <Compile Include="DataAccessHint.cs" />
+    <Compile Include="DataAccessOrdinals.cs" />
+    <Compile Include="DataAccessTransaction.cs" />
+    <Compile Include="DeniedInstrumentDataAccess.cs" />
+    <Compile Include="DockingStationDataAccess.cs" />
+    <Compile Include="EventJournalDataAccess.cs" />
+    <Compile Include="FactoryCylinderDataAccess.cs" />
+    <Compile Include="FactoryCylinderGasDataAccess.cs" />
+    <Compile Include="FirmwareUpgradeSettingDataAccess.cs" />
+    <Compile Include="GasEndPointDataAccess.cs" />
+    <Compile Include="IDataAccessTransaction.cs" />
+    <Compile Include="InstrumentDataAccess.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueueDataAccess.cs" />
+    <Compile Include="ReplacedEquipmentDataAccess.cs" />
+    <Compile Include="ReplacedNetworkSettingsDataAccess.cs" />
+    <Compile Include="Schedules\ScheduleDataAccess.cs" />
+    <Compile Include="Schedules\ScheduledDailyDataAccess.cs" />
+    <Compile Include="Schedules\ScheduledDaysDataAccess.cs" />
+    <Compile Include="Schedules\ScheduledEquipmentDataAccess.cs" />
+    <Compile Include="Schedules\ScheduledHourlyDataAccess.cs" />
+    <Compile Include="Schedules\ScheduledMonthlyDataAccess.cs" />
+    <Compile Include="Schedules\ScheduledOnceDataAccess.cs" />
+    <Compile Include="Schedules\ScheduledUponDockingDataAccess.cs" />
+    <Compile Include="Schedules\ScheduledWeeklyDataAccess.cs" />
+    <Compile Include="SchemaDataAccess.cs" />
+    <Compile Include="SensorCalibrationLimitsDataAccess.cs" />
+    <Compile Include="SerialNumberDataAccess.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ISC.iNet.DS.DomainModel\ISC.iNet.DS.DomainModel.csproj">
+      <Project>{791147d7-67f4-4954-b9b5-0dbabc6bef37}</Project>
+      <Name>ISC.iNet.DS.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISC.iNet.DS\ISC.iNet.DS.csproj">
+      <Project>{b26583ce-20eb-4f07-8e82-b314d1090af9}</Project>
+      <Name>ISC.iNet.DS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISC.WinCE.Logger\ISC.WinCE.Logger.csproj">
+      <Project>{75b4e8fb-a149-4ca2-8f79-8393c9b7e58e}</Project>
+      <Name>ISC.WinCE.Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISC.WinCE\ISC.WinCE.csproj">
+      <Project>{eb3f4fd2-381a-492b-b208-7fd70626e8d8}</Project>
+      <Name>ISC.WinCE</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

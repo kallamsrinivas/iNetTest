@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{844565FD-D738-4868-8E65-A6B863C99769}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ISC.iNet.DS.Services</RootNamespace>
+    <AssemblyName>ISC.iNet.DS.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TEST|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TEST\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;TEST</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ISC.Instrument.Driver, Version=8.9.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\ISC.Instrument.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="ISC.Instrument.TypeDefinition, Version=8.9.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\ISC.Instrument.TypeDefinition.dll</HintPath>
+    </Reference>
+    <Reference Include="ISC.Instrument.Update, Version=8.7.0.7, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\ISC.Instrument.Update.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ChargingService.cs" />
+    <Compile Include="ConsoleService.cs" />
+    <Compile Include="ConsoleServiceFaceplate.cs" />
+    <Compile Include="ConsoleServiceMenu.cs" />
+    <Compile Include="ConsoleState.cs" />
+    <Compile Include="CsvFileManager.cs" />
+    <Compile Include="EventProcessor.cs" />
+    <Compile Include="ExecuterService.cs" />
+    <Compile Include="IExecuterService.cs" />
+    <Compile Include="IMaster.cs" />
+    <Compile Include="IService.cs" />
+    <Compile Include="Master.cs" />
+    <Compile Include="Operations\CylinderPressureResetOperation.cs" />
+    <Compile Include="Operations\DataDownloadPauseOperation.cs" />
+    <Compile Include="Operations\DetailsBuilder.cs" />
+    <Compile Include="Operations\DiagnosticOperation.cs" />
+    <Compile Include="Operations\DiscoveryOperation.cs" />
+    <Compile Include="Operations\ExchangeStatusOperation.cs" />
+    <Compile Include="Operations\FactoryResetOperation.cs" />
+    <Compile Include="Operations\FirmwareUpgradeOperation.cs" />
+    <Compile Include="Operations\InstrumentAlarmEventsClearOperation.cs" />
+    <Compile Include="Operations\InstrumentAlarmEventsDownloadOperation.cs" />
+    <Compile Include="Operations\InstrumentBumpTestOperation.cs" />
+    <Compile Include="Operations\InstrumentBumpTestOperationParallel.cs" />
+    <Compile Include="Operations\InstrumentCalibrationOperation.cs" />
+    <Compile Include="Operations\InstrumentCalibrationOperationParallel.cs" />
+    <Compile Include="Operations\InstrumentCalibrationOperationSequential.cs" />
+    <Compile Include="Operations\InstrumentChargingOperation.cs" />
+    <Compile Include="Operations\InstrumentDiagnosticOperation.cs" />
+    <Compile Include="Operations\InstrumentDisableReplacedOperation.cs" />
+    <Compile Include="Operations\InstrumentFirmwareUpgradeOperation.cs" />
+    <Compile Include="Operations\InstrumentHygieneClearOperation.cs" />
+    <Compile Include="Operations\InstrumentHygieneDownloadOperation.cs" />
+    <Compile Include="Operations\InstrumentManualOperationsClearOperation.cs" />
+    <Compile Include="Operations\InstrumentManualOperationsDownloadOperation.cs" />
+    <Compile Include="Operations\InstrumentPurgeOperation.cs" />
+    <Compile Include="Operations\InstrumentSettingsReadOperation.cs" />
+    <Compile Include="Operations\InstrumentSettingsUpdateOperation.cs" />
+    <Compile Include="Operations\InstrumentTurnOffOperation.cs" />
+    <Compile Include="Operations\InteractiveDiagnosticOperation.cs" />
+    <Compile Include="Operations\MaintenanceOperation.cs" />
+    <Compile Include="Operations\PingOperation.cs" />
+    <Compile Include="Operations\PopQueueOperation.cs" />
+    <Compile Include="Operations\RebootOperation.cs" />
+    <Compile Include="Operations\SerializationOperation.cs" />
+    <Compile Include="Operations\SettingsReadOperation.cs" />
+    <Compile Include="Operations\SettingsUpdateOperation.cs" />
+    <Compile Include="Operations\TroubleshootOperation.cs" />
+    <Compile Include="Operations\UploadDatabaseOperation.cs" />
+    <Compile Include="Operations\UploadDebugLogOperation.cs" />
+    <Compile Include="PrinterCE.cs" />
+    <Compile Include="PrinterCEException.cs" />
+    <Compile Include="PrintManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporterService.cs" />
+    <Compile Include="ResourceService.cs" />
+    <Compile Include="Resources\ConsoleServiceResources.Designer.cs" />
+    <Compile Include="Resources\CsvFileManagerResources.Designer.cs" />
+    <Compile Include="Resources\DiagnosticResources.Designer.cs" />
+    <Compile Include="Resources\PrintManagerResources.Designer.cs" />
+    <Compile Include="Scheduler.cs" />
+    <Compile Include="Service.cs" />
+    <Compile Include="SwitchService.cs" />
+    <Compile Include="WebAppService.cs" />
+    <Compile Include="WebServer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ISC.iNet.DS.DataAccess\ISC.iNet.DS.DataAccess.csproj">
+      <Project>{48d0222d-c8a7-4311-b2e5-bc25b1f3ac3e}</Project>
+      <Name>ISC.iNet.DS.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISC.iNet.DS.DomainModel\ISC.iNet.DS.DomainModel.csproj">
+      <Project>{791147d7-67f4-4954-b9b5-0dbabc6bef37}</Project>
+      <Name>ISC.iNet.DS.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISC.iNet.DS.iNet\ISC.iNet.DS.iNet.csproj">
+      <Project>{1162083e-b980-4c27-a3d7-34716635bcc9}</Project>
+      <Name>ISC.iNet.DS.iNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISC.iNet.DS.Instruments\ISC.iNet.DS.Instruments.csproj">
+      <Project>{ecdb97a4-1411-4cca-b293-92bfa3a5cdac}</Project>
+      <Name>ISC.iNet.DS.Instruments</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISC.iNet.DS\ISC.iNet.DS.csproj">
+      <Project>{b26583ce-20eb-4f07-8e82-b314d1090af9}</Project>
+      <Name>ISC.iNet.DS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISC.WinCE.Logger\ISC.WinCE.Logger.csproj">
+      <Project>{75b4e8fb-a149-4ca2-8f79-8393c9b7e58e}</Project>
+      <Name>ISC.WinCE.Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISC.WinCE\ISC.WinCE.csproj">
+      <Project>{eb3f4fd2-381a-492b-b208-7fd70626e8d8}</Project>
+      <Name>ISC.WinCE</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ConsoleServiceResources.de.resx" />
+    <EmbeddedResource Include="Resources\ConsoleServiceResources.es.resx" />
+    <EmbeddedResource Include="Resources\ConsoleServiceResources.fr.resx" />
+    <EmbeddedResource Include="Resources\ConsoleServiceResources.pt.resx" />
+    <EmbeddedResource Include="Resources\ConsoleServiceResources.resx" />
+    <EmbeddedResource Include="Resources\CsvFileManagerResources.de.resx" />
+    <EmbeddedResource Include="Resources\CsvFileManagerResources.es.resx" />
+    <EmbeddedResource Include="Resources\CsvFileManagerResources.fr.resx" />
+    <EmbeddedResource Include="Resources\CsvFileManagerResources.pt.resx" />
+    <EmbeddedResource Include="Resources\CsvFileManagerResources.resx" />
+    <EmbeddedResource Include="Resources\DiagnosticResources.de.resx" />
+    <EmbeddedResource Include="Resources\DiagnosticResources.es.resx" />
+    <EmbeddedResource Include="Resources\DiagnosticResources.fr.resx" />
+    <EmbeddedResource Include="Resources\DiagnosticResources.pt.resx" />
+    <EmbeddedResource Include="Resources\DiagnosticResources.resx" />
+    <EmbeddedResource Include="Resources\PrintManagerResources.de.resx" />
+    <EmbeddedResource Include="Resources\PrintManagerResources.es.resx" />
+    <EmbeddedResource Include="Resources\PrintManagerResources.fr.resx" />
+    <EmbeddedResource Include="Resources\PrintManagerResources.pt.resx" />
+    <EmbeddedResource Include="Resources\PrintManagerResources.resx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

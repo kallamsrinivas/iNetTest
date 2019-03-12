@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="ISC.iNet.DS.iNet.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ISC_iNet_DS_iNet_InetConfiguration_ConfigurationService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://inetuploaddev01.indsci.com:80/UploadWeb/secureServices/Configuration</Value>
+    </Setting>
+    <Setting Name="ISC_iNet_DS_iNet_InetUpload_UploaderService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://inetuploaddev01.indsci.com:80/UploadWeb/secureServices/Uploader</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

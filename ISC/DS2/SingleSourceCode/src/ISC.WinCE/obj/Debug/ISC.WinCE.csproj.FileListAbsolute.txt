@@ -1,0 +1,6 @@
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.WinCE\bin\Debug\ISC.WinCE.dll
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.WinCE\bin\Debug\ISC.WinCE.pdb
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.WinCE\obj\Debug\ISC.WinCE.csprojAssemblyReference.cache
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.WinCE\obj\Debug\ISC.WinCE.csproj.CoreCompileInputs.cache
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.WinCE\obj\Debug\ISC.WinCE.dll
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.WinCE\obj\Debug\ISC.WinCE.pdb

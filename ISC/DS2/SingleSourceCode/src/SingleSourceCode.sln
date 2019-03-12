@@ -1,0 +1,147 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISC.iNet.DS.DomainModel", "ISC.iNet.DS.DomainModel\ISC.iNet.DS.DomainModel.csproj", "{791147D7-67F4-4954-B9B5-0DBABC6BEF37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISC.WinCE.Logger", "ISC.WinCE.Logger\ISC.WinCE.Logger.csproj", "{75B4E8FB-A149-4CA2-8F79-8393C9B7E58E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISC.WinCE", "ISC.WinCE\ISC.WinCE.csproj", "{EB3F4FD2-381A-492B-B208-7FD70626E8D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISC.SmartCards", "ISC.SmartCards\ISC.SmartCards.csproj", "{98DBAA7C-C841-489D-AFCB-B0C0010A5E98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISC.SmartCards.Types", "ISC.SmartCards.Types\ISC.SmartCards.Types.csproj", "{A261F444-50E5-422F-9E02-4732BCB6721F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISC.iNet.DS", "ISC.iNet.DS\ISC.iNet.DS.csproj", "{B26583CE-20EB-4F07-8E82-B314D1090AF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISC.iNet.DS.Instruments", "ISC.iNet.DS.Instruments\ISC.iNet.DS.Instruments.csproj", "{ECDB97A4-1411-4CCA-B293-92BFA3A5CDAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISC.iNet.DS.DataAccess", "ISC.iNet.DS.DataAccess\ISC.iNet.DS.DataAccess.csproj", "{48D0222D-C8A7-4311-B2E5-BC25B1F3AC3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISC.iNet.DS.iNet", "ISC.iNet.DS.iNet\ISC.iNet.DS.iNet.csproj", "{1162083E-B980-4C27-A3D7-34716635BCC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISC.iNet.DS.Services", "ISC.iNet.DS.Services\ISC.iNet.DS.Services.csproj", "{844565FD-D738-4868-8E65-A6B863C99769}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISC.iNet.DS.UnitTests", "ISC.iNet.DS.UnitTests\ISC.iNet.DS.UnitTests.csproj", "{59327FCD-1835-415F-A077-74C744805A1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		TEST|Any CPU = TEST|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{791147D7-67F4-4954-B9B5-0DBABC6BEF37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{791147D7-67F4-4954-B9B5-0DBABC6BEF37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{791147D7-67F4-4954-B9B5-0DBABC6BEF37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{791147D7-67F4-4954-B9B5-0DBABC6BEF37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{791147D7-67F4-4954-B9B5-0DBABC6BEF37}.TEST|Any CPU.ActiveCfg = TEST|Any CPU
+		{791147D7-67F4-4954-B9B5-0DBABC6BEF37}.TEST|Any CPU.Build.0 = TEST|Any CPU
+		{75B4E8FB-A149-4CA2-8F79-8393C9B7E58E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75B4E8FB-A149-4CA2-8F79-8393C9B7E58E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75B4E8FB-A149-4CA2-8F79-8393C9B7E58E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75B4E8FB-A149-4CA2-8F79-8393C9B7E58E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75B4E8FB-A149-4CA2-8F79-8393C9B7E58E}.TEST|Any CPU.ActiveCfg = TEST|Any CPU
+		{75B4E8FB-A149-4CA2-8F79-8393C9B7E58E}.TEST|Any CPU.Build.0 = TEST|Any CPU
+		{EB3F4FD2-381A-492B-B208-7FD70626E8D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB3F4FD2-381A-492B-B208-7FD70626E8D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB3F4FD2-381A-492B-B208-7FD70626E8D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB3F4FD2-381A-492B-B208-7FD70626E8D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB3F4FD2-381A-492B-B208-7FD70626E8D8}.TEST|Any CPU.ActiveCfg = TEST|Any CPU
+		{EB3F4FD2-381A-492B-B208-7FD70626E8D8}.TEST|Any CPU.Build.0 = TEST|Any CPU
+		{98DBAA7C-C841-489D-AFCB-B0C0010A5E98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98DBAA7C-C841-489D-AFCB-B0C0010A5E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98DBAA7C-C841-489D-AFCB-B0C0010A5E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98DBAA7C-C841-489D-AFCB-B0C0010A5E98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98DBAA7C-C841-489D-AFCB-B0C0010A5E98}.TEST|Any CPU.ActiveCfg = TEST|Any CPU
+		{98DBAA7C-C841-489D-AFCB-B0C0010A5E98}.TEST|Any CPU.Build.0 = TEST|Any CPU
+		{A261F444-50E5-422F-9E02-4732BCB6721F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A261F444-50E5-422F-9E02-4732BCB6721F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A261F444-50E5-422F-9E02-4732BCB6721F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A261F444-50E5-422F-9E02-4732BCB6721F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A261F444-50E5-422F-9E02-4732BCB6721F}.TEST|Any CPU.ActiveCfg = TEST|Any CPU
+		{A261F444-50E5-422F-9E02-4732BCB6721F}.TEST|Any CPU.Build.0 = TEST|Any CPU
+		{B26583CE-20EB-4F07-8E82-B314D1090AF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B26583CE-20EB-4F07-8E82-B314D1090AF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B26583CE-20EB-4F07-8E82-B314D1090AF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B26583CE-20EB-4F07-8E82-B314D1090AF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B26583CE-20EB-4F07-8E82-B314D1090AF9}.TEST|Any CPU.ActiveCfg = TEST|Any CPU
+		{B26583CE-20EB-4F07-8E82-B314D1090AF9}.TEST|Any CPU.Build.0 = TEST|Any CPU
+		{ECDB97A4-1411-4CCA-B293-92BFA3A5CDAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECDB97A4-1411-4CCA-B293-92BFA3A5CDAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECDB97A4-1411-4CCA-B293-92BFA3A5CDAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECDB97A4-1411-4CCA-B293-92BFA3A5CDAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECDB97A4-1411-4CCA-B293-92BFA3A5CDAC}.TEST|Any CPU.ActiveCfg = TEST|Any CPU
+		{ECDB97A4-1411-4CCA-B293-92BFA3A5CDAC}.TEST|Any CPU.Build.0 = TEST|Any CPU
+		{48D0222D-C8A7-4311-B2E5-BC25B1F3AC3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48D0222D-C8A7-4311-B2E5-BC25B1F3AC3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48D0222D-C8A7-4311-B2E5-BC25B1F3AC3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48D0222D-C8A7-4311-B2E5-BC25B1F3AC3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48D0222D-C8A7-4311-B2E5-BC25B1F3AC3E}.TEST|Any CPU.ActiveCfg = TEST|Any CPU
+		{48D0222D-C8A7-4311-B2E5-BC25B1F3AC3E}.TEST|Any CPU.Build.0 = TEST|Any CPU
+		{1162083E-B980-4C27-A3D7-34716635BCC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1162083E-B980-4C27-A3D7-34716635BCC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1162083E-B980-4C27-A3D7-34716635BCC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1162083E-B980-4C27-A3D7-34716635BCC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1162083E-B980-4C27-A3D7-34716635BCC9}.TEST|Any CPU.ActiveCfg = TEST|Any CPU
+		{1162083E-B980-4C27-A3D7-34716635BCC9}.TEST|Any CPU.Build.0 = TEST|Any CPU
+		{844565FD-D738-4868-8E65-A6B863C99769}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{844565FD-D738-4868-8E65-A6B863C99769}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{844565FD-D738-4868-8E65-A6B863C99769}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{844565FD-D738-4868-8E65-A6B863C99769}.Release|Any CPU.Build.0 = Release|Any CPU
+		{844565FD-D738-4868-8E65-A6B863C99769}.TEST|Any CPU.ActiveCfg = TEST|Any CPU
+		{844565FD-D738-4868-8E65-A6B863C99769}.TEST|Any CPU.Build.0 = TEST|Any CPU
+		{59327FCD-1835-415F-A077-74C744805A1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59327FCD-1835-415F-A077-74C744805A1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59327FCD-1835-415F-A077-74C744805A1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59327FCD-1835-415F-A077-74C744805A1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59327FCD-1835-415F-A077-74C744805A1F}.TEST|Any CPU.ActiveCfg = TEST|Any CPU
+		{59327FCD-1835-415F-A077-74C744805A1F}.TEST|Any CPU.Build.0 = TEST|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CBF5E0CB-5805-424A-936B-024FF80F6A28}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 12
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://svrtfsappprd01.pitnet.com:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ISC.iNet.DS.DataAccess\\ISC.iNet.DS.DataAccess.csproj
+		SccProjectName1 = ISC.iNet.DS.DataAccess
+		SccLocalPath1 = ISC.iNet.DS.DataAccess
+		SccProjectUniqueName2 = ISC.iNet.DS.DomainModel\\ISC.iNet.DS.DomainModel.csproj
+		SccProjectName2 = ISC.iNet.DS.DomainModel
+		SccLocalPath2 = ISC.iNet.DS.DomainModel
+		SccProjectUniqueName3 = ISC.iNet.DS.iNet\\ISC.iNet.DS.iNet.csproj
+		SccProjectName3 = ISC.iNet.DS.iNet
+		SccLocalPath3 = ISC.iNet.DS.iNet
+		SccProjectUniqueName4 = ISC.iNet.DS.Instruments\\ISC.iNet.DS.Instruments.csproj
+		SccProjectName4 = ISC.iNet.DS.Instruments
+		SccLocalPath4 = ISC.iNet.DS.Instruments
+		SccProjectUniqueName5 = ISC.iNet.DS.Services\\ISC.iNet.DS.Services.csproj
+		SccProjectName5 = ISC.iNet.DS.Services
+		SccLocalPath5 = ISC.iNet.DS.Services
+		SccProjectUniqueName6 = ISC.iNet.DS\\ISC.iNet.DS.csproj
+		SccProjectName6 = ISC.iNet.DS
+		SccLocalPath6 = ISC.iNet.DS
+		SccProjectUniqueName7 = ISC.SmartCards.Types\\ISC.SmartCards.Types.csproj
+		SccProjectName7 = ISC.SmartCards.Types
+		SccLocalPath7 = ISC.SmartCards.Types
+		SccProjectUniqueName8 = ISC.SmartCards\\ISC.SmartCards.csproj
+		SccProjectName8 = ISC.SmartCards
+		SccLocalPath8 = ISC.SmartCards
+		SccProjectUniqueName9 = ISC.WinCE.Logger\\ISC.WinCE.Logger.csproj
+		SccProjectName9 = ISC.WinCE.Logger
+		SccLocalPath9 = ISC.WinCE.Logger
+		SccProjectUniqueName10 = ISC.WinCE\\ISC.WinCE.csproj
+		SccProjectName10 = ISC.WinCE
+		SccLocalPath10 = ISC.WinCE
+		SccProjectUniqueName11 = ISC.iNet.DS.UnitTests\\ISC.iNet.DS.UnitTests.csproj
+		SccProjectName11 = ISC.iNet.DS.UnitTests
+		SccLocalPath11 = ISC.iNet.DS.UnitTests
+	EndGlobalSection
+EndGlobal

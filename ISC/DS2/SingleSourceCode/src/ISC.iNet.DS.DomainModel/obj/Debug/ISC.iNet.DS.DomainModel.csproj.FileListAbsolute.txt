@@ -1,0 +1,11 @@
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.iNet.DS.DomainModel\bin\Debug\ISC.iNet.DS.DomainModel.dll
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.iNet.DS.DomainModel\bin\Debug\ISC.iNet.DS.DomainModel.pdb
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.iNet.DS.DomainModel\bin\Debug\ISC.WinCE.dll
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.iNet.DS.DomainModel\bin\Debug\ISC.WinCE.Logger.dll
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.iNet.DS.DomainModel\bin\Debug\ISC.WinCE.Logger.pdb
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.iNet.DS.DomainModel\bin\Debug\ISC.WinCE.pdb
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.iNet.DS.DomainModel\obj\Debug\ISC.iNet.DS.DomainModel.csprojAssemblyReference.cache
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.iNet.DS.DomainModel\obj\Debug\ISC.iNet.DS.DomainModel.csproj.CoreCompileInputs.cache
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.iNet.DS.DomainModel\obj\Debug\ISC.iNet.DS.DomainModel.csproj.CopyComplete
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.iNet.DS.DomainModel\obj\Debug\ISC.iNet.DS.DomainModel.dll
+C:\Workspace\ISC\DS2\SingleSourceCode\src\ISC.iNet.DS.DomainModel\obj\Debug\ISC.iNet.DS.DomainModel.pdb

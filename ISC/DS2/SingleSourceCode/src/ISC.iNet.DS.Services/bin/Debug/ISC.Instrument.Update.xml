@@ -1,0 +1,1468 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ISC.Instrument.Update</name>
+    </assembly>
+    <members>
+        <member name="T:ISC.Instrument.Update.GasBadgePlusUpdater">
+            <summary>
+            Updater for the GasBadge Plus Instrument.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.Msp430Loader">
+            <summary>
+            Base class used to update MSP430 based instruments.
+            Currently, this includes the GB Plus and GB Pro. 
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.LoaderBase">
+            <summary>
+            Abstract class used as the base for all instrument update classes.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.#ctor(ISC.Instrument.Driver.EquipmentType,System.String,ISC.Instrument.Driver.CommunicationModuleTypes,ISC.Instrument.Driver.IDateTimeProvider,ISC.Instrument.Driver.IModbusTracer,ISC.Instrument.Driver.AbortRequest)">
+            <summary>
+            </summary>
+            <param name="equipmentType"></param>
+            <param name="comPort"></param>
+            <param name="communicationType"></param>
+            <param name="dateTimeProvider"></param>
+            <param name="modbusTracer"></param>
+            <param name="abortRequester"></param>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.GetTypeofFactoryDriver">
+            <summary>
+            Returns the type of FactoryDriver that the uploader subclass needs to use.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.Ping(ISC.Instrument.Driver.InstrumentDriver)">
+            <summary>
+            Ping (wake up) the instrument.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.CreateEmptyFrame">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.CreateEmptyResponse">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.BuildModbusRegisterFrame(System.UInt16,System.Boolean,System.UInt16,System.UInt16)">
+            <summary>
+            
+            </summary>
+            <param name="address">Modbus adddress.</param>
+            <param name="isRead">Specify true if reading from register. Specify false if writing to register.</param>
+            <param name="registerNumber"></param>
+            <param name="regValue">Ignored if isRead is true.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.BackupSettings(System.String)">
+            <summary>
+            Returns the instrument's settings.
+            </summary>
+            <param name="registerDefaultsXml">XML string detailing additional registers to save.</param>
+            <returns>Contains the instrument's settings.</returns>
+            <remarks>The registerDefaultXml parameter should have XML detailing those registers 
+            added after the v1.0 release of the instrument.</remarks>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RestoreSettings(ISC.Instrument.Update.InstrumentData,System.String)">
+            <summary>
+            Restores instrument settings from the passed in stream.
+            </summary>
+            <param name="instrumentData">The InstrumentData in which the settings are stored.</param>
+            <param name="registerDefaultsXml">XML string detailing additional registers to restore.</param>
+            <remarks>The registerDefaultXml parameter should have XML detailing those registers 
+            added after the v1.0 release of the instrument.</remarks>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.UpdateFirmware(System.IO.Stream)">
+            <summary>
+            Updates the firmware on an instrument.
+            </summary>
+            <param name="firmwareStream">A stream containing the firmware update data.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.GetBaudRate">
+            <summary>
+            Gets a string representing the baud rate for communication.
+            </summary>
+            <returns>The baud rate.</returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.GetBaudRateCalStation">
+            <summary>
+            Returns the baud rate for a calibration station.
+            </summary>
+            <returns>The baud rate.</returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.GetBaudRateDataLink">
+            <summary>
+            Returns the baud rate for a DataLink cradle.
+            </summary>
+            <returns>The baud rate.</returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.GetBaudRateDockingStation">
+            <summary>
+            Returns the buade rate for the DS2 docking station.
+            </summary>
+            <returns>The baud rate.</returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.SaveBackupToStream(System.Object,System.IO.Stream)">
+            <summary>
+            Saves the passed in data to the passed in stream as an XML file.
+            </summary>
+            <param name="data">The data to be saved.</param>
+            <param name="settingsStream">The stream to which the data is to be saved.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.GetBackupFromStream``1(``0,System.IO.Stream)">
+            <summary>
+            Retrieves an object from the passed in backup stream.
+            </summary>
+            <typeparam name="T">The object type to be retrieved.</typeparam>
+            <param name="objectToPopulate">The object to be populated.</param>
+            <param name="settingsStream">The stream containing the backup data.</param>
+            <returns>A populated object.</returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.GetVersion(System.String)">
+            <summary>
+            Converts an ISC instrument version number to a .NET Version object.
+            </summary>
+            <param name="textVersion">The ISC version number.</param>
+            <returns>A Version object.</returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.BackupVersionSpecificRegisters(ISC.Instrument.Driver.InstrumentDriver,ISC.Instrument.Update.RawRegisterDataCollection,System.String)">
+            <summary>
+            Backs up registers from on instrument.
+            </summary>
+            <param name="driver">The instrument driver to be used to retrieve the registers.</param>
+            <param name="registerDefaultsXml">XML string detailing additional registers to backup.</param>
+            <returns>An IEnumerable list of RawRegisterData objects.</returns>
+            <remarks>The registerDefaultXml parameter should have XML detailing those registers 
+            added after the v1.0 release of the instrument.</remarks>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RestoreRegisters(ISC.Instrument.Driver.InstrumentDriver,System.Collections.Generic.IEnumerable{ISC.Instrument.Update.RawRegisterData},System.String)">
+            <summary>
+            Restores registers to an instrument.
+            </summary>
+            <param name="driver">The instrument driver to use to communicate with the instrument.</param>
+            <param name="data">The register data.</param>
+            <param name="registerDefaultsXml">XML string detailing additional registers to restore.</param>
+            <remarks>The registerDefaultXml parameter should have XML detailing those registers 
+            added after the v1.0 release of the instrument.</remarks>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.UnsignedToSigned(System.UInt16)">
+            <summary>
+            Converts a UInt16 value stored in an Instrument to a .NET Int16 value.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.SignedToUnsigned(System.Int16)">
+            <summary>
+            Converts a .NET Int16 value into a UInt16 value to be stored on an instrument.
+            </summary>
+            <param name="value">The value to be converted.</param>
+            <returns>The converted value.</returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.BackupOptions(ISC.Instrument.Driver.InstrumentDriver,ISC.Instrument.Update.InstrumentOptionDataCollection)">
+            <summary>
+            Backs up the instrument optiosn to the passed in data object.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data to which the instrument is to be backed up.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RestoreOptions(ISC.Instrument.Driver.InstrumentDriver,ISC.Instrument.Update.InstrumentOptionDataCollection)">
+            <summary>
+            Restores instrument options.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data from which the instrument is to be restored.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.PerformCRC(System.String,System.Byte[],System.UInt32,System.UInt32)">
+            <summary>
+             Perform a cumulative CRC on the application data, one byte at a time
+            </summary>
+            <param name="appData"></param>
+            <param name="hexLength"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.ReadIntelHexFromFile(System.IO.Stream,System.UInt32@,System.UInt32@,System.UInt32@)">
+            <summary>
+            Read all of the data records from an intel hex file, and returns the data in a byte array.
+            </summary>
+            <remarks>
+            This base class version is intended for instrument types whose hex files will only ever contain
+            an instrument's application.  LoadBase child classes may override this and do their own parsing
+            of the hex file in order to handle hex files that also contain bluetooth scripts, or whisper
+            scripts, etc.
+            </remarks>
+            <param name="firmwareStream"></param>
+            <param name="startAddress"></param>
+            <param name="hexLength"></param>
+            <param name="appStartIndex"></param>
+            <returns>A byte array containing the hex file's data.</returns>
+            <seealso>http://en.wikipedia.org/wiki/Intel_HEX</seealso>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.ParseIntelHexLine(System.String,System.Int32,System.Byte@,System.UInt32@,System.Byte[])">
+            <summary>
+            Parses a data type intel hex record.  Helper method for ReadIntelHexFromFile routine.
+            </summary>
+            <remarks>
+            The intel hex record is produced by the IAR compiler.
+            It is a defacto 'standard' format for storing program data.
+            http://en.wikipedia.org/wiki/Intel_HEX
+            </remarks>
+            <param name="hexLine"></param>
+            <param name="hexLineNumber">current line number; this is just for debugging purposes.</param>
+            <param name="length"></param>
+            <param name="address"></param>
+            <param name="dataByte"></param>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RaiseUpdateStartedEvent">
+            <summary>
+            Raises the UpdateStarted event.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RaiseUpdateProgressEvent(System.UInt32,System.UInt32,ISC.Instrument.Update.MessageEnum)">
+            <summary>
+            Raises the UpdateProgress event.
+            </summary>
+            <param name="maximumSteps">The maximum number of steps in the update.</param>
+            <param name="currentStep">The current step number in the update.</param>
+            <param name="message">Status message enumerator.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RaiseUpdateErrorEvent(System.UInt32,System.UInt32,System.Exception)">
+            <summary>
+            Raises the UpdateError event.
+            </summary>
+            <param name="maximumSteps">The maximum number of steps in the update.</param>
+            <param name="currentStep">The current step number in the update.</param>
+            <param name="ex">An exception detailing the error.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RaiseUpdateCompleteEvent(System.UInt32,System.UInt32,ISC.Instrument.Update.MessageEnum)">
+            <summary>
+            Raises the UpdateComplete event.
+            </summary>
+            <param name="maximumSteps">The maximum number of steps in the update.</param>
+            <param name="currentStep">The current step number in the update.</param>
+            <param name="message">Status message enumerator.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RaiseBackupStartedEvent">
+            <summary>
+            Raises the BackupStarted event.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RaiseBackupProgressEvent(System.UInt32,System.UInt32,ISC.Instrument.Update.MessageEnum)">
+            <summary>
+            Raises the BackupProgress event.
+            </summary>
+            <param name="maximumSteps">The maximum number of steps in the backup.</param>
+            <param name="currentStep">The current step number in the backup.</param>
+            <param name="message">Status message enumerator.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RaiseBackupErrorEvent(System.UInt32,System.UInt32,System.Exception)">
+            <summary>
+            Raises the BackupError event.
+            </summary>
+            <param name="maximumSteps">The maximum number of steps in the backup.</param>
+            <param name="currentStep">The current step number in the backup.</param>
+            <param name="ex">An exception detailing the error.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RaiseBackupCompleteEvent(System.UInt32,System.UInt32,ISC.Instrument.Update.MessageEnum)">
+            <summary>
+            Raises the BackupComplete event.
+            </summary>
+            <param name="maximumSteps">The maximum number of steps in the backup.</param>
+            <param name="currentStep">The current step number in the backup.</param>
+            <param name="message">Status message enumerator.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RaiseRestoreStartedEvent">
+            <summary>
+            Raises the RestoreStarted event.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RaiseRestoreProgressEvent(System.UInt32,System.UInt32,ISC.Instrument.Update.MessageEnum)">
+            <summary>
+            Raises the RestoreProgress event.
+            </summary>
+            <param name="maximumSteps">The maximum number of steps in the restore.</param>
+            <param name="currentStep">The current step number in the restore.</param>
+            <param name="message">Status message enumerator.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RaiseRestoreErrorEvent(System.UInt32,System.UInt32,System.Exception)">
+            <summary>
+            Raises the RestoreError event.
+            </summary>
+            <param name="maximumSteps">The maximum number of steps in the restore.</param>
+            <param name="currentStep">The current step number in the restore.</param>
+            <param name="ex">An exception detailing the error.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.LoaderBase.RaiseRestoreCompleteEvent(System.UInt32,System.UInt32,ISC.Instrument.Update.MessageEnum)">
+            <summary>
+            Raises the RestoreComplete event.
+            </summary>
+            <param name="maximumSteps">The maximum number of steps in the restore.</param>
+            <param name="currentStep">The current step number in the restore.</param>
+            <param name="message">Status message enumerator.</param>
+        </member>
+        <member name="P:ISC.Instrument.Update.LoaderBase.ApplicationDescriptorAddress">
+            <summary>
+            This is an address within the microcontroller where
+            the application descriptor is stored.  This address is
+            processor dependent.
+            It may be different for GasBadgePlus vs GasBadgePro vs MX6, for example.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.LoaderBase.ApplicationStartAddress">
+            <summary>
+            This is the address within the microcontroller where the application starts.
+            This address is processor dependent.
+            It may be different for GasBadgePlus vs GasBadgePro vs MX6, for example.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.LoaderBase.ApplicationEndAddress">
+            <summary>
+            This space is where the boot loader and data storage starts
+            The helium loader will write all code space up to and INCLUDING the print segments.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.LoaderBase.ComPort">
+            <summary>
+            Gets the COM port.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.LoaderBase.FlashWriteBufferSize">
+            <summary>
+            Returns the flash write buffer size.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.LoaderBase.ApplicationDeviceAddress">
+            <summary>
+            Returns the application's modbus address.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.LoaderBase.BootloaderDeviceAddress">
+            <summary>
+            Returns the bootloader's modbus address.
+            </summary>
+        </member>
+        <member name="E:ISC.Instrument.Update.LoaderBase.UpdateStarted">
+            <summary>
+            This event is fired when a firmware update is started.
+            </summary>
+        </member>
+        <member name="E:ISC.Instrument.Update.LoaderBase.UpdateProgress">
+            <summary>
+            This event is fired when progress of a firmware update has increased.
+            </summary>
+        </member>
+        <member name="E:ISC.Instrument.Update.LoaderBase.UpdateError">
+            <summary>
+            This event is fired when a firmware update fails.
+            </summary>
+        </member>
+        <member name="E:ISC.Instrument.Update.LoaderBase.UpdateComplete">
+            <summary>
+            This event is fired when a firmware update successfully completes.
+            </summary>
+        </member>
+        <member name="E:ISC.Instrument.Update.LoaderBase.BackupStarted">
+            <summary>
+            This event is fired when a "backup settings" operation is started.
+            </summary>
+        </member>
+        <member name="E:ISC.Instrument.Update.LoaderBase.BackupProgress">
+            <summary>
+            This event is fired when the progress of a "backup settings" operation has increased.
+            </summary>
+        </member>
+        <member name="E:ISC.Instrument.Update.LoaderBase.BackupError">
+            <summary>
+            This event is fired when a "backup settings" operation fails.
+            </summary>
+        </member>
+        <member name="E:ISC.Instrument.Update.LoaderBase.BackupComplete">
+            <summary>
+            This event is fired when a "backup settings" operation successfully completes.
+            </summary>
+        </member>
+        <member name="E:ISC.Instrument.Update.LoaderBase.RestoreStarted">
+            <summary>
+            This event is fired when a "restore settings" operation is started.
+            </summary>
+        </member>
+        <member name="E:ISC.Instrument.Update.LoaderBase.RestoreProgress">
+            <summary>
+            This event is fired when the progress of a "restore settings" operation has increased.
+            </summary>
+        </member>
+        <member name="E:ISC.Instrument.Update.LoaderBase.RestoreError">
+            <summary>
+            This event is fired when a "restore settings" operation fails.
+            </summary>
+        </member>
+        <member name="E:ISC.Instrument.Update.LoaderBase.RestoreComplete">
+            <summary>
+            This event is fired when a "restore settings" operation successfully completes.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.Msp430Loader.EraseFlash">
+            <summary>
+            Sends command to the bootloader telling it to erase the current application from its flash memory
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.Msp430Loader.ApplicationCrcEndAddress">
+            <summary>
+            The application checksum will include all bytes upto, but not including the CRC_END_ADDRESS
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.Msp430Loader.CrcLength">
+            <summary>
+            The CRC length does not include the print string table
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.Msp430Loader.ApplicationSpaceLength">
+            <summary>
+            Complete length of the application space.
+            It may be longer than the actual application.
+            The remainder is padded with 0xFF chars
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.GasBadgePlusUpdater.BackupSettings(System.String)">
+            <summary>
+            Backs up the instrument settings to the passed in stream.
+            </summary>
+            <param name="registerDefaultsXml">XML string detailing additional registers to save.</param>
+            <returns>The settings that need backed up.</returns>
+            <remarks>The registerDefaultXml parameter should have XML detailing those registers 
+            added after the v1.0 release of the instrument.</remarks>
+        </member>
+        <member name="M:ISC.Instrument.Update.GasBadgePlusUpdater.RestoreSettings(ISC.Instrument.Update.InstrumentData,System.String)">
+            <summary>
+            Restores instrument settings from the passed in stream.
+            </summary>
+            <param name="instrumentData">The settings that need restored. It's assumed this can be downcast to a GasBadgePlusInstrumentData.</param>
+            <param name="registerDefaultsXml">XML string detailing additional registers to restore.</param>
+            <remarks>The registerDefaultXml parameter should have XML detailing those registers 
+            added after the v1.0 release of the instrument.</remarks>
+        </member>
+        <member name="P:ISC.Instrument.Update.GasBadgePlusUpdater.ApplicationDescriptorAddress">
+            <summary>
+            Gets the descriptor memory address.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.GasBadgePlusUpdater.ApplicationStartAddress">
+            <summary>
+            Gets the program memory address start.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.GasBadgePlusUpdater.ApplicationEndAddress">
+            <summary>
+            Gets the program memeory address end.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.UpdateFactory">
+            <summary>
+            Factory used to create instrument-specific updater objects.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.UpdateFactory.GetInstrumentUpdater(ISC.Instrument.Driver.EquipmentType,System.String,ISC.Instrument.Driver.CommunicationModuleTypes)">
+            <summary>
+            Creates an updater object for the specified instrument.
+            </summary>
+            <param name="instrumentType">The instrument type.</param>
+            <param name="comPort">The COM port over which communicaiton should take place.</param>
+            <param name="communicationType">The communication module type (DataLink, DS2, etc.).</param>
+            <param name="abortRequester">May be null.</param>
+            <returns>An UpdateBase object for the specific instrument.</returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.UpdateFactory.GetInstrumentUpdater(ISC.Instrument.Driver.EquipmentType,System.String,ISC.Instrument.Driver.CommunicationModuleTypes,ISC.Instrument.Driver.IDateTimeProvider,ISC.Instrument.Driver.IModbusTracer,ISC.Instrument.Driver.AbortRequest)">
+            <summary>
+            Creates an updater object for the specified instrument.
+            </summary>
+            <param name="instrumentType">The instrument type.</param>
+            <param name="comPort">The COM port over which communicaiton should take place.</param>
+            <param name="communicationType">The communication module type (DataLink, DS2, etc.).</param>
+            <param name="dateTimeProvider">The communication module type (DataLink, DS2, etc.).</param>
+            <param name="abortRequester">May be null.</param>
+            <returns>An UpdateBase object for the specific instrument.</returns>
+        </member>
+        <member name="T:ISC.Instrument.Update.VentisProUpdater">
+            <summary>
+            Updater for the Ventis Pro Instrument.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.VentisProLoader">
+            <summary>
+            Class for updating the VentisPro instrument.
+            </summary>
+            <remarks>
+            Note that the base class is responsible for doing the actual firmware update.
+            This child class merely needs to provide memory addresses that the base class uses.
+            </remarks>
+        </member>
+        <member name="T:ISC.Instrument.Update.At91Loader">
+            <summary>
+            Class used to update AT91 based instruments.
+            <para>
+            Currently, this includes the MX4 and TX1.
+            </para>
+            <para>
+            This class is also used as a base class for updating the TX1, although the TX1 is not an AT91-based instrument.
+            The same update logic applies, though.
+            </para>
+            Note that this is a subclass of the Tms470Loader which is used for updating the MX6.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.Tms470Loader">
+            <summary>
+            Base class used to update TMS470 based instruments.
+            Currently, this includes the MX6.  There are are subclasses extending
+            this class, though, that add support for additional instrument types.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.Tms470Loader.#ctor(ISC.Instrument.Driver.EquipmentType,System.String,ISC.Instrument.Driver.CommunicationModuleTypes,ISC.Instrument.Driver.IDateTimeProvider,ISC.Instrument.Driver.IModbusTracer,ISC.Instrument.Driver.AbortRequest)">
+            <summary>
+            </summary>
+            <param name="equipmentType"></param>
+            <param name="comPort"></param>
+            <param name="communicationType"></param>
+            <param name="dateTimeProvider"></param>
+            <param name="modbusTracer"></param>
+            <param name="abortRequester"></param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Tms470Loader.UpdateFirmware(System.IO.Stream)">
+            <summary>
+            Updates the firmware of the instrument.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE UpdateErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="firmwareStream">A stream object containing the firmware data to be updated.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.At91Loader.UpdateFirmware(System.IO.Stream)">
+            <summary>
+            Updates the firmware of the instrument.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE UpdateErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="firmwareStream">A stream object containing the firmware data to be updated.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.At91Loader.EraseFlash">
+            <summary>
+            Issues command to the bootloader telling it to erase the current application from its flash memory
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.At91Loader.WriteDescriptor(System.String,System.String,System.UInt32,System.UInt32,System.UInt32,System.Byte[])">
+            <summary>
+            Write the application descriptor
+            </summary>
+            <param name="label">Used for logging.</param>
+            <param name="crcString"></param>
+            <param name="descriptorAddress"></param>
+            <param name="startAddress"></param>
+            <param name="hexLength"></param>
+        </member>
+        <member name="M:ISC.Instrument.Update.VentisProLoader.ReadIntelHexFromFile(System.IO.Stream,System.UInt32@,System.UInt32@,System.UInt32@,System.UInt32@,System.UInt32@,System.UInt32@,System.UInt32@)">
+            <summary>
+            Read all of the data records from an intel hex file, and returns the data in a byte array.
+            </summary>
+            <remarks>
+            This override of the base class's implementation is capable of finding the instrument's
+            whisper and bluetooth scripts in the hex file, in addition to the instrument's application.
+            <para>
+            This override is using source code taken from PS19's ModbusTerminal application (v1.2.2.4),
+            with some minor modifications.
+            </para>
+            </remarks>
+            <param name="firmwareStream"></param>
+            <param name="startAddress"></param>
+            <param name="hexLength"></param>
+            <param name="AppStartIndex"></param>
+            <param name="whisperScriptIndex">Will be filled with the starting index
+            of the whisper scripts, if they are found in the hex file.
+            Will be filled in with zero if no scripts are found in the hex file.
+            </param>
+            <param name="whisperScriptLength">Will be filled with the length
+            of the whisper scripts, if they are found in the hex file.
+            </param>
+            <param name="bleScriptIndex">Will be filled in with the starting index
+            of the bluetooth scripts, if they are found in the hex file.
+            Will be filled in with zero if no scripts are found in the hex file.
+            </param>
+            <param name="bleScriptLength">Will be filled in with the length
+            of the bluetooth scripts, if they are found in the hex file.
+            </param>
+            <returns>A byte array containing the hex file's data.</returns>
+            <seealso>http://en.wikipedia.org/wiki/Intel_HEX</seealso>
+        </member>
+        <member name="M:ISC.Instrument.Update.VentisProLoader.UpdateFirmware(System.IO.Stream)">
+            <summary>
+            Updates the firmware of the instrument.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE UpdateErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="firmwareStream">A stream object containing the firmware data to be updated.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.VentisProLoader.Program_BLE_Script(System.UInt32,System.UInt32@,System.UInt32,System.UInt32,System.String,System.Byte[])">
+            <summary>
+            </summary>
+            <remarks>
+            This method is using source code taken from PS19's ModbusTerminal application (v1.2.2.4),
+            with some minor modifications.
+            </remarks>
+            <param name="maxSteps"></param>
+            <param name="curStep"></param>
+            <param name="bleScriptLength"></param>
+            <param name="bleScriptStartIndex"></param>
+            <param name="crc"></param>
+            <param name="appData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.VentisProLoader.Program_Whisper_Script(System.UInt32,System.UInt32@,System.UInt32,System.UInt32,System.String,System.Byte[])">
+            <summary>
+            </summary>
+            <remarks>
+            This method is using source code taken from PS19's ModbusTerminal application (v1.2.2.4),
+            with some minor modifications.
+            </remarks>
+            <param name="maxSteps"></param>
+            <param name="curStep"></param>
+            <param name="whisperScriptLength"></param>
+            <param name="whisperScriptStartIndex"></param>
+            <param name="crc"></param>
+            <param name="appData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.VentisProUpdater.BackupSettings(System.String)">
+            <summary>
+            Backups the instrument settings to the passed in stream.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE BackupErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="settingsStream">The Stream object to contain the instrumentsettings.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.VentisProUpdater.BackupBaseInstrumentSettings(ISC.Instrument.Driver.VentisProFactoryDriver,ISC.Instrument.Update.VentisProInstrumentData)">
+            <summary>
+            Backs up all instrument settings to the passed in data object.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data to which data is to be backed up.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.VentisProUpdater.RestoreSettings(ISC.Instrument.Update.InstrumentData,System.String)">
+            <summary>
+            Restores the instrument settings from the passed in stream.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE RestoreErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="instrumentData">The settings that need restored. It's assumed this can be downcast to a VentisProInstrumentData.</param>
+            <param name="registerDefaultsXml">XML string detailing additional registers to restore.</param>
+            <remarks>The registerDefaultXml parameter should have XML detailing those registers 
+            added after the v1.0 release of the instrument.</remarks>
+        </member>
+        <member name="M:ISC.Instrument.Update.VentisProUpdater.StartInstrumentConfiguration(ISC.Instrument.Driver.VentisProFactoryDriver)">
+            <summary>
+            Starts the instrument configuration.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.VentisProUpdater.EndInstrumentConfiguration(ISC.Instrument.Driver.VentisProFactoryDriver)">
+            <summary>
+            Ends the instrument configuration.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.VentisProUpdater.RestoreBaseInstrumentSettings(ISC.Instrument.Driver.VentisProFactoryDriver,ISC.Instrument.Update.VentisProInstrumentData)">
+            <summary>
+            Restores the passed in settings to the instrument.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data from which the instrument is to be restored.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.InstrumentOptionDataCollection.Clone">
+            <summary>
+            Does a deep clone (clones the objects in the list), instead of just a 
+            shallow clone like what it's parent ArrayList class doesn.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ISC.Instrument.Update.InstrumentData">
+            <summary>
+            </summary>
+            <seealso cref="M:ISC.Instrument.Update.LoaderBase.BackupSettings(System.String)"/>
+            <seealso cref="M:ISC.Instrument.Update.LoaderBase.RestoreSettings(ISC.Instrument.Update.InstrumentData,System.String)"/>
+        </member>
+        <member name="P:ISC.Instrument.Update.InstrumentData.Registers">
+            <summary>
+            </summary>
+            <exclude/>
+        </member>
+        <member name="P:ISC.Instrument.Update.InstrumentData.Options">
+            <summary>
+            </summary>
+            <exclude/>
+        </member>
+        <member name="T:ISC.Instrument.Update.UpdateStartedEventHandler">
+            <summary>
+            This event is fired when a firmware update is started.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.UpdateProgressEventHandler">
+            <summary>
+            This event is fired when progress of a firmware update has increased.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.UpdateErrorEventHandler">
+            <summary>
+            This event is fired when a firmware update fails.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.UpdateCompleteEventHandler">
+            <summary>
+            This event is fired when a firmware update successfully completes.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.BackupStartedEventHandler">
+            <summary>
+            This event is fired when a "backup settings" operation is started.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.BackupProgressEventHandler">
+            <summary>
+            This event is fired when the progress of a "backup settings" operation has increased.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.BackupErrorEventHandler">
+            <summary>
+            This event is fired when a "backup settings" operation fails.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.BackupCompleteEventHandler">
+            <summary>
+            This event is fired when a "backup settings" operation successfully completes.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.RestoreStartedEventHandler">
+            <summary>
+            This event is fired when a "restore settings" operation is started.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.RestoreProgressEventHandler">
+            <summary>
+            This event is fired when the progress of a "restore settings" operation has increased.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.RestoreErrorEventHandler">
+            <summary>
+            This event is fired when a "restore settings" operation fails.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.RestoreCompleteEventHandler">
+            <summary>
+            This event is fired when a "restore settings" operation successfully completes.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.UpdateProgressEventArgs">
+            <summary>
+            Event arguments detailling progress of a backup, update, or restore to an instrument.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.UpdateProgressEventArgs.#ctor(System.UInt32,System.UInt32,ISC.Instrument.Update.MessageEnum)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="maximumSteps"></param>
+            <param name="committedSteps"></param>
+            <param name="statusMessage"></param>
+        </member>
+        <member name="P:ISC.Instrument.Update.UpdateProgressEventArgs.MaximumSteps">
+            <summary>
+            Gets the maximum steps in the operation.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.UpdateProgressEventArgs.CommittedSteps">
+            <summary>
+            Gets the number of committed steps in the operation.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.UpdateProgressEventArgs.StatusMessage">
+            <summary>
+            Gets the status message.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.UpdateProgressEventArgs.PercentComplete">
+            <summary>
+            Gets a ushort value from 0 to 100 representing the percent of the 
+            operation complete.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.Mx4Updater">
+            <summary>
+            Updater for the MX4 Instrument.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx4Loader.#ctor(ISC.Instrument.Driver.EquipmentType,System.String,ISC.Instrument.Driver.CommunicationModuleTypes,ISC.Instrument.Driver.IDateTimeProvider,ISC.Instrument.Driver.IModbusTracer,ISC.Instrument.Driver.AbortRequest)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="equipmentType">The instrument type being updated.</param>
+            <param name="comPort">The COM port over which commands will be sent.</param>
+            <param name="communicationType">The type of communication device being used.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx4Loader.GetEquipmentSubType">
+            <summary>
+            Determines if the currently attached application is a Ventis MX4.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx4Loader.UpdateFirmware(System.IO.Stream)">
+            <summary>
+            Updates the firmware of the instrument.
+            </summary>
+            <remarks>
+            This public overload of UpdateFirmware is intended to be called by applications that need
+            to update the firmware on a "running" instrument.  i.e., an instrument whose firmware is intact
+            and is able to run.
+            <para>
+            If the instrument has no firmware, and only the bootloader is running, then the
+            <see cref="M:ISC.Instrument.Update.Mx4Loader.UpdateFirmware(System.IO.Stream,ISC.Instrument.TypeDefinition.EquipmentSubType)"/> overload should be called, instead.
+            </para>
+            <para>
+            NOTE THAT THIS METHOD WILL NOT THROW. ALL EXCEPTIONS THROWN FROM WITHIN 
+            WILL CAUSE THE UpdateErrorEventHandler TO BE CALLED.
+            </para>
+            </remarks>
+            <param name="firmwareStream">A stream object containing the firmware data to be updated.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx4Loader.UpdateFirmware(System.IO.Stream,ISC.Instrument.TypeDefinition.EquipmentSubType)">
+            <summary>
+            Updates the firmware of the instrument.
+            </summary>
+            <remarks>
+            <para>
+            This public overload of UpdateFirmware is intended to be called by applications that need
+            to update the firmware on a "bricked" instrument.  i.e., an instrument where only the bootloader
+            bootload is running because the firmware is missing of corrupt. In this situation, the calling
+            application must tell the method that type of MX4 (i.e., the "generation").
+            </para>
+            <para>
+            If the instrument has runnable firmware, then the
+            <see cref="M:ISC.Instrument.Update.Mx4Loader.UpdateFirmware(System.IO.Stream)"/> overload can be called, instead, and that method will
+            determine the type of MX4 by quering the instrument.
+            </para>
+            <para>
+            NOTE THAT THIS METHOD WILL NOT THROW. ALL EXCEPTIONS THROWN FROM WITHIN 
+            WILL CAUSE THE <see cref="T:ISC.Instrument.Update.UpdateErrorEventHandler"/> TO BE CALLED.
+            </para>
+            </remarks>
+            <param name="firmwareStream">A stream object containing the firmware data to be updated.</param>
+            <param name="equipmentSubType">The type of MX4 being updated.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx4Updater.BackupSettings(System.String)">
+            <summary>
+            Backups the instrument settings to the passed in stream.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE BackupErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="settingsStream">The Stream object to contain the instrumentsettings.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx4Updater.BackupBaseInstrumentSettings(ISC.Instrument.Driver.Mx4FactoryDriver,ISC.Instrument.Update.Mx4InstrumentData)">
+            <summary>
+            Backs up all instrument settings to the passed in data object.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data to which data is to be backed up.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx4Updater.RestoreSettings(ISC.Instrument.Update.InstrumentData,System.String)">
+            <summary>
+            Restores the instrument settings from the passed in stream.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE RestoreErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="instrumentData">The settings that need restored. It's assumed this can be downcast to a Mx4InstrumentData.</param>
+            <param name="registerDefaultsXml">XML string detailing additional registers to restore.</param>
+            <remarks>The registerDefaultXml parameter should have XML detailing those registers 
+            added after the v1.0 release of the instrument.</remarks>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx4Updater.StartInstrumentConfiguration(ISC.Instrument.Driver.Mx4FactoryDriver)">
+            <summary>
+            Starts the instrument configuration.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx4Updater.EndInstrumentConfiguration(ISC.Instrument.Driver.Mx4FactoryDriver)">
+            <summary>
+            Ends the instrument configuration.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx4Updater.RestoreBaseInstrumentSettings(ISC.Instrument.Driver.Mx4FactoryDriver,ISC.Instrument.Update.Mx4InstrumentData)">
+            <summary>
+            Restores the passed in settings to the instrument.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data from which the instrument is to be restored.</param>
+        </member>
+        <member name="T:ISC.Instrument.Update.GasBadgeProUpdater">
+            <summary>
+            Updater for the GasBadge Plus Instrument.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.GasBadgeProUpdater.#ctor(System.String,ISC.Instrument.Driver.CommunicationModuleTypes,ISC.Instrument.Driver.IDateTimeProvider,ISC.Instrument.Driver.IModbusTracer,ISC.Instrument.Driver.AbortRequest)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="comPort"></param>
+            <param name="communicationType"></param>
+        </member>
+        <member name="M:ISC.Instrument.Update.GasBadgeProUpdater.BackupSettings(System.String)">
+            <summary>
+            Backs up the instrument settings to the passed in stream.
+            </summary>
+            <param name="registerDefaultsXml">XML string detailing additional registers to save.</param>
+            <returns>The settings that need backed up.</returns>
+            <remarks>The registerDefaultXml parameter should have XML detailing those registers 
+            added after the v1.0 release of the instrument.</remarks>
+        </member>
+        <member name="M:ISC.Instrument.Update.GasBadgeProUpdater.RestoreSettings(ISC.Instrument.Update.InstrumentData,System.String)">
+            <summary>
+            Restores instrument settings from the passed in stream.
+            </summary>
+            <param name="instrumentData">The settings that need restored. It's assumed this can be downcast to a GasBadgeProInstrumentData.</param>
+            <param name="registerDefaultsXml">XML string detailing additional registers to restore.</param>
+            <remarks>The registerDefaultXml parameter should have XML detailing those registers 
+            added after the v1.0 release of the instrument.</remarks>
+        </member>
+        <member name="M:ISC.Instrument.Update.GasBadgeProUpdater.SetOption(ISC.Instrument.Driver.GbProFactoryDriver,ISC.Instrument.Update.InstrumentOptionData)">
+            <summary>
+            Sets an instrument option.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="option">The option to be set.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.GasBadgeProUpdater.RestoreOptions(ISC.Instrument.Driver.InstrumentDriver,ISC.Instrument.Update.InstrumentOptionDataCollection)">
+            <summary>
+            Restores all instrument option settings.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data containing the option settings.</param>
+        </member>
+        <member name="P:ISC.Instrument.Update.GasBadgeProUpdater.ApplicationDescriptorAddress">
+            <summary>
+            Gets the descriptor memory address.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.GasBadgeProUpdater.ApplicationStartAddress">
+            <summary>
+            Gets the application (i.e. program) memory address start.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.GasBadgeProUpdater.ApplicationEndAddress">
+            <summary>
+            Gets the application (i.e. program) memory address end.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.DasSensorData">
+            <summary>
+            DAS sensor setting information.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.DasSensorData.SerialNumber">
+            <summary>
+            Gets or sets the sensor serial number.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.DasSensorData.Position">
+            <summary>
+            Gets or sets the sensor position number.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.DasSensorData.AlarmHigh">
+            <summary>
+            Gets or sets the sensor's high alarm value.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.DasSensorData.AlarmLow">
+            <summary>
+            Gets or sets the sensor's low alarm value.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.DasSensorData.AlarmStel">
+            <summary>
+            Gets ir sets the sensor's STEL alarm value.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.DasSensorData.AlarmTwa">
+            <summary>
+            Gets or sets the sensor's TWA alarm value.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.DasSensorData.CalGasConcentration">
+            <summary>
+            Gets or sets the sensor's calibration gas concentration.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.DasSensorData.CalGasCode">
+            <summary>
+            Gets or sets the sensor's calibration gas code.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.SafeCoreLoader">
+            <summary>
+            Class for updating the SafeCore instrument.
+            </summary>
+            <remarks>
+            Note that the base class is responsible for doing the actual firmware update.
+            This child class merely needs to provide memory addresses that the base class uses.
+            </remarks>
+        </member>
+        <member name="M:ISC.Instrument.Update.SafeCoreLoader.UpdateFirmware(System.IO.Stream)">
+            <summary>
+            Updates the firmware of the instrument.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            WILL CAUSE THE UpdateErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="firmwareStream">A stream object containing the firmware data to be updated.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.SafeCoreLoader.InvokeBootloader">
+            <summary>
+            This override differs from its base class implementation in that it tries to verify if the bootloader
+            is running by directly talking to the bootloader; i.e., by trying to ask the bootloader for its version number.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.SafeCoreLoader.IsBootloaderRunning">
+            <summary>
+            Tries to verify if bootloader is running by directly talking it.
+            i.e., it tries to get the bootloader to return its version number.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.SafeCoreLoader.Program_Whisper_Script(System.UInt32,System.UInt32@,System.UInt32,System.UInt32,System.String,System.Byte[])">
+            <summary>
+            </summary>
+            <remarks>
+            This method is using source code taken from PS19's ModbusTerminal application (v1.2.2.4),
+            with some minor modifications.
+            </remarks>
+            <param name="maxSteps"></param>
+            <param name="curStep"></param>
+            <param name="whisperScriptLength"></param>
+            <param name="whisperScriptStartIndex"></param>
+            <param name="crc"></param>
+            <param name="appData"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ISC.Instrument.Update.M40ProUpdater">
+            <summary>
+            Updater for the M40 Pro Instrument.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.M40ProLoader">
+            <summary>
+            Loader for the M40 Pro Instrument.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.M40ProLoader.#ctor(System.String,ISC.Instrument.Driver.CommunicationModuleTypes,ISC.Instrument.Driver.IDateTimeProvider,ISC.Instrument.Driver.IModbusTracer,ISC.Instrument.Driver.AbortRequest)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="equipmentType">The instrument type being updated.</param>
+            <param name="comPort">The COM port over which commands will be sent.</param>
+            <param name="communicationType">The type of communication device being used.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.M40ProUpdater.#ctor(System.String,ISC.Instrument.Driver.CommunicationModuleTypes,ISC.Instrument.Driver.IDateTimeProvider,ISC.Instrument.Driver.IModbusTracer,ISC.Instrument.Driver.AbortRequest)">
+            <summary>
+            </summary>
+            <param name="comPort"></param>
+            <param name="communicationType"></param>
+            <param name="dateTimeProvider"></param>
+            <param name="modbusTracer"></param>
+            <param name="abortRequester"></param>
+        </member>
+        <member name="M:ISC.Instrument.Update.M40ProUpdater.BackupSettings(System.String)">
+            <summary>
+            Backups the instrument settings to the passed in stream.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE BackupErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="settingsStream">The Stream object to contain the instrumentsettings.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.M40ProUpdater.BackupBaseInstrumentSettings(ISC.Instrument.Driver.M40ProFactoryDriver,ISC.Instrument.Update.Mx4InstrumentData)">
+            <summary>
+            Backs up all instrument settings to the passed in data object.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data to which data is to be backed up.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.M40ProUpdater.RestoreSettings(ISC.Instrument.Update.InstrumentData,System.String)">
+            <summary>
+            Restores the instrument settings from the passed in stream.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE RestoreErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="instrumentData">The settings that need restored. It's assumed this can be downcast to a Mx4InstrumentData.</param>
+            <param name="registerDefaultsXml">XML string detailing additional registers to restore.</param>
+            <remarks>The registerDefaultXml parameter should have XML detailing those registers 
+            added after the v1.0 release of the instrument.</remarks>
+        </member>
+        <member name="M:ISC.Instrument.Update.M40ProUpdater.StartInstrumentConfiguration(ISC.Instrument.Driver.M40ProFactoryDriver)">
+            <summary>
+            Starts the instrument configuration.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.M40ProUpdater.EndInstrumentConfiguration(ISC.Instrument.Driver.M40ProFactoryDriver)">
+            <summary>
+            Ends the instrument configuration.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.M40ProUpdater.RestoreBaseInstrumentSettings(ISC.Instrument.Driver.M40ProFactoryDriver,ISC.Instrument.Update.Mx4InstrumentData)">
+            <summary>
+            Restores the passed in settings to the instrument.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data from which the instrument is to be restored.</param>
+        </member>
+        <member name="T:ISC.Instrument.Update.SafeCoreUpdater">
+            <summary>
+            Updater for the Ventis Pro Instrument.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.SafeCoreUpdater.BackupSettings(System.String)">
+            <summary>
+            Backups the instrument settings to the passed in stream.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE BackupErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="settingsStream">The Stream object to contain the instrumentsettings.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.SafeCoreUpdater.BackupBaseInstrumentSettings(ISC.Instrument.Driver.SafeCoreFactoryDriver,ISC.Instrument.Update.SafeCoreInstrumentData)">
+            <summary>
+            Backs up all instrument settings to the passed in data object.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data to which data is to be backed up.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.SafeCoreUpdater.RestoreSettings(ISC.Instrument.Update.InstrumentData,System.String)">
+            <summary>
+            Restores the instrument settings from the passed in stream.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE RestoreErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="instrumentData">The settings that need restored. It's assumed this can be downcast to a SafeCoreInstrumentData.</param>
+            <param name="registerDefaultsXml">XML string detailing additional registers to restore.</param>
+            <remarks>The registerDefaultXml parameter should have XML detailing those registers 
+            added after the v1.0 release of the instrument.</remarks>
+        </member>
+        <member name="M:ISC.Instrument.Update.SafeCoreUpdater.StartInstrumentConfiguration(ISC.Instrument.Driver.SafeCoreFactoryDriver)">
+            <summary>
+            Starts the instrument configuration.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.SafeCoreUpdater.EndInstrumentConfiguration(ISC.Instrument.Driver.SafeCoreFactoryDriver)">
+            <summary>
+            Ends the instrument configuration.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.SafeCoreUpdater.RestoreBaseInstrumentSettings(ISC.Instrument.Driver.SafeCoreFactoryDriver,ISC.Instrument.Update.SafeCoreInstrumentData)">
+            <summary>
+            Restores the passed in settings to the instrument.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data from which the instrument is to be restored.</param>
+        </member>
+        <member name="T:ISC.Instrument.Update.DasSensorDataCollection">
+            <summary>
+            A collection for DasSensorData objects.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.DasSensorDataCollection.Add(ISC.Instrument.Update.DasSensorData)">
+            <summary>
+            Adds an item to the colleciton.
+            </summary>
+            <param name="item">The item to be added.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.DasSensorDataCollection.Remove(ISC.Instrument.Update.DasSensorData)">
+            <summary>
+            Removes an item from the collection.
+            </summary>
+            <param name="item">The item to be removed.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.DasSensorDataCollection.ToArray">
+            <summary>
+            Converts the collection to an array.
+            </summary>
+            <returns>An array of DasSensorData objects.</returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.DasSensorDataCollection.GetEnumerator">
+            <summary>
+            Returns an enumerated list of DasSensorData objects.
+            </summary>
+            <returns>An enumerated list of DasSensorData objects.</returns>
+        </member>
+        <member name="P:ISC.Instrument.Update.DasSensorDataCollection.Item(System.Int32)">
+            <summary>
+            Default property; gets or sets a DasSensorData item from the collection.
+            </summary>
+            <param name="index">The index location of the item.</param>
+            <returns>A DasSensorData object.</returns>
+        </member>
+        <member name="T:ISC.Instrument.Update.UpdateErrorEventArgs">
+            <summary>
+            Event argument used to pass exception information.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.UpdateErrorEventArgs.#ctor(System.UInt32,System.UInt32,System.Exception)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="maximumBytes"></param>
+            <param name="committedBytes"></param>
+            <param name="ex"></param>
+        </member>
+        <member name="P:ISC.Instrument.Update.UpdateErrorEventArgs.Exception">
+            <summary>
+            Gets the exception detailing the error.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.ModbusUpdateException.ToString">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:ISC.Instrument.Update.Mx6Updater">
+            <summary>
+            Instrument updater for the MX6.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx6Updater.#ctor(System.String,ISC.Instrument.Driver.CommunicationModuleTypes,ISC.Instrument.Driver.IDateTimeProvider,ISC.Instrument.Driver.IModbusTracer,ISC.Instrument.Driver.AbortRequest)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="comPort">The COM port over which communicaiton should take place.</param>
+            <param name="communicationType">The communication module type (DataLink, DS2, etc.).</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx6Updater.BackupSettings(System.String)">
+            <summary>
+            Returns the instrument settings that need to be backed up.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE BadkupErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="settingsStream">The Stream object to contain the instrumentsettings.</param>
+            <returns>The settings that need backed up.</returns>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx6Updater.BackupBaseInstrumentSettings(ISC.Instrument.Driver.Mx6FactoryDriver,ISC.Instrument.Update.Mx6InstrumentData)">
+            <summary>
+            Backs up base instrument settings to the passed in data object.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data to which the instrument is to be backed up.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx6Updater.BackupPidFactors(ISC.Instrument.Driver.Mx6FactoryDriver,ISC.Instrument.Update.Mx6InstrumentData)">
+            <summary>
+            Backs up the custom PID factors to the passed in data object.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data to which the instrument is to be backed up.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx6Updater.BackupUsers(ISC.Instrument.Driver.Mx6FactoryDriver,ISC.Instrument.Update.Mx6InstrumentData)">
+            <summary>
+            Backs up the list of instrument users to the passed in data object.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data to which the instrument is to be backed up.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx6Updater.backupSites(ISC.Instrument.Driver.Mx6FactoryDriver,ISC.Instrument.Update.Mx6InstrumentData)">
+            <summary>
+            Backs up the list of sites to the passed in data object.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data to which the instrument is to be backed up.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx6Updater.RestoreSettings(ISC.Instrument.Update.InstrumentData,System.String)">
+            <summary>
+            Restores the instrument settings from the passed in stream.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE RestoreErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="instrumentData">The settings that need restored. It's assumed this can be downcast to a Mx6InstrumentData.</param>
+            <param name="settingsStream">The Stream object containing the instrument settings.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx6Updater.StartInstrumentConfiguration(ISC.Instrument.Driver.Mx6FactoryDriver)">
+            <summary>
+            Starts the instrument configuration.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx6Updater.EndInstrumentConfiguration(ISC.Instrument.Driver.Mx6FactoryDriver)">
+            <summary>
+            Ends the instrumetn configuration.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx6Updater.RestoreBaseInstrumentSettings(ISC.Instrument.Driver.Mx6FactoryDriver,ISC.Instrument.Update.Mx6InstrumentData)">
+            <summary>
+            Restores the basic instrument settings.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data from which the instrument is to be restored.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx6Updater.RestoreFavoritePidFactors(ISC.Instrument.Driver.Mx6FactoryDriver,ISC.Instrument.Update.Mx6InstrumentData)">
+            <summary>
+            Restores custom PID factors.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data from which the instrument is to be restored.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx6Updater.RestoreUsers(ISC.Instrument.Driver.Mx6FactoryDriver,ISC.Instrument.Update.Mx6InstrumentData)">
+            <summary>
+            Restores the list of users.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data from which the instrument is to be restored.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Mx6Updater.RestoreSites(ISC.Instrument.Driver.Mx6FactoryDriver,ISC.Instrument.Update.Mx6InstrumentData)">
+            <summary>
+            Restores the list of sites.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data from which the instrument is to be restored.</param>
+        </member>
+        <member name="T:ISC.Instrument.Update.Tx1Updater">
+            <summary>
+            Updater for the TX1 Instrument.
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.Tx1Loader">
+            <summary>
+            Class for updating the TX1 instrument.
+            </summary>
+            <remarks>
+            Note that the base class is responsible for doing the actual firmware update.
+            This child class merely needs to provide memory addresses that the base class uses.
+            </remarks>
+        </member>
+        <member name="M:ISC.Instrument.Update.Tx1Loader.#ctor(ISC.Instrument.Driver.EquipmentType,System.String,ISC.Instrument.Driver.CommunicationModuleTypes,ISC.Instrument.Driver.IDateTimeProvider,ISC.Instrument.Driver.IModbusTracer,ISC.Instrument.Driver.AbortRequest)">
+            <summary>
+            </summary>
+            <param name="equipmentType"></param>
+            <param name="comPort"></param>
+            <param name="communicationType"></param>
+            <param name="dateTimeProvider"></param>
+            <param name="modbusTracer"></param>
+            <param name="abortRequester"></param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Tx1Updater.#ctor(System.String,ISC.Instrument.Driver.CommunicationModuleTypes,ISC.Instrument.Driver.IDateTimeProvider,ISC.Instrument.Driver.IModbusTracer,ISC.Instrument.Driver.AbortRequest)">
+            <summary>
+            </summary>
+            <param name="comPort"></param>
+            <param name="communicationType"></param>
+            <param name="dateTimeProvider"></param>
+            <param name="modbusTracer"></param>
+            <param name="abortRequester"></param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Tx1Updater.BackupSettings(System.String)">
+            <summary>
+            Backups the instrument settings to the passed in stream.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE BackupErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="settingsStream">The Stream object to contain the instrumentsettings.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Tx1Updater.BackupBaseInstrumentSettings(ISC.Instrument.Driver.Tx1FactoryDriver,ISC.Instrument.Update.Tx1InstrumentData)">
+            <summary>
+            Backs up all instrument settings to the passed in data object.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data to which data is to be backed up.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Tx1Updater.RestoreSettings(ISC.Instrument.Update.InstrumentData,System.String)">
+            <summary>
+            Restores the instrument settings from the passed in stream.
+            </summary>
+            <remarks>
+            THIS METHOD WILL NOT THROW. ALL EXCEPTIONS GENERATED WITHIN 
+            CAUSE THE RestoreErrorEventHandler TO BE CALLED.
+            </remarks>
+            <param name="instrumentData">The settings that need restored. It's assumed this can be downcast to a Tx1InstrumentData.</param>
+            <param name="registerDefaultsXml">XML string detailing additional registers to restore.</param>
+            <remarks>The registerDefaultXml parameter should have XML detailing those registers 
+            added after the v1.0 release of the instrument.</remarks>
+        </member>
+        <member name="M:ISC.Instrument.Update.Tx1Updater.StartInstrumentConfiguration(ISC.Instrument.Driver.Tx1FactoryDriver)">
+            <summary>
+            Starts the instrument configuration.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Tx1Updater.EndInstrumentConfiguration(ISC.Instrument.Driver.Tx1FactoryDriver)">
+            <summary>
+            Ends the instrument configuration.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+        </member>
+        <member name="M:ISC.Instrument.Update.Tx1Updater.RestoreBaseInstrumentSettings(ISC.Instrument.Driver.Tx1FactoryDriver,ISC.Instrument.Update.Tx1InstrumentData)">
+            <summary>
+            Restores the passed in settings to the instrument.
+            </summary>
+            <param name="driver">The driver to use to communicate with the instrument.</param>
+            <param name="data">The data from which the instrument is to be restored.</param>
+        </member>
+        <member name="P:ISC.Instrument.Update.RawRegisterData.UseInstrumentValue">
+            <summary>
+            <para>If true, and register was backed up, then restore the backed up value.</para>
+            <para>If false, or register was not backed up, then write the XML 'default' value (ignore any backed up value).</para>
+            </summary>
+        </member>
+        <member name="T:ISC.Instrument.Update.GasBadgePlusInstrumentData">
+            <summary>
+            GasBadge Plus settings information.
+            </summary>
+        </member>
+        <member name="M:ISC.Instrument.Update.GasBadgePlusInstrumentData.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="P:ISC.Instrument.Update.GasBadgePlusInstrumentData.InstrumentType">
+            <summary>
+            Gets or sets the instrument serial number.
+            </summary>
+        </member>
+    </members>
+</doc>

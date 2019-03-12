@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ECDB97A4-1411-4CCA-B293-92BFA3A5CDAC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ISC.iNet.DS.Instruments</RootNamespace>
+    <AssemblyName>ISC.iNet.DS.Instruments</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TEST|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\TEST\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ISC.Instrument.Driver, Version=8.9.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\ISC.Instrument.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="ISC.Instrument.TypeDefinition, Version=8.9.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\ISC.Instrument.TypeDefinition.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BumpOrderComparer.cs" />
+    <Compile Include="CalibrationOrderComparer.cs" />
+    <Compile Include="DateTimeProvider.cs" />
+    <Compile Include="Exceptions.cs" />
+    <Compile Include="FactoryGBPLUS.cs" />
+    <Compile Include="FactoryGBPRO.cs" />
+    <Compile Include="FactoryMX4.cs" />
+    <Compile Include="FactoryMX6.cs" />
+    <Compile Include="FactorySC.cs" />
+    <Compile Include="FactoryTX1.cs" />
+    <Compile Include="FactoryVPRO.cs" />
+    <Compile Include="GBPLUS.cs" />
+    <Compile Include="GBPRO.cs" />
+    <Compile Include="IFactoryController.cs" />
+    <Compile Include="IInstrumentController.cs" />
+    <Compile Include="InstrumentController.cs" />
+    <Compile Include="MX4.cs" />
+    <Compile Include="MX6.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SC.cs" />
+    <Compile Include="SensorPosition.cs" />
+    <Compile Include="TX1.cs" />
+    <Compile Include="VPRO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ISC.iNet.DS.DomainModel\ISC.iNet.DS.DomainModel.csproj">
+      <Project>{791147d7-67f4-4954-b9b5-0dbabc6bef37}</Project>
+      <Name>ISC.iNet.DS.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISC.iNet.DS\ISC.iNet.DS.csproj">
+      <Project>{b26583ce-20eb-4f07-8e82-b314d1090af9}</Project>
+      <Name>ISC.iNet.DS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISC.WinCE.Logger\ISC.WinCE.Logger.csproj">
+      <Project>{75b4e8fb-a149-4ca2-8f79-8393c9b7e58e}</Project>
+      <Name>ISC.WinCE.Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ISC.WinCE\ISC.WinCE.csproj">
+      <Project>{eb3f4fd2-381a-492b-b208-7fd70626e8d8}</Project>
+      <Name>ISC.WinCE</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,635 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BACKING_UP_SETTINGS" xml:space="preserve">
+    <value>Saving settings</value>
+  </data>
+  <data name="BUMPFAILURE" xml:space="preserve">
+    <value>Bump Failure</value>
+  </data>
+  <data name="BUMPFAILURECHECKGASCONNECTION" xml:space="preserve">
+    <value>Bump Failure ({0}) Check Gas Connections</value>
+  </data>
+  <data name="BUMPINGINSTRUMENT" xml:space="preserve">
+    <value>Testing Instrument</value>
+  </data>
+  <data name="BUMPSTOPPEDCHECKTUBING" xml:space="preserve">
+    <value>Bump Stopped (Check Pump Tubing)</value>
+  </data>
+  <data name="CALIBRATINGINSTRUMENT" xml:space="preserve">
+    <value>Calibrating</value>
+  </data>
+  <data name="CALIBRATIONFAILURE" xml:space="preserve">
+    <value>Calibration Failure</value>
+  </data>
+  <data name="CALIBRATIONSTOPPEDCHECKTUBING" xml:space="preserve">
+    <value>Calibration Stopped (Check Pump Tubing)</value>
+  </data>
+  <data name="CALSTATION" xml:space="preserve">
+    <value>Standalone</value>
+  </data>
+  <data name="CHARGING" xml:space="preserve">
+    <value>Charging</value>
+  </data>
+  <data name="CHECKCYLINDERCONNECTIONS" xml:space="preserve">
+    <value>Check Cylinder Connections</value>
+  </data>
+  <data name="CHECKINGGAS" xml:space="preserve">
+    <value>Checking For Available Gas</value>
+  </data>
+  <data name="CLEARINGINSTRUMENTALARMEVENTS" xml:space="preserve">
+    <value>Clearing Alarm Events</value>
+  </data>
+  <data name="CLEARINGINSTRUMENTDATALOG" xml:space="preserve">
+    <value>Clearing Datalog</value>
+  </data>
+  <data name="CLEARINGINSTRUMENTMANUALGASOPERATIONS" xml:space="preserve">
+    <value>Clearing Manual Operations</value>
+  </data>
+  <data name="CONNECTFRESHAIRORZEROAIRTOPORT1" xml:space="preserve">
+    <value>Connect Fresh Air Or Zero Air to Port 1</value>
+  </data>
+  <data name="CONNECTFRESHAIRTOPORT1" xml:space="preserve">
+    <value>Connect Fresh Air to Port 1</value>
+  </data>
+  <data name="CONNECTTOZEROAIRCYLINDER" xml:space="preserve">
+    <value>Connect Zero Air Cylinder</value>
+  </data>
+  <data name="CONNECTZEROAIRTOPORT1" xml:space="preserve">
+    <value>Connect Zero Air to Port 1</value>
+  </data>
+  <data name="CONTACTISCCODE1011" xml:space="preserve">
+    <value>Contact ISC Code 101-1</value>
+  </data>
+  <data name="CONTACTISCCODE10110" xml:space="preserve">
+    <value>Contact ISC Code 101-10</value>
+  </data>
+  <data name="CONTACTISCCODE1012" xml:space="preserve">
+    <value>Contact ISC Code 101-2</value>
+  </data>
+  <data name="CONTACTISCCODE1014" xml:space="preserve">
+    <value>Contact ISC Code 101-4</value>
+  </data>
+  <data name="CONTACTISCCODE10160" xml:space="preserve">
+    <value>Contact ISC Code 101-60</value>
+  </data>
+  <data name="CONTACTISCCODE1018" xml:space="preserve">
+    <value>Contact ISC Code 101-8</value>
+  </data>
+  <data name="CYLINDERPRESSURERESET" xml:space="preserve">
+    <value>Non-iGas Pressure Levels Reset to Full</value>
+  </data>
+  <data name="DIAGNOSING" xml:space="preserve">
+    <value>Diagnosing</value>
+  </data>
+  <data name="DIAGNOSINGINSTRUMENT" xml:space="preserve">
+    <value>Diagnosing Instrument</value>
+  </data>
+  <data name="DISCOVERING" xml:space="preserve">
+    <value>Discovering</value>
+  </data>
+  <data name="DOCKINGSTATION" xml:space="preserve">
+    <value>Docking Station</value>
+  </data>
+  <data name="DOWNLOADING" xml:space="preserve">
+    <value>Downloading</value>
+  </data>
+  <data name="DOWNLOADINGINSTRUMENTALARMEVENTS" xml:space="preserve">
+    <value>Downloading Alarm Events</value>
+  </data>
+  <data name="DOWNLOADINGINSTRUMENTDATALOG" xml:space="preserve">
+    <value>Downloading Datalog</value>
+  </data>
+  <data name="DOWNLOADINGINSTRUMENTMANUALGASOPERATIONS" xml:space="preserve">
+    <value>Downloading Manual Operations</value>
+  </data>
+  <data name="ELAPSEDBIASSTATE" xml:space="preserve">
+    <value>Elapsed Bias State: {0} Secs</value>
+  </data>
+  <data name="ERROR" xml:space="preserve">
+    <value>Communication Error</value>
+    <comment>Was "Battery Error"</comment>
+  </data>
+  <data name="EXPIREDCYLINDER" xml:space="preserve">
+    <value>Cylinder Expired</value>
+  </data>
+  <data name="EXTRACTING" xml:space="preserve">
+    <value>Extracting</value>
+  </data>
+  <data name="FILEMANAGER_FAILED" xml:space="preserve">
+    <value>Saving to USB drive: FAILED</value>
+  </data>
+  <data name="FILEMANAGER_SAVING" xml:space="preserve">
+    <value>Saving to USB drive</value>
+  </data>
+  <data name="FILEMANAGER_SUCCEEDED" xml:space="preserve">
+    <value>Saving to USB drive: SUCCEEDED</value>
+  </data>
+  <data name="FLIPPERANDLIDERROR" xml:space="preserve">
+    <value>Check Flipper and Lid Positions</value>
+  </data>
+  <data name="FRESH_AIR" xml:space="preserve">
+    <value>Fresh Air</value>
+  </data>
+  <data name="G9999" xml:space="preserve">
+    <value>Fresh Air</value>
+  </data>
+  <data name="HARDWARECONFIGERROR" xml:space="preserve">
+    <value>Hardware Configuration Error</value>
+  </data>
+  <data name="IGASERROR" xml:space="preserve">
+    <value>iGas Error</value>
+  </data>
+  <data name="IGASERROR_PRESSURESWITCHES" xml:space="preserve">
+    <value>Check Pressure Switches</value>
+  </data>
+  <data name="IGASERROR_SMARTCARDS" xml:space="preserve">
+    <value>Check iGas Cards</value>
+  </data>
+  <data name="INET" xml:space="preserve">
+    <value>iNet</value>
+  </data>
+  <data name="INSTRUMENTNOTREADY" xml:space="preserve">
+    <value>Instrument Not Ready</value>
+  </data>
+  <data name="INSTRUMENTSYSTEMALARM" xml:space="preserve">
+    <value>Instrument Error</value>
+  </data>
+  <data name="INTERACTIVEDIAGNOSTICS" xml:space="preserve">
+    <value>Diagnosing</value>
+  </data>
+  <data name="LEAKUNAVAILABLE" xml:space="preserve">
+    <value>Unavailable Leaking</value>
+  </data>
+  <data name="LIDERROR" xml:space="preserve">
+    <value>Lid Not Closed</value>
+  </data>
+  <data name="LOWBATTERY" xml:space="preserve">
+    <value>Battery Low. Waiting To Connect.</value>
+  </data>
+  <data name="LOWCYLINDER" xml:space="preserve">
+    <value>Cylinder Low</value>
+  </data>
+  <data name="MANUALBUMPTESTREQUIRED" xml:space="preserve">
+    <value>Bump Failure</value>
+  </data>
+  <data name="MANUALCALIBRATIONREQUIRED" xml:space="preserve">
+    <value>Prev Cal Fail Manually Calibrate</value>
+    <comment>was Calibration Failure</comment>
+  </data>
+  <data name="MENU" xml:space="preserve">
+    <value>MENU</value>
+  </data>
+  <data name="MENU_ACCOUNT" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="MENU_ACCOUNTNUMBER" xml:space="preserve">
+    <value>Account Number</value>
+  </data>
+  <data name="MENU_ARE_YOU_SURE" xml:space="preserve">
+    <value>Are You Sure?</value>
+  </data>
+  <data name="MENU_BUMP_TEST" xml:space="preserve">
+    <value>Bump Test</value>
+  </data>
+  <data name="MENU_CALIBRATE" xml:space="preserve">
+    <value>Calibrate</value>
+  </data>
+  <data name="MENU_CYLINDER" xml:space="preserve">
+    <value>Cylinders</value>
+  </data>
+  <data name="MENU_DIAGNOSE" xml:space="preserve">
+    <value>Diagnose</value>
+  </data>
+  <data name="MENU_DOCKINGSTATION" xml:space="preserve">
+    <value>Docking Station</value>
+  </data>
+  <data name="MENU_DOWNLOAD_HYGIENE" xml:space="preserve">
+    <value>Download Datalog</value>
+  </data>
+  <data name="MENU_FACTORY_RESET1" xml:space="preserve">
+    <value>Reset to</value>
+  </data>
+  <data name="MENU_FACTORY_RESET2" xml:space="preserve">
+    <value>Factory</value>
+  </data>
+  <data name="MENU_FACTORY_RESET3" xml:space="preserve">
+    <value>Defaults?</value>
+  </data>
+  <data name="MENU_FORCE_GAS_RETRY" xml:space="preserve">
+    <value>Force Gas Retry</value>
+  </data>
+  <data name="MENU_INET" xml:space="preserve">
+    <value>iNet</value>
+  </data>
+  <data name="MENU_INFORMATION" xml:space="preserve">
+    <value>Information</value>
+  </data>
+  <data name="MENU_INSTRUMENT" xml:space="preserve">
+    <value>Instrument</value>
+  </data>
+  <data name="MENU_MORE" xml:space="preserve">
+    <value>More</value>
+  </data>
+  <data name="MENU_NO" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="MENU_PREVIOUS" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="MENU_REFRESH" xml:space="preserve">
+    <value>Refresh Settings</value>
+  </data>
+  <data name="MENU_SERVER" xml:space="preserve">
+    <value>Server</value>
+  </data>
+  <data name="MENU_TROUBLESHOOT" xml:space="preserve">
+    <value>Troubleshoot</value>
+  </data>
+  <data name="MENU_YES" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="MFGNOTCONNECTED" xml:space="preserve">
+    <value>No iNet Connection for Manufacturing</value>
+  </data>
+  <data name="NOCYLINDER" xml:space="preserve">
+    <value>No Cylinder</value>
+  </data>
+  <data name="NOENABLEDSENSORS" xml:space="preserve">
+    <value>No Enabled Sensors</value>
+  </data>
+  <data name="NOTACTIVATED" xml:space="preserve">
+    <value>Not activated</value>
+  </data>
+  <data name="NOTSERIALIZED" xml:space="preserve">
+    <value>Contact ISC Code 102</value>
+    <comment>was Not Serialized</comment>
+  </data>
+  <data name="PERFORMINGMAINTENANCE" xml:space="preserve">
+    <value>Performing Maintenance</value>
+  </data>
+  <data name="PLEASETURNON" xml:space="preserve">
+    <value>Please Turn On Instrument WITHOUT UNDOCKING</value>
+  </data>
+  <data name="POSITION" xml:space="preserve">
+    <value>Position </value>
+  </data>
+  <data name="PRINTERERROR" xml:space="preserve">
+    <value>Printer Error</value>
+  </data>
+  <data name="PRINTERERROR_USBCONNECTION" xml:space="preserve">
+    <value>USB Connection</value>
+  </data>
+  <data name="PRODUCT_NAME" xml:space="preserve">
+    <value>DSX</value>
+  </data>
+  <data name="PROGRAMMING" xml:space="preserve">
+    <value>Programming</value>
+  </data>
+  <data name="PURGING" xml:space="preserve">
+    <value>Purging</value>
+  </data>
+  <data name="READINGDATA" xml:space="preserve">
+    <value>Reading Settings</value>
+  </data>
+  <data name="READINGINSTRUMENTDATA" xml:space="preserve">
+    <value>Reading Instrument Settings</value>
+  </data>
+  <data name="READY" xml:space="preserve">
+    <value>Ready</value>
+  </data>
+  <data name="REPLACECYLINDER" xml:space="preserve">
+    <value>Replace Cylinder</value>
+  </data>
+  <data name="RESET" xml:space="preserve">
+    <value>Resetting</value>
+  </data>
+  <data name="RESTORING_SETTINGS" xml:space="preserve">
+    <value>Loading Settings</value>
+  </data>
+  <data name="RETURNDISABLEDINSTRUMENT" xml:space="preserve">
+    <value>Return Instrument to Industrial Scientific</value>
+  </data>
+  <data name="RETURNDOCKINGSTATION" xml:space="preserve">
+    <value>Return Docking Station to Industrial Scientific</value>
+  </data>
+  <data name="RETURNINSTRUMENT" xml:space="preserve">
+    <value>Return Instrument to Industrial Scientific</value>
+  </data>
+  <data name="SAVING" xml:space="preserve">
+    <value>Saving</value>
+  </data>
+  <data name="SENSORERROR" xml:space="preserve">
+    <value>Sensor Error</value>
+  </data>
+  <data name="SENSORLABEL_S0001" xml:space="preserve">
+    <value>CO</value>
+  </data>
+  <data name="SENSORLABEL_S0002" xml:space="preserve">
+    <value>H2S</value>
+  </data>
+  <data name="SENSORLABEL_S0003" xml:space="preserve">
+    <value>SO2</value>
+  </data>
+  <data name="SENSORLABEL_S0004" xml:space="preserve">
+    <value>NO2</value>
+  </data>
+  <data name="SENSORLABEL_S0005" xml:space="preserve">
+    <value>CL2</value>
+  </data>
+  <data name="SENSORLABEL_S0006" xml:space="preserve">
+    <value>CLO2</value>
+  </data>
+  <data name="SENSORLABEL_S0007" xml:space="preserve">
+    <value>HCN</value>
+  </data>
+  <data name="SENSORLABEL_S0008" xml:space="preserve">
+    <value>PH3</value>
+  </data>
+  <data name="SENSORLABEL_S0009" xml:space="preserve">
+    <value>H2</value>
+  </data>
+  <data name="SENSORLABEL_S0011" xml:space="preserve">
+    <value>CO2</value>
+  </data>
+  <data name="SENSORLABEL_S0012" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="SENSORLABEL_S0013" xml:space="preserve">
+    <value>NH3</value>
+  </data>
+  <data name="SENSORLABEL_S0014" xml:space="preserve">
+    <value>HCL</value>
+  </data>
+  <data name="SENSORLABEL_S0015" xml:space="preserve">
+    <value>O3</value>
+  </data>
+  <data name="SENSORLABEL_S0016" xml:space="preserve">
+    <value>COCL2</value>
+  </data>
+  <data name="SENSORLABEL_S0017" xml:space="preserve">
+    <value>HF</value>
+  </data>
+  <data name="SENSORLABEL_S0018" xml:space="preserve">
+    <value>IR (CH4)</value>
+  </data>
+  <data name="SENSORLABEL_S0019" xml:space="preserve">
+    <value>LEL (PPM)</value>
+  </data>
+  <data name="SENSORLABEL_S0020" xml:space="preserve">
+    <value>O2</value>
+  </data>
+  <data name="SENSORLABEL_S0021" xml:space="preserve">
+    <value>LEL (CH4)</value>
+  </data>
+  <data name="SENSORLABEL_S0022" xml:space="preserve">
+    <value>LEL</value>
+  </data>
+  <data name="SENSORLABEL_S0023" xml:space="preserve">
+    <value>LEL (C6H14)</value>
+  </data>
+  <data name="SENSORLABEL_S0024" xml:space="preserve">
+    <value>IR-LEL (CH4)</value>
+  </data>
+  <data name="SENSORLABEL_S0026" xml:space="preserve">
+    <value>LEL (C5H12)</value>
+  </data>
+  <data name="SENSORLABEL_S0027" xml:space="preserve">
+    <value>LEL (C3H8)</value>
+  </data>
+  <data name="SENSORLABEL_S0050" xml:space="preserve">
+    <value>PID</value>
+  </data>
+  <data name="SENSORLABEL_S0081" xml:space="preserve">
+    <value>ETO</value>
+  </data>
+  <data name="SENSORLABEL_S0248" xml:space="preserve">
+    <value>HC</value>
+  </data>
+  <data name="SENSORMISSING" xml:space="preserve">
+    <value>Sensor Missing</value>
+  </data>
+  <data name="SERIAL_ABBREV" xml:space="preserve">
+    <value>SN:</value>
+  </data>
+  <data name="SERVICEINSTRUMENTSOON" xml:space="preserve">
+    <value>Service Instrument Soon</value>
+  </data>
+  <data name="STARTING" xml:space="preserve">
+    <value>Starting</value>
+  </data>
+  <data name="SYNCHRONIZATION" xml:space="preserve">
+    <value>Synchronizing</value>
+  </data>
+  <data name="SYNCHRONIZATIONERROR" xml:space="preserve">
+    <value>Network Error</value>
+    <comment>was Unable to Synchronize</comment>
+  </data>
+  <data name="TROUBLESHOOT" xml:space="preserve">
+    <value>Troubleshoot</value>
+  </data>
+  <data name="TROUBLESHOOT_COPYING" xml:space="preserve">
+    <value>Copying to USB drive</value>
+  </data>
+  <data name="TROUBLESHOOT_FAILED" xml:space="preserve">
+    <value>Copy to USB drive: FAILED</value>
+  </data>
+  <data name="TROUBLESHOOT_NOTFOUND" xml:space="preserve">
+    <value>USB drive not found</value>
+  </data>
+  <data name="TROUBLESHOOT_SUCCEEDED" xml:space="preserve">
+    <value>Copy to USB drive: SUCCEEDED</value>
+  </data>
+  <data name="UNACTIVATED" xml:space="preserve">
+    <value>No iNet activation</value>
+  </data>
+  <data name="UNAVAILABLE" xml:space="preserve">
+    <value>Contact ISC Code 118</value>
+    <comment>was Unavailable</comment>
+  </data>
+  <data name="UNAVAILABLEGAS" xml:space="preserve">
+    <value>Unavailable Gas</value>
+  </data>
+  <data name="UNDOCKEDINSTRUMENT" xml:space="preserve">
+    <value>Undocked Instrument</value>
+  </data>
+  <data name="UNREGISTEREDINSTRUMENT" xml:space="preserve">
+    <value>Unregistered Instrument Contact Administrator</value>
+  </data>
+  <data name="UNSERIALIZEDINSTRUMENT" xml:space="preserve">
+    <value>Contact ISC Code 106</value>
+    <comment>was Instrument Not Serialized</comment>
+  </data>
+  <data name="UNSUPPORTEDCYLINDER1" xml:space="preserve">
+    <value>Unsupported Cylinder
+on Port 1</value>
+  </data>
+  <data name="UNSUPPORTEDCYLINDER2" xml:space="preserve">
+    <value>Unsupported Cylinder
+on Port 2</value>
+  </data>
+  <data name="UNSUPPORTEDCYLINDER3" xml:space="preserve">
+    <value>Unsupported Cylinder
+on Port 3</value>
+  </data>
+  <data name="UNSUPPORTEDINSTRUMENT" xml:space="preserve">
+    <value>Unsupported Instrument</value>
+  </data>
+  <data name="UNSUPPORTEDSOFTWARE" xml:space="preserve">
+    <value>Unsupported Software Version</value>
+  </data>
+  <data name="UPDATINGDATA" xml:space="preserve">
+    <value>Updating Settings</value>
+  </data>
+  <data name="UPDATINGINSTRUMENTDATA" xml:space="preserve">
+    <value>Updating Instrument Settings</value>
+  </data>
+  <data name="UPGRADINGFIRMWARE" xml:space="preserve">
+    <value>UPGRADING FIRMWARE</value>
+  </data>
+  <data name="UPGRADINGINSTRUMENTERROR" xml:space="preserve">
+    <value>Contact ISC Code 109</value>
+    <comment>was Instrument Upgrade Error</comment>
+  </data>
+  <data name="UPGRADINGINSTRUMENTFIRMWARE" xml:space="preserve">
+    <value>Upgrading Instrument
+DO NOT UNDOCK</value>
+  </data>
+  <data name="UPLOADINGDATABASE" xml:space="preserve">
+    <value>Uploading Database</value>
+  </data>
+  <data name="UPLOADINGDEBUGLOG" xml:space="preserve">
+    <value>Uploading Debug Log</value>
+  </data>
+  <data name="VERIFYING" xml:space="preserve">
+    <value>Verifying</value>
+  </data>
+  <data name="VERSION" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="VERSION_ABBREV" xml:space="preserve">
+    <value>v</value>
+  </data>
+  <data name="ZEROAIR" xml:space="preserve">
+    <value>Zero Air</value>
+  </data>
+  <data name="ZEROING" xml:space="preserve">
+    <value>Zeroing</value>
+  </data>
+</root>

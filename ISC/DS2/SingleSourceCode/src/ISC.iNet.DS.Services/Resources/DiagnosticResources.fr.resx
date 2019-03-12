@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ATTACH_PUMP_ADAPTER" xml:space="preserve">
+    <value>Mettez l'adaptateur de pompe</value>
+  </data>
+  <data name="BACKLIGHT_IS_OFF" xml:space="preserve">
+    <value>Le rétroéclairage est éteint.</value>
+  </data>
+  <data name="BACKLIGHT_IS_ON" xml:space="preserve">
+    <value>Le rétroéclairage est allumé.</value>
+  </data>
+  <data name="BATTERY_INSTALLED" xml:space="preserve">
+    <value>Pile installé</value>
+  </data>
+  <data name="BP001" xml:space="preserve">
+    <value>Pile 9v</value>
+  </data>
+  <data name="BP002" xml:space="preserve">
+    <value>Piles lithium</value>
+  </data>
+  <data name="BP003" xml:space="preserve">
+    <value>Piles lithium</value>
+  </data>
+  <data name="BP004" xml:space="preserve">
+    <value>Piles alcalines</value>
+  </data>
+  <data name="BP005" xml:space="preserve">
+    <value>Piles alcalines</value>
+  </data>
+  <data name="BP006" xml:space="preserve">
+    <value>Piles lithium à 2 éléments</value>
+  </data>
+  <data name="BP007" xml:space="preserve">
+    <value>Piles lithium à 3 éléments</value>
+  </data>
+  <data name="BP008" xml:space="preserve">
+    <value>Piles alcalines</value>
+  </data>
+  <data name="BP009" xml:space="preserve">
+    <value>Batterie au lithium-ion</value>
+  </data>
+  <data name="BP010" xml:space="preserve">
+    <value>Batterie au lithium-ion</value>
+  </data>
+  <data name="BP011" xml:space="preserve">
+    <value>Batterie au lithium-ion</value>
+  </data>
+  <data name="BP012" xml:space="preserve">
+    <value>Batterie au lithium-ion</value>
+  </data>
+  <data name="BP013" xml:space="preserve">
+    <value>Pack batterie au lithium-ion double cellules</value>
+  </data>
+  <data name="BP014" xml:space="preserve">
+    <value>Pack batterie au lithium-ion double cellules</value>
+  </data>
+  <data name="BP015" xml:space="preserve">
+    <value>Pack batterie au lithium-ion double cellules</value>
+  </data>
+  <data name="BP016" xml:space="preserve">
+    <value>Pack batterie au lithium-ion double cellules</value>
+  </data>
+  <data name="BUZZER_IS_OFF" xml:space="preserve">
+    <value>Le buzzer est éteint.</value>
+  </data>
+  <data name="BUZZER_IS_ON" xml:space="preserve">
+    <value>Le buzzer est en marche.</value>
+  </data>
+  <data name="BUZZER_TEST" xml:space="preserve">
+    <value>Le buzzer fonctionne correctement</value>
+  </data>
+  <data name="BUZZER_TEST_PROMPT" xml:space="preserve">
+    <value>Le buzzer a-t-il fonctionné correctement?</value>
+  </data>
+  <data name="CAN_YOU_SEE_THIS" xml:space="preserve">
+    <value>Fonction d'affichage/de touche de base?</value>
+  </data>
+  <data name="CHARGING" xml:space="preserve">
+    <value>Chargement</value>
+  </data>
+  <data name="CONNECT_IGAS_CONNECTOR" xml:space="preserve">
+    <value>Brancher les connecteurs iGas</value>
+  </data>
+  <data name="CORE_VOLTAGE" xml:space="preserve">
+    <value>Tension principale</value>
+  </data>
+  <data name="CRADLE_SOLENOID_LID" xml:space="preserve">
+    <value>Les voies du berceau circulent vers le couvercle</value>
+  </data>
+  <data name="CRADLE_SOLENOID_LID_PROMPT" xml:space="preserve">
+    <value>Y a-t-il un flux d'air à travers le couvercle de diffusion?</value>
+  </data>
+  <data name="CRADLE_SOLENOID_PUMP" xml:space="preserve">
+    <value>Les voies du berceau circulent vers le tuyau</value>
+  </data>
+  <data name="CRADLE_SOLENOID_PUMP_PROMPT" xml:space="preserve">
+    <value>Y a-t-il un flux d'air à travers le tuyau de l'instrument?</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_HARDWARE_VERSION" xml:space="preserve">
+    <value>Version matérielle</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_HEADER" xml:space="preserve">
+    <value>Docking Station</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_IP_ADDRESS" xml:space="preserve">
+    <value>L'adresse IP</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_LANGUAGE" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_MAC_ADDRESS" xml:space="preserve">
+    <value>Adresse MAC</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_MENU_LOCKED" xml:space="preserve">
+    <value>Verrouillage de menu</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_NUM_GAS_PORTS" xml:space="preserve">
+    <value>Ports de gaz</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_PART_NUMBER" xml:space="preserve">
+    <value>Numéro de référence</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_RESERVOIR" xml:space="preserve">
+    <value>Réservoir interne</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_SELF_DIAGNOSTICS_DATE" xml:space="preserve">
+    <value>Date d'auto diagnostics</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_SERIALNUMBER" xml:space="preserve">
+    <value>Numéro de série</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_SERVICE_DIAGNOSTICS_DATE" xml:space="preserve">
+    <value>Date de diagnostics de service</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_SETUP_DATE" xml:space="preserve">
+    <value>Date d’installation</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_SETUP_TECH" xml:space="preserve">
+    <value>Technicien d’installation</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_SOFTWARE_VERSION" xml:space="preserve">
+    <value>Version du logiciel</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_TYPE" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="DETAILS_DOCKINGSTATION_USE_AUDIBLE_ALARM" xml:space="preserve">
+    <value>Utilisez l'alarme sonore</value>
+  </data>
+  <data name="DIFFUSION_LID_DETECT" xml:space="preserve">
+    <value>Couvercle de diffusion abaissé</value>
+  </data>
+  <data name="DISCONNECT_IGAS_CONNECTOR" xml:space="preserve">
+    <value>Débranchez les connecteur iGas.</value>
+  </data>
+  <data name="DOCK_INSTRUMENT" xml:space="preserve">
+    <value>Raccordez un instrument</value>
+  </data>
+  <data name="DONE" xml:space="preserve">
+    <value>Terminé</value>
+  </data>
+  <data name="ENGUS" xml:space="preserve">
+    <value>Anglais</value>
+  </data>
+  <data name="ERROR" xml:space="preserve">
+    <value>Erreur</value>
+  </data>
+  <data name="FAILED" xml:space="preserve">
+    <value>Échec</value>
+  </data>
+  <data name="FALSE" xml:space="preserve">
+    <value>Arrêt</value>
+  </data>
+  <data name="FLOW" xml:space="preserve">
+    <value>Débit</value>
+  </data>
+  <data name="FLOW_ADJUST" xml:space="preserve">
+    <value>La gauche augmente la tension, la droite la diminue et le milieu l'accepte.</value>
+  </data>
+  <data name="FLOW_LABEL" xml:space="preserve">
+    <value>Débit:</value>
+  </data>
+  <data name="FLOW_OFFSET" xml:space="preserve">
+    <value>Décalage d'écoulement</value>
+  </data>
+  <data name="FRNFR" xml:space="preserve">
+    <value>Français</value>
+  </data>
+  <data name="GAS_PORT" xml:space="preserve">
+    <value>(Gaz Port #)</value>
+  </data>
+  <data name="GBPLS" xml:space="preserve">
+    <value>Moniteur mono-gaz GasBadge Plus</value>
+  </data>
+  <data name="GBPRO" xml:space="preserve">
+    <value>Moniteur mono-gaz GasBadge Pro</value>
+  </data>
+  <data name="GRMGR" xml:space="preserve">
+    <value>Allemand</value>
+  </data>
+  <data name="INSTRUMENT_BATTERY_CODE" xml:space="preserve">
+    <value>Code de pile</value>
+  </data>
+  <data name="INSTRUMENT_BATTERY_CODE_PROMPT" xml:space="preserve">
+    <value>Est-ce le code de pile correct ?</value>
+  </data>
+  <data name="INSTRUMENT_CHARGING" xml:space="preserve">
+    <value>Chargement de l'instrument</value>
+  </data>
+  <data name="INSTRUMENT_DETECT" xml:space="preserve">
+    <value>Instrument présent</value>
+  </data>
+  <data name="INSTRUMENT_PING" xml:space="preserve">
+    <value>Ping de l'instrument</value>
+  </data>
+  <data name="LCD_AND_BACKLIGHT_PROMPT" xml:space="preserve">
+    <value>Le LCD et rétroéclairage ont-ils fonctionné correctement?</value>
+  </data>
+  <data name="LCD_AND_BACKLIGHT_TEST" xml:space="preserve">
+    <value>Le LCD et le rétroéclairage fonctionnent correctement</value>
+  </data>
+  <data name="LEAK_CHECK_1" xml:space="preserve">
+    <value>Vérification de fuite #1</value>
+  </data>
+  <data name="LEAK_CHECK_2" xml:space="preserve">
+    <value>Vérification de fuite #2</value>
+  </data>
+  <data name="LEDS_ALL_OFF" xml:space="preserve">
+    <value>Les LEDs sont éteintes.</value>
+  </data>
+  <data name="LED_GREEN_ON" xml:space="preserve">
+    <value>La LED verte est allumée.</value>
+  </data>
+  <data name="LED_PROMPT" xml:space="preserve">
+    <value>Les LEDs ont-elles fonctionné correctement?</value>
+  </data>
+  <data name="LED_RED_ON" xml:space="preserve">
+    <value>La LED rouge est allumée.</value>
+  </data>
+  <data name="LED_TEST" xml:space="preserve">
+    <value>Les LEDs fonctionnent correctement</value>
+  </data>
+  <data name="LED_YELLOW_ON" xml:space="preserve">
+    <value>La LED jaune est allumée.</value>
+  </data>
+  <data name="LEFT" xml:space="preserve">
+    <value>Touche de gauche</value>
+  </data>
+  <data name="LOWBATTERY" xml:space="preserve">
+    <value>Batterie faible</value>
+  </data>
+  <data name="LOWER_DIFFUSION_LID" xml:space="preserve">
+    <value>Couvercle de diffusion inférieur</value>
+  </data>
+  <data name="MAC_ADDRESS_DEFAULT" xml:space="preserve">
+    <value>Adresse MAC par défaut</value>
+  </data>
+  <data name="MAC_ADDRESS_OUI" xml:space="preserve">
+    <value>Adresse MAC OUI</value>
+  </data>
+  <data name="MIDDLE" xml:space="preserve">
+    <value>Touche du milieu</value>
+  </data>
+  <data name="MILLIAMPS" xml:space="preserve">
+    <value> mA</value>
+  </data>
+  <data name="MILLIVOLTS" xml:space="preserve">
+    <value> mV</value>
+  </data>
+  <data name="MLMIN" xml:space="preserve">
+    <value>mm/min</value>
+  </data>
+  <data name="MX4" xml:space="preserve">
+    <value>Moniteur multi-gaz MX4 Ventis/iQuad</value>
+  </data>
+  <data name="MX6" xml:space="preserve">
+    <value>Moniteur multi-gaz MX6 iBrid</value>
+  </data>
+  <data name="NOTCHARGING" xml:space="preserve">
+    <value>Pas de chargement</value>
+  </data>
+  <data name="NOT_APPLICABLE" xml:space="preserve">
+    <value>S.O.</value>
+  </data>
+  <data name="NO_DIFFUSION_LID_DETECT" xml:space="preserve">
+    <value>Couvercle de diffusion élevé</value>
+  </data>
+  <data name="NO_INSTRUMENT_DETECT" xml:space="preserve">
+    <value>Instrument absent</value>
+  </data>
+  <data name="NO_PRESSURE_SWITCH_1" xml:space="preserve">
+    <value>Contacteur n° 1 sans pression</value>
+  </data>
+  <data name="NO_PRESSURE_SWITCH_2" xml:space="preserve">
+    <value>Contacteur n° 2 sans pression</value>
+  </data>
+  <data name="NO_PRESSURE_SWITCH_3" xml:space="preserve">
+    <value>Contacteur n° 3 sans pression</value>
+  </data>
+  <data name="NO_PRESSURE_SWITCH_4" xml:space="preserve">
+    <value>Contacteur n° 5 sans pression</value>
+  </data>
+  <data name="NO_PRESSURE_SWITCH_5" xml:space="preserve">
+    <value>Contacteur n° 5 sans pression</value>
+  </data>
+  <data name="NO_PRESSURE_SWITCH_6" xml:space="preserve">
+    <value>Contacteur n° 6 sans pression</value>
+  </data>
+  <data name="NO_PUMP_ADAPTER_DETECT" xml:space="preserve">
+    <value>Adaptateur de pompe absent</value>
+  </data>
+  <data name="NO_SMART_CARD_1" xml:space="preserve">
+    <value>Aucune carte à puce n° 1</value>
+  </data>
+  <data name="NO_SMART_CARD_2" xml:space="preserve">
+    <value>Aucune carte à puce n° 2</value>
+  </data>
+  <data name="NO_SMART_CARD_3" xml:space="preserve">
+    <value>Aucune carte à puce n° 3</value>
+  </data>
+  <data name="NO_SMART_CARD_4" xml:space="preserve">
+    <value>Aucune carte à puce n° 4</value>
+  </data>
+  <data name="NO_SMART_CARD_5" xml:space="preserve">
+    <value>Aucune carte à puce n° 5</value>
+  </data>
+  <data name="NO_SMART_CARD_6" xml:space="preserve">
+    <value>Aucune carte à puce n° 6</value>
+  </data>
+  <data name="NUM_GAS_PORTS_PROMPT" xml:space="preserve">
+    <value>Y at-il # ports de gaz?</value>
+  </data>
+  <data name="NUM_GAS_PORTS_TEST" xml:space="preserve">
+    <value>Nombre de ports de gaz</value>
+  </data>
+  <data name="OFFSET_LABEL" xml:space="preserve">
+    <value>Offset:</value>
+  </data>
+  <data name="PASSED" xml:space="preserve">
+    <value>Réussi</value>
+  </data>
+  <data name="PRESSURE_SWITCH_PRESENT_1" xml:space="preserve">
+    <value>Manocontact n° 1 présent</value>
+  </data>
+  <data name="PRESSURE_SWITCH_PRESENT_2" xml:space="preserve">
+    <value>Manocontact n° 2 présent</value>
+  </data>
+  <data name="PRESSURE_SWITCH_PRESENT_3" xml:space="preserve">
+    <value>Manocontact n° 3 présent</value>
+  </data>
+  <data name="PRESSURE_SWITCH_PRESENT_4" xml:space="preserve">
+    <value>Manocontact n° 4 présent</value>
+  </data>
+  <data name="PRESSURE_SWITCH_PRESENT_5" xml:space="preserve">
+    <value>Manocontact n° 5 présent</value>
+  </data>
+  <data name="PRESSURE_SWITCH_PRESENT_6" xml:space="preserve">
+    <value>Manocontact n° 6 présent</value>
+  </data>
+  <data name="PRESSURE_SWITCH_PRESSURE_1" xml:space="preserve">
+    <value>Pression au manocontact n° 1</value>
+  </data>
+  <data name="PRESSURE_SWITCH_PRESSURE_2" xml:space="preserve">
+    <value>Pression au manocontact n° 2</value>
+  </data>
+  <data name="PRESSURE_SWITCH_PRESSURE_3" xml:space="preserve">
+    <value>Pression au manocontact n° 3</value>
+  </data>
+  <data name="PRESSURE_SWITCH_PRESSURE_4" xml:space="preserve">
+    <value>Pression au manocontact n° 4</value>
+  </data>
+  <data name="PRESSURE_SWITCH_PRESSURE_5" xml:space="preserve">
+    <value>Pression au manocontact n° 5</value>
+  </data>
+  <data name="PRESSURE_SWITCH_PRESSURE_6" xml:space="preserve">
+    <value>Pression au manocontact n° 6</value>
+  </data>
+  <data name="PRESS_ANY_KEY_PROMPT" xml:space="preserve">
+    <value>Appuyer sur une touche ?</value>
+  </data>
+  <data name="PRESS_ANY_TO_CONTINUE" xml:space="preserve">
+    <value>Appuyez sur une touche pour continuer.</value>
+  </data>
+  <data name="PRESS_ANY_TO_START_PUMP" xml:space="preserve">
+    <value>Appuyez sur une touche pour mettre la pompe en marche.</value>
+  </data>
+  <data name="PRESS_KEY_LEFT" xml:space="preserve">
+    <value>Pression de la touche gauche</value>
+  </data>
+  <data name="PRESS_KEY_LEFT_PROMPT" xml:space="preserve">
+    <value>Appuyez sur la touche de gauche</value>
+  </data>
+  <data name="PRESS_KEY_MIDDLE" xml:space="preserve">
+    <value>Pression de la touche du milieu</value>
+  </data>
+  <data name="PRESS_KEY_MIDDLE_PROMPT" xml:space="preserve">
+    <value>Appuyez sur la touche du milieu</value>
+  </data>
+  <data name="PRESS_KEY_RIGHT" xml:space="preserve">
+    <value>Pression de la touche de droite</value>
+  </data>
+  <data name="PRESS_KEY_RIGHT_PROMPT" xml:space="preserve">
+    <value>Appuyez sur la touche de droite</value>
+  </data>
+  <data name="PRESS_LEFT_SUCCESS_PROMPT" xml:space="preserve">
+    <value>Réussite à gauche, échec à droite</value>
+  </data>
+  <data name="PRTBR" xml:space="preserve">
+    <value>Portugais</value>
+  </data>
+  <data name="PUMP" xml:space="preserve">
+    <value>Pompe</value>
+  </data>
+  <data name="PUMP_ADAPTER_DETECT" xml:space="preserve">
+    <value>Adaptateur de pompe présent</value>
+  </data>
+  <data name="PUMP_ERROR_STATUS" xml:space="preserve">
+    <value>Statut d'erreur de pompe</value>
+  </data>
+  <data name="RAISE_DIFFUSION_LID" xml:space="preserve">
+    <value>Couvercle de diffusion supérieur</value>
+  </data>
+  <data name="REMOVE_PUMP_ADAPTER" xml:space="preserve">
+    <value>Retirez l'adaptateur de pompe</value>
+  </data>
+  <data name="RIGHT" xml:space="preserve">
+    <value>Touche de droite</value>
+  </data>
+  <data name="SMART_CARD_PRESENT_1" xml:space="preserve">
+    <value>Carte à puce n° 1 présente</value>
+  </data>
+  <data name="SMART_CARD_PRESENT_2" xml:space="preserve">
+    <value>Carte à puce n° 2 présente</value>
+  </data>
+  <data name="SMART_CARD_PRESENT_3" xml:space="preserve">
+    <value>Carte à puce n° 3 présente</value>
+  </data>
+  <data name="SMART_CARD_PRESENT_4" xml:space="preserve">
+    <value>Carte à puce n° 4 présente</value>
+  </data>
+  <data name="SMART_CARD_PRESENT_5" xml:space="preserve">
+    <value>Carte à puce n° 5 présente</value>
+  </data>
+  <data name="SMART_CARD_PRESENT_6" xml:space="preserve">
+    <value>Carte à puce n° 6 présente</value>
+  </data>
+  <data name="SOLENOID_CURRENT_1" xml:space="preserve">
+    <value>Solénoïde 1 Courant</value>
+  </data>
+  <data name="SOLENOID_CURRENT_2" xml:space="preserve">
+    <value>Solénoïde 2 Courant</value>
+  </data>
+  <data name="SOLENOID_CURRENT_3" xml:space="preserve">
+    <value>Solénoïde 3 Courant</value>
+  </data>
+  <data name="SOLENOID_CURRENT_4" xml:space="preserve">
+    <value>Solénoïde 4 Courant</value>
+  </data>
+  <data name="SOLENOID_CURRENT_5" xml:space="preserve">
+    <value>Solénoïde 5 Courant</value>
+  </data>
+  <data name="SOLENOID_CURRENT_6" xml:space="preserve">
+    <value>Solénoïde 6 Courant</value>
+  </data>
+  <data name="SOLENOID_FLOW_1" xml:space="preserve">
+    <value>Solénoïde 1 Débit</value>
+  </data>
+  <data name="SOLENOID_FLOW_2" xml:space="preserve">
+    <value>Solénoïde 2 Débit</value>
+  </data>
+  <data name="SOLENOID_FLOW_3" xml:space="preserve">
+    <value>Solénoïde 3 Débit</value>
+  </data>
+  <data name="SOLENOID_FLOW_4" xml:space="preserve">
+    <value>Solénoïde 4 Débit</value>
+  </data>
+  <data name="SOLENOID_FLOW_5" xml:space="preserve">
+    <value>Solénoïde 5 Débit</value>
+  </data>
+  <data name="SOLENOID_FLOW_6" xml:space="preserve">
+    <value>Solénoïde 6 Débit</value>
+  </data>
+  <data name="SOLENOID_NO_FLOW_1" xml:space="preserve">
+    <value>Solénoïde 1 Sans Débit</value>
+  </data>
+  <data name="SOLENOID_NO_FLOW_2" xml:space="preserve">
+    <value>Solénoïde 2 Sans Débit</value>
+  </data>
+  <data name="SOLENOID_NO_FLOW_3" xml:space="preserve">
+    <value>Solénoïde 3 Sans Débit</value>
+  </data>
+  <data name="SOLENOID_NO_FLOW_4" xml:space="preserve">
+    <value>Solénoïde 4 Sans Débit</value>
+  </data>
+  <data name="SOLENOID_NO_FLOW_5" xml:space="preserve">
+    <value>Solénoïde 5 Sans Débit</value>
+  </data>
+  <data name="SOLENOID_NO_FLOW_6" xml:space="preserve">
+    <value>Solénoïde 6 Sans Débit</value>
+  </data>
+  <data name="SOLENOID_NO_VACUUM_1" xml:space="preserve">
+    <value>Solénoïde 1 Sans Vide</value>
+  </data>
+  <data name="SOLENOID_NO_VACUUM_2" xml:space="preserve">
+    <value>Solénoïde 2 Sans Vide</value>
+  </data>
+  <data name="SOLENOID_NO_VACUUM_3" xml:space="preserve">
+    <value>Solénoïde 3 Sans Vide</value>
+  </data>
+  <data name="SOLENOID_NO_VACUUM_4" xml:space="preserve">
+    <value>Solénoïde 4 Sans Vide</value>
+  </data>
+  <data name="SOLENOID_NO_VACUUM_5" xml:space="preserve">
+    <value>Solénoïde 5 Sans Vide</value>
+  </data>
+  <data name="SOLENOID_NO_VACUUM_6" xml:space="preserve">
+    <value>Solénoïde 6 Sans Vide</value>
+  </data>
+  <data name="SOLENOID_PUMP_ERROR_1" xml:space="preserve">
+    <value>Erreur de bobine de pompe #1</value>
+  </data>
+  <data name="SOLENOID_PUMP_ERROR_2" xml:space="preserve">
+    <value>Erreur de bobine de pompe #2</value>
+  </data>
+  <data name="SOLENOID_PUMP_ERROR_3" xml:space="preserve">
+    <value>Erreur de bobine de pompe #3</value>
+  </data>
+  <data name="SOLENOID_PUMP_ERROR_4" xml:space="preserve">
+    <value>Erreur de bobine de pompe #4</value>
+  </data>
+  <data name="SOLENOID_PUMP_ERROR_5" xml:space="preserve">
+    <value>Erreur de bobine de pompe #5</value>
+  </data>
+  <data name="SOLENOID_PUMP_ERROR_6" xml:space="preserve">
+    <value>Erreur de bobine de pompe #6</value>
+  </data>
+  <data name="SOLENOID_VACUUM_1" xml:space="preserve">
+    <value>Solénoïde 1 Vide</value>
+  </data>
+  <data name="SOLENOID_VACUUM_2" xml:space="preserve">
+    <value>Solénoïde 2 Vide</value>
+  </data>
+  <data name="SOLENOID_VACUUM_3" xml:space="preserve">
+    <value>Solénoïde 3 Vide</value>
+  </data>
+  <data name="SOLENOID_VACUUM_4" xml:space="preserve">
+    <value>Solénoïde 4 Vide</value>
+  </data>
+  <data name="SOLENOID_VACUUM_5" xml:space="preserve">
+    <value>Solénoïde 5 Vide</value>
+  </data>
+  <data name="SOLENOID_VACUUM_6" xml:space="preserve">
+    <value>Solénoïde 6 Vide</value>
+  </data>
+  <data name="SPNSP" xml:space="preserve">
+    <value>Espagnol</value>
+  </data>
+  <data name="SYSTEM_CURRENT" xml:space="preserve">
+    <value>Courant du système</value>
+  </data>
+  <data name="TOPOFF" xml:space="preserve">
+    <value>En tête</value>
+  </data>
+  <data name="TRUE" xml:space="preserve">
+    <value>Marche</value>
+  </data>
+  <data name="TUBING_ADAPTER_FLOW" xml:space="preserve">
+    <value>Écoulement dans le tuyau du support</value>
+  </data>
+  <data name="TUBING_ADAPTER_FLOW_PROMPT" xml:space="preserve">
+    <value>Y-a-t’il écoulement dans l’adaptateur?</value>
+  </data>
+  <data name="TUBING_ADAPTER_PROMPT" xml:space="preserve">
+    <value>Connecter l'adaptateur de tube</value>
+  </data>
+  <data name="VACUUM" xml:space="preserve">
+    <value>Vide</value>
+  </data>
+  <data name="VACUUM_ERROR_STATUS" xml:space="preserve">
+    <value>Statut d'erreur d'aspiration</value>
+  </data>
+</root>

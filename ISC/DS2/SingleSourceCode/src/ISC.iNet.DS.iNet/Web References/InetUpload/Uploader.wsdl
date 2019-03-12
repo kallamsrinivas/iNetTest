@@ -1,0 +1,878 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://upload.web.inet.indsci.com" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:intf="http://upload.web.inet.indsci.com" targetNamespace="http://upload.web.inet.indsci.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://upload.web.inet.indsci.com">
+      <xsd:complexType name="EQUIPMENT_BASE">
+        <xsd:sequence>
+          <xsd:element name="accountId" type="xsd:string" />
+          <xsd:element name="sn" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="partNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="setupDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="languageCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="softwareVersion" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="hardwareVersion" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="time" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="uploadEventCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="property" type="intf:PROPERTY" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="component" type="intf:COMPONENT" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EQUIPMENT">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="intf:EQUIPMENT_BASE">
+            <xsd:sequence>
+              <xsd:element name="equipmentType" type="xsd:string" />
+              <xsd:element name="equipmentCode" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="GAS_DETECTION_EQUIPMENT">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="intf:EQUIPMENT_BASE">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" maxOccurs="1" name="jobNumber" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="setupTech" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="location" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="productGeneration" nillable="true" type="xsd:int" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="operationMinutes" nillable="true" type="xsd:int" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="dataVersion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="settingsRefId" nillable="true" type="xsd:long" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="INSTRUMENT">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="intf:GAS_DETECTION_EQUIPMENT">
+            <xsd:sequence>
+              <xsd:element name="instrumentCode" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="instrumentSubType" nillable="true" type="xsd:int" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="accessCode" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="alarms" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="status" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="user" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="twaTimeBase" nillable="true" type="xsd:int" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="totalAlarmMinutes" nillable="true" type="xsd:int" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="lastDSSN" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="lastDockedTime" nillable="true" type="xsd:dateTime" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="latitude" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="longitude" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="altitude" nillable="true" type="xsd:float" />
+              <xsd:element name="bumpInterval" nillable="true" type="xsd:float" />
+              <xsd:element name="calInterval" nillable="true" type="xsd:float" />
+              <xsd:element maxOccurs="unbounded" name="sensor" type="intf:SENSOR" />
+              <xsd:element maxOccurs="unbounded" name="battery" type="intf:BATTERY" />
+              <xsd:element maxOccurs="unbounded" name="cylinder" type="intf:CYLINDER" />
+              <xsd:element minOccurs="0" maxOccurs="unbounded" name="Users" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="unbounded" name="Sites" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="unbounded" name="wirelessModule" type="intf:WIRELESS_MODULE" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ACCESSORY">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="intf:GAS_DETECTION_EQUIPMENT">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" maxOccurs="1" name="equipmentCode" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="lastDSSN" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="COMPONENT">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="sn" nillable="true" type="xsd:string" />
+          <xsd:element name="uid" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="componentType" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="componentCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="partNumber" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="manufacturerCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="manufacturedDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="setupDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element maxOccurs="unbounded" name="property" type="intf:PROPERTY" />
+          <xsd:element name="position" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="installTime" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SENSOR">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="intf:COMPONENT">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" maxOccurs="1" name="birthDate" nillable="true" type="xsd:dateTime" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="alarmAlert" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="alarmLow" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="alarmHigh" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="alarmTWA" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="alarmSTEL" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="overRange" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="calTimeOut" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="polarity" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempMax" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempMin" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="peakReading" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="calGasCode" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="calGasConcentration" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="unitOfMeasurement" nillable="true" type="xsd:int" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="gasDecting" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="responseFactor" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="softwareVersion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="hardwareVersion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="dataVersion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="spanCoefMin" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="spanCoefMax" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="zeroMin" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="zeroMax" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="deadBand" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="filter" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompLow" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompHigh" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompM50" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompM40" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompM30" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompM20" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompM10" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompZ0" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompP10" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompP20" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompP30" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompP40" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompP50" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompP60" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="tempCompP70" nillable="true" type="xsd:float" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="displayDecimal" nillable="true" type="xsd:int" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="BATTERY">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="intf:COMPONENT">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" maxOccurs="1" name="operationMinutes" nillable="true" type="xsd:int" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="dataVersion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="softwareVersion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="hardwareVersion" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="INSTRUMENT_CALIBRATION">
+        <xsd:sequence>
+          <xsd:element name="accountId" type="xsd:string" />
+          <xsd:element name="sn" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="time" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="pass" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="dsSn" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="trigger" nillable="true" type="xsd:string" />
+          <xsd:element maxOccurs="unbounded" name="sensorCalibration" type="intf:SENSOR_CALIBRATION" />
+          <xsd:element maxOccurs="unbounded" name="property" type="intf:PROPERTY" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="scheduleRefId" nillable="true" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="eventTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="nextCalTime" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SENSOR_CALIBRATION">
+        <xsd:sequence>
+          <xsd:element name="uid" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="time" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="pass" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="calStatus" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="spanReading" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="spanCoef" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="zeroOffset" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="baseline" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="duration" nillable="true" type="xsd:int" />
+          <xsd:element maxOccurs="unbounded" name="cylinderUsed" type="intf:CYLINDER_USED" />
+          <xsd:element name="position" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="readingAfterZero" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="timeAfterZero" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="readingAfterPrecondition" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="timeAfterPrecondition" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="readingAfterPurge" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="timeAfterPurge" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="cumulativeResponseTime" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="gasDetecting" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CYLINDER_USED">
+        <xsd:sequence>
+          <xsd:element name="uid" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="gasCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="concentration" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="purpose" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="secondsOn" nillable="true" type="xsd:int" />
+          <xsd:element name="gasOperationGroup" nillable="true" type="xsd:short" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="INSTRUMENT_BUMP_TEST">
+        <xsd:sequence>
+          <xsd:element name="accountId" type="xsd:string" />
+          <xsd:element name="sn" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="time" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="pass" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="dsSn" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="trigger" nillable="true" type="xsd:string" />
+          <xsd:element maxOccurs="unbounded" name="sensorBumpTest" type="intf:SENSOR_BUMP_TEST" />
+          <xsd:element maxOccurs="unbounded" name="property" type="intf:PROPERTY" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="scheduleRefId" nillable="true" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="eventTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="nextBumpTime" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SENSOR_BUMP_TEST">
+        <xsd:sequence>
+          <xsd:element name="uid" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="time" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="reading" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="pass" nillable="true" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="bumpStatus" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="duration" nillable="true" type="xsd:int" />
+          <xsd:element maxOccurs="unbounded" name="cylinderUsed" type="intf:CYLINDER_USED" />
+          <xsd:element name="position" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="cumulativeResponseTime" nillable="true" type="xsd:int" />
+          <xsd:element name="highReading" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="gasDetecting" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DOCKING_STATION">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="intf:GAS_DETECTION_EQUIPMENT">
+            <xsd:sequence>
+              <xsd:element name="dockingStationCode" type="xsd:string" />
+              <xsd:element name="dockingStationType" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="serverSWVersion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="connectorVersion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="activityMinutes" nillable="true" type="xsd:int" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="lastRebootDate" nillable="true" type="xsd:dateTime" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="cluster" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="timezone" nillable="true" type="xsd:string" />
+              <xsd:element maxOccurs="unbounded" name="cylinder" type="intf:CYLINDER" />
+              <xsd:element name="useExpiredCylinders" type="xsd:boolean" />
+              <xsd:element name="lelBumpTestGas" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="CYLINDER">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="intf:COMPONENT">
+            <xsd:sequence>
+              <xsd:element name="cylinderId" type="xsd:int" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="expirationDate" nillable="true" type="xsd:dateTime" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="cylinderCode" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="currentPressure" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="refillDate" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="igas" type="xsd:int" />
+              <xsd:element name="manifold" type="xsd:boolean" />
+              <xsd:element maxOccurs="unbounded" name="cylinderGas" type="intf:CYLINDER_GAS" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="CYLINDER_GAS">
+        <xsd:sequence>
+          <xsd:element name="gasCode" type="xsd:string" />
+          <xsd:element name="concentration" type="xsd:float" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ERROR">
+        <xsd:sequence>
+          <xsd:element name="accountId" type="xsd:string" />
+          <xsd:element name="sn" type="xsd:string" />
+          <xsd:element name="type" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="time" nillable="true" type="xsd:dateTime" />
+          <xsd:element maxOccurs="unbounded" name="errorData" type="intf:ERROR_DATA" />
+          <xsd:element name="dsSn" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="properties" type="intf:PROPERTY" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ERROR_DATA">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="errorCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="errorDetail" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="errorTime" nillable="true" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DIAGNOSTIC">
+        <xsd:sequence>
+          <xsd:element name="accountId" type="xsd:string" />
+          <xsd:element name="sn" type="xsd:string" />
+          <xsd:element name="type" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="time" nillable="true" type="xsd:dateTime" />
+          <xsd:element maxOccurs="unbounded" name="diagnosticData" type="intf:DIAGNOSTIC_DATA" />
+          <xsd:element maxOccurs="unbounded" name="property" type="intf:PROPERTY" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="dsSn" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="scheduleRefId" nillable="true" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DIAGNOSTIC_DATA">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="diagName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="diagValue" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PROPERTY">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="propName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="propValue" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="propType" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="propGroup" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DATALOG_SESSION">
+        <xsd:sequence>
+          <xsd:element name="accountId" type="xsd:string" />
+          <xsd:element name="sn" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="twaTimeBase" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="user" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sessionDate" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sessionNum" nillable="true" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="recordingInterval" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="comments" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="dsSn" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="eventTime" nillable="true" type="xsd:dateTime" />
+          <xsd:element maxOccurs="unbounded" name="sensorSession" type="intf:DATALOG_SENSOR_SESSION" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="scheduleRefId" nillable="true" type="xsd:long" />
+          <xsd:element minOccurs="1" maxOccurs="unbounded" name="properties" type="intf:PROPERTY" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DATALOG_SENSOR_SESSION">
+        <xsd:sequence>
+          <xsd:element name="uid" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="gasCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sensorCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="alarmAlert" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="alarmLow" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="alarmHigh" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="alarmTWA" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="alarmSTEL" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="exposureSD" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="status" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="responseFactorName" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="responseFactorValue" nillable="true" type="xsd:float" />
+          <xsd:element maxOccurs="unbounded" name="readingPeriod" type="intf:DATALOG_PERIOD" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DATALOG_PERIOD">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="period" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="time" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="location" nillable="true" type="xsd:string" />
+          <xsd:element maxOccurs="unbounded" name="reading" type="intf:DATALOG_READING" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DATALOG_READING">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="1" name="sequence" nillable="true" type="xsd:int" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="temperature" nillable="true" type="xsd:short" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="rawReading" nillable="true" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="count" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="COMMAND">
+        <xsd:sequence>
+          <xsd:element name="accountId" type="xsd:string" />
+          <xsd:element name="accountGroupId" type="xsd:string" />
+          <xsd:element name="sn" type="xsd:string" />
+          <xsd:element name="uid" type="xsd:string" />
+          <xsd:element name="cmd" type="xsd:string" />
+          <xsd:element maxOccurs="unbounded" name="parameters" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="uploadInstrument">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="instrument" nillable="true" type="intf:INSTRUMENT" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadInstrumentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="uploadInstrumentReturn" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadCalibration">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="instCalibration" nillable="true" type="intf:INSTRUMENT_CALIBRATION" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadCalibrationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="uploadCalibrationReturn" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadBumpTest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="insBumpTest" nillable="true" type="intf:INSTRUMENT_BUMP_TEST" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadBumpTestResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="uploadBumpTestReturn" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadDiagnostic">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="diagnostic" nillable="true" type="intf:DIAGNOSTIC" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadDiagnosticResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="uploadDiagnosticReturn" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadDataLogging">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="dataLogging" nillable="true" type="intf:DATALOG_SESSION" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadDataLoggingResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="uploadDataLoggingReturn" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadDockingStation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="dockingStation" nillable="true" type="intf:DOCKING_STATION" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadDockingStationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="uploadDockingStationReturn" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadError">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="error" nillable="true" type="intf:ERROR" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadErrorResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="uploadErrorReturn" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeCommand">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="cmd" nillable="true" type="intf:COMMAND" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="executeCommandResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="executeCommandReturn" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadAccessory">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accessory" nillable="true" type="intf:ACCESSORY" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadAccessoryResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="uploadAccessoryReturn" nillable="true" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadAlarmEvent">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="alarmEvent" type="intf:ALARM_EVENT" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadAlarmEventResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="ALARM_EVENT">
+        <xsd:sequence>
+          <xsd:element name="accountId" type="xsd:string" />
+          <xsd:element name="sn" type="xsd:string" />
+          <xsd:element name="sensorUid" type="xsd:string" />
+          <xsd:element name="gasCode" type="xsd:string" />
+          <xsd:element name="time" type="xsd:dateTime" />
+          <xsd:element name="duration" type="xsd:int" />
+          <xsd:element name="peakReading" type="xsd:float" />
+          <xsd:element name="alarmHigh" type="xsd:float" />
+          <xsd:element name="alarmLow" type="xsd:float" />
+          <xsd:element name="user" type="xsd:string" />
+          <xsd:element name="site" type="xsd:string" />
+          <xsd:element name="dsSn" type="xsd:string" />
+          <xsd:element name="eventTime" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="properties" type="intf:PROPERTY" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="scheduleRefId" nillable="true" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="uploadDebugLog">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="debugLog" type="intf:DEBUG_LOG" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadDebugLogResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="DEBUG_LOG">
+        <xsd:sequence>
+          <xsd:element name="accountId" type="xsd:string" />
+          <xsd:element name="sn" type="xsd:string" />
+          <xsd:element name="time" type="xsd:dateTime" />
+          <xsd:element name="log" type="xsd:string" />
+          <xsd:element name="referenceId" nillable="true" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="WIRELESS_MODULE">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="intf:COMPONENT">
+            <xsd:sequence>
+              <xsd:element name="macAddress" type="xsd:string" />
+              <xsd:element name="softwareVersion" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="hardwareVersion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="radioHardwareVersion" nillable="true" type="xsd:string" />
+              <xsd:element minOccurs="0" maxOccurs="1" name="osVersion" nillable="true" type="xsd:string" />
+              <xsd:element name="transmissionInterval" type="xsd:long" />
+              <xsd:element name="status" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="uploadDockingStationDatabase">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="databaseUpload" type="intf:DATABASE_UPLOAD" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadDockingStationDatabaseResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="DATABASE_UPLOAD">
+        <xsd:sequence>
+          <xsd:element name="accountId" type="xsd:string" />
+          <xsd:element name="sn" type="xsd:string" />
+          <xsd:element name="time" type="xsd:dateTime" />
+          <xsd:element name="databaseName" type="xsd:string" />
+          <xsd:element name="databaseFile" type="xsd:hexBinary" />
+          <xsd:element name="referenceId" nillable="true" type="xsd:long" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="uploadEquipment">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="equipment" type="intf:EQUIPMENT" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="uploadEquipmentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="uploadDataLoggingResponse">
+    <wsdl:part name="parameters" element="intf:uploadDataLoggingResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadBumpTestRequest">
+    <wsdl:part name="parameters" element="intf:uploadBumpTest" />
+  </wsdl:message>
+  <wsdl:message name="uploadErrorRequest">
+    <wsdl:part name="parameters" element="intf:uploadError" />
+  </wsdl:message>
+  <wsdl:message name="uploadInstrumentResponse">
+    <wsdl:part name="parameters" element="intf:uploadInstrumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadDockingStationDatabaseResponse">
+    <wsdl:part name="parameters" element="intf:uploadDockingStationDatabaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadDockingStationDatabaseRequest">
+    <wsdl:part name="parameters" element="intf:uploadDockingStationDatabase" />
+  </wsdl:message>
+  <wsdl:message name="uploadCalibrationRequest">
+    <wsdl:part name="parameters" element="intf:uploadCalibration" />
+  </wsdl:message>
+  <wsdl:message name="uploadDiagnosticResponse">
+    <wsdl:part name="parameters" element="intf:uploadDiagnosticResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadCalibrationResponse">
+    <wsdl:part name="parameters" element="intf:uploadCalibrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadDebugLogRequest">
+    <wsdl:part name="parameters" element="intf:uploadDebugLog" />
+  </wsdl:message>
+  <wsdl:message name="uploadDockingStationResponse">
+    <wsdl:part name="parameters" element="intf:uploadDockingStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="executeCommandRequest">
+    <wsdl:part name="parameters" element="intf:executeCommand" />
+  </wsdl:message>
+  <wsdl:message name="uploadEquipmentResponse">
+    <wsdl:part name="parameters" element="intf:uploadEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadAccessoryResponse">
+    <wsdl:part name="parameters" element="intf:uploadAccessoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadBumpTestResponse">
+    <wsdl:part name="parameters" element="intf:uploadBumpTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadAlarmEventRequest">
+    <wsdl:part name="parameters" element="intf:uploadAlarmEvent" />
+  </wsdl:message>
+  <wsdl:message name="uploadDataLoggingRequest">
+    <wsdl:part name="parameters" element="intf:uploadDataLogging" />
+  </wsdl:message>
+  <wsdl:message name="uploadDockingStationRequest">
+    <wsdl:part name="parameters" element="intf:uploadDockingStation" />
+  </wsdl:message>
+  <wsdl:message name="uploadDiagnosticRequest">
+    <wsdl:part name="parameters" element="intf:uploadDiagnostic" />
+  </wsdl:message>
+  <wsdl:message name="uploadDebugLogResponse">
+    <wsdl:part name="parameters" element="intf:uploadDebugLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="executeCommandResponse">
+    <wsdl:part name="parameters" element="intf:executeCommandResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadErrorResponse">
+    <wsdl:part name="parameters" element="intf:uploadErrorResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadAlarmEventResponse">
+    <wsdl:part name="parameters" element="intf:uploadAlarmEventResponse" />
+  </wsdl:message>
+  <wsdl:message name="uploadInstrumentRequest">
+    <wsdl:part name="parameters" element="intf:uploadInstrument" />
+  </wsdl:message>
+  <wsdl:message name="uploadEquipmentRequest">
+    <wsdl:part name="parameters" element="intf:uploadEquipment" />
+  </wsdl:message>
+  <wsdl:message name="uploadAccessoryRequest">
+    <wsdl:part name="parameters" element="intf:uploadAccessory" />
+  </wsdl:message>
+  <wsdl:portType name="Uploader">
+    <wsdl:operation name="uploadInstrument">
+      <wsdl:input name="uploadInstrumentRequest" message="intf:uploadInstrumentRequest" />
+      <wsdl:output name="uploadInstrumentResponse" message="intf:uploadInstrumentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadCalibration">
+      <wsdl:input name="uploadCalibrationRequest" message="intf:uploadCalibrationRequest" />
+      <wsdl:output name="uploadCalibrationResponse" message="intf:uploadCalibrationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadBumpTest">
+      <wsdl:input name="uploadBumpTestRequest" message="intf:uploadBumpTestRequest" />
+      <wsdl:output name="uploadBumpTestResponse" message="intf:uploadBumpTestResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadDiagnostic">
+      <wsdl:input name="uploadDiagnosticRequest" message="intf:uploadDiagnosticRequest" />
+      <wsdl:output name="uploadDiagnosticResponse" message="intf:uploadDiagnosticResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadDataLogging">
+      <wsdl:input name="uploadDataLoggingRequest" message="intf:uploadDataLoggingRequest" />
+      <wsdl:output name="uploadDataLoggingResponse" message="intf:uploadDataLoggingResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadDockingStation">
+      <wsdl:input name="uploadDockingStationRequest" message="intf:uploadDockingStationRequest" />
+      <wsdl:output name="uploadDockingStationResponse" message="intf:uploadDockingStationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadError">
+      <wsdl:input name="uploadErrorRequest" message="intf:uploadErrorRequest" />
+      <wsdl:output name="uploadErrorResponse" message="intf:uploadErrorResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="executeCommand">
+      <wsdl:input name="executeCommandRequest" message="intf:executeCommandRequest" />
+      <wsdl:output name="executeCommandResponse" message="intf:executeCommandResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadAlarmEvent">
+      <wsdl:input message="intf:uploadAlarmEventRequest" />
+      <wsdl:output message="intf:uploadAlarmEventResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadDebugLog">
+      <wsdl:input message="intf:uploadDebugLogRequest" />
+      <wsdl:output message="intf:uploadDebugLogResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadDockingStationDatabase">
+      <wsdl:input message="intf:uploadDockingStationDatabaseRequest" />
+      <wsdl:output message="intf:uploadDockingStationDatabaseResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadAccessory">
+      <wsdl:input message="intf:uploadAccessoryRequest" />
+      <wsdl:output message="intf:uploadAccessoryResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="uploadEquipment">
+      <wsdl:input message="intf:uploadEquipmentRequest" />
+      <wsdl:output message="intf:uploadEquipmentResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UploaderSoapBinding" type="intf:Uploader">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="uploadInstrument">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="uploadInstrumentRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="uploadInstrumentResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadCalibration">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="uploadCalibrationRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="uploadCalibrationResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadBumpTest">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="uploadBumpTestRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="uploadBumpTestResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadDiagnostic">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="uploadDiagnosticRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="uploadDiagnosticResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadDataLogging">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="uploadDataLoggingRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="uploadDataLoggingResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadDockingStation">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="uploadDockingStationRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="uploadDockingStationResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadError">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="uploadErrorRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="uploadErrorResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="executeCommand">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="executeCommandRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="executeCommandResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadAlarmEvent">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadDebugLog">
+      <wsdlsoap:operation soapAction="http://upload.web.inet.indsci.com/uploadDebugLog" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadDockingStationDatabase">
+      <wsdlsoap:operation soapAction="http://upload.web.inet.indsci.com/uploadDockingStationDatabase" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadAccessory">
+      <wsdlsoap:operation soapAction="http://upload.web.inet.indsci.com/uploadAccessory" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="uploadEquipment">
+      <wsdlsoap:operation soapAction="http://upload.web.inet.indsci.com/uploadEquipment" />
+      <wsdl:input>
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UploaderService">
+    <wsdl:port name="Uploader" binding="intf:UploaderSoapBinding">
+      <wsdlsoap:address location="http://inetuploaddev01.indsci.com:80/UploadWeb/secureServices/Uploader" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

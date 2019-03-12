@@ -1,0 +1,815 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:intf="http://configuration.web.inet.indsci.com" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsi="http://ws-i.org/profiles/basic/1.1/xsd" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://configuration.web.inet.indsci.com" targetNamespace="http://configuration.web.inet.indsci.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://configuration.web.inet.indsci.com">
+      <xsd:element name="exchangeStatusInformationResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="exchangeStatusInformationReturn" nillable="true" type="impl:STATUS_INFORMATION" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="downloadKnownCylinders">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountId" nillable="true" type="xsd:string" />
+            <xsd:element name="dockingStationSn" nillable="true" type="xsd:string" />
+            <xsd:element name="cylindersVersion" nillable="true" type="xsd:dateTime" />
+            <xsd:element name="dockingStationVersion" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="downloadKnownCylindersResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="downloadKnownCylindersReturn" nillable="true" type="impl:CYLINDERS" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="downloadEventSchedules">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountId" nillable="true" type="xsd:string" />
+            <xsd:element name="dockingStationSn" nillable="true" type="xsd:string" />
+            <xsd:element name="instrumentSn" type="xsd:string" />
+            <xsd:element name="schedulesVersion" nillable="true" type="xsd:dateTime" />
+            <xsd:element name="dockingStationSoftwareVersion" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="downloadEventSchedulesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="downloadEventSchedulesReturn" nillable="true" type="impl:EVENT_SCHEDULES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="downloadRecentEvents">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountId" nillable="true" type="xsd:string" />
+            <xsd:element name="dockingStationSn" nillable="true" type="xsd:string" />
+            <xsd:element name="eventsVersion" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="downloadRecentEventsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="downloadRecentEventsReturn" nillable="true" type="impl:RECENT_EVENTS" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="exchangeStatusInformation">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountId" nillable="true" type="xsd:string" />
+            <xsd:element name="dockingStationSn" nillable="true" type="xsd:string" />
+            <xsd:element name="instrumentSn" nillable="true" type="xsd:string" />
+            <xsd:element name="currentDockingStationOperation" nillable="true" type="xsd:string" />
+            <xsd:element name="nextCalDate" nillable="true" type="xsd:dateTime" />
+            <xsd:element name="nextBumpDate" nillable="true" type="xsd:dateTime" />
+            <xsd:element name="returnVersions" type="xsd:boolean" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="STATUS_INFORMATION">
+        <xsd:sequence>
+          <xsd:element name="accountId" nillable="true" type="xsd:string" />
+          <xsd:element name="currentTime" type="xsd:dateTime" />
+          <xsd:element name="schedulesVersion" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="settingsVersion" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="cylindersVersion" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="eventsVersion" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="criticalErrorsVersion" nillable="true" type="xsd:dateTime" />
+          <xsd:element name="activated" type="xsd:boolean" />
+          <xsd:element name="isManufacturing" type="xsd:boolean" />
+          <xsd:element name="serviceCode" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CYLINDER_CHANGE">
+        <xsd:sequence>
+          <xsd:element name="changeType" nillable="true" type="impl:CHANGE_TYPE" />
+          <xsd:element name="cylinder" nillable="true" type="impl:CYLINDER" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="CHANGE_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="CREATE" />
+          <xsd:enumeration value="UPDATE" />
+          <xsd:enumeration value="DELETE" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="CYLINDER">
+        <xsd:sequence>
+          <xsd:element name="partNumber" nillable="true" type="xsd:string" />
+          <xsd:element name="manufacturerCode" nillable="true" type="xsd:string" />
+          <xsd:element name="cylinderGases" nillable="true" type="impl:ArrayOfCYLINDER_GAS" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CYLINDER_GAS">
+        <xsd:sequence>
+          <xsd:element name="gasCode" nillable="true" type="xsd:string" />
+          <xsd:element name="concentration" type="xsd:float" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfCYLINDER_GAS">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="CYLINDER_GAS" nillable="true" type="impl:CYLINDER_GAS" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfCYLINDER_CHANGE">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="CYLINDER_CHANGE" nillable="true" type="impl:CYLINDER_CHANGE" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EVENT_SCHEDULES">
+        <xsd:sequence>
+          <xsd:element name="schedulesVersion" type="xsd:dateTime" />
+          <xsd:element name="eventScheduleChanges" nillable="true" type="impl:ArrayOfEVENT_SCHEDULE_CHANGE" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EVENT_SCHEDULE_CHANGE">
+        <xsd:sequence>
+          <xsd:element name="changeType" nillable="true" type="impl:CHANGE_TYPE" />
+          <xsd:element name="eventSchedule" nillable="true" type="impl:EVENT_SCHEDULE" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="EVENT_SCHEDULE">
+        <xsd:sequence>
+          <xsd:element name="referenceID" type="xsd:long" />
+          <xsd:element name="eventType" nillable="true" type="xsd:string" />
+          <xsd:element name="equipmentType" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="equipmentCode" nillable="true" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="equipmentSubTypeCode" nillable="true" type="xsd:string" />
+          <xsd:element name="name" nillable="true" type="xsd:string" />
+          <xsd:element name="equipmentSerialNumbers" nillable="true" type="impl:ArrayOf_1068739491_nillable_string" />
+          <xsd:element name="componentTypes" nillable="true" type="impl:ArrayOf_1068739491_nillable_string" />
+          <xsd:element name="schedule" nillable="true" type="impl:BASE_SCHEDULE" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="properties" type="impl:PROPERTY" />
+          <xsd:element name="enabled" type="xsd:boolean" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOf_1068739491_nillable_string">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BASE_SCHEDULE">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="TIMED_SCHEDULE">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:BASE_SCHEDULE">
+            <xsd:sequence>
+              <xsd:element name="startDate" type="xsd:dateTime" />
+              <xsd:element name="interval" type="xsd:short" />
+              <xsd:element name="runTime" nillable="true" type="xsd:string" />
+              <xsd:element name="ondocking" nillable="true" type="xsd:boolean" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfEVENT_SCHEDULE_CHANGE">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="EVENT_SCHEDULE_CHANGE" nillable="true" type="impl:EVENT_SCHEDULE_CHANGE" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="RECENT_EVENTS">
+        <xsd:sequence>
+          <xsd:element name="equipmentEvents" nillable="true" type="impl:ArrayOfINSTRUMENT_EVENT" />
+          <xsd:element name="componentEvents" type="impl:ArrayOfCOMPONENT_EVENT" />
+          <xsd:element name="eventsVersion" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="INSTRUMENT_EVENT">
+        <xsd:sequence>
+          <xsd:element name="serialNumber" nillable="true" type="xsd:string" />
+          <xsd:element name="eventType" nillable="true" type="xsd:string" />
+          <xsd:element name="passed" nillable="true" type="xsd:boolean" />
+          <xsd:element name="time" type="xsd:dateTime" />
+          <xsd:element name="equipmentVersion" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="COMPONENT_EVENT">
+        <xsd:sequence>
+          <xsd:element name="equipmentSerialNumber" type="xsd:string" />
+          <xsd:element name="equipmentEventTime" type="xsd:dateTime" />
+          <xsd:element name="eventType" type="xsd:string" />
+          <xsd:element name="serialNumber" nillable="true" type="xsd:string" />
+          <xsd:element name="passed" nillable="true" type="xsd:boolean" />
+          <xsd:element name="time" type="xsd:dateTime" />
+          <xsd:element name="equipmentVersion" type="xsd:string" />
+          <xsd:element name="position" nillable="true" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfCOMPONENT_EVENT">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="COMPONENT_EVENT" nillable="true" type="impl:COMPONENT_EVENT" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfINSTRUMENT_EVENT">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="INSTRUMENT_EVENT" nillable="true" type="impl:INSTRUMENT_EVENT" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DAILY_SCHEDULE">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:TIMED_SCHEDULE">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="HOURLY_SCHEDULE">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:TIMED_SCHEDULE">
+            <xsd:sequence>
+              <xsd:element name="sunday" type="xsd:boolean" />
+              <xsd:element name="monday" type="xsd:boolean" />
+              <xsd:element name="tuesday" type="xsd:boolean" />
+              <xsd:element name="wednesday" type="xsd:boolean" />
+              <xsd:element name="thursday" type="xsd:boolean" />
+              <xsd:element name="friday" type="xsd:boolean" />
+              <xsd:element name="saturday" type="xsd:boolean" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="MONTHLY_SCHEDULE">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:TIMED_SCHEDULE">
+            <xsd:sequence>
+              <xsd:element name="dayOfMonth" nillable="true" type="xsd:short" />
+              <xsd:element name="week" nillable="true" type="xsd:short" />
+              <xsd:element name="dayOfWeek" nillable="true" type="xsd:short" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="UPON_DOCKING_SCHEDULE">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:BASE_SCHEDULE">
+            <xsd:sequence />
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="ONE_TIME_SCHEDULE">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:BASE_SCHEDULE">
+            <xsd:sequence>
+              <xsd:element name="runAfter" type="xsd:dateTime" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="WEEKLY_SCHEDULE">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:TIMED_SCHEDULE">
+            <xsd:sequence>
+              <xsd:element name="sunday" type="xsd:boolean" />
+              <xsd:element name="monday" type="xsd:boolean" />
+              <xsd:element name="tuesday" type="xsd:boolean" />
+              <xsd:element name="wednesday" type="xsd:boolean" />
+              <xsd:element name="thursday" type="xsd:boolean" />
+              <xsd:element name="friday" type="xsd:boolean" />
+              <xsd:element name="saturday" type="xsd:boolean" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="CYLINDERS">
+        <xsd:sequence>
+          <xsd:element name="cylinderChanges" type="impl:ArrayOfCYLINDER_CHANGE" />
+          <xsd:element name="cylindersVersion" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FORCED_SCHEDULE">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:BASE_SCHEDULE" />
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:element name="downloadRemovedEquipment">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountId" nillable="true" type="xsd:string" />
+            <xsd:element name="dockingStationSn" nillable="true" type="xsd:string" />
+            <xsd:element name="equipmentVersion" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="downloadRemovedEquipmentResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="downloadRemovedEquipmentReturn" type="impl:REMOVED_EQUIPMENT" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="REMOVED_EQUIPMENT">
+        <xsd:sequence>
+          <xsd:element name="removedInstruments" type="impl:ArrayOf_1068739491_nillable_string" />
+          <xsd:element name="removedSensors" type="impl:ArrayOf_1068739491_nillable_string" />
+          <xsd:element name="equipmentVersion" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="downloadFirmwareUpdate">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountId" nillable="true" type="xsd:string" />
+            <xsd:element name="dockingStationSn" nillable="true" type="xsd:string" />
+            <xsd:element name="instrumentSn" nillable="true" type="xsd:string" />
+            <xsd:element name="chunkNumber" type="xsd:int" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="downloadFirmwareUpdateResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="firmawareUpdate" type="impl:FIRMWARE_UPDATE" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="FIRMWARE_UPDATE">
+        <xsd:sequence>
+          <xsd:element name="equipmentCode" type="xsd:string" />
+          <xsd:element name="version" type="xsd:string" />
+          <xsd:element name="checkSum" type="xsd:base64Binary" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="firmwareFile" type="xsd:base64Binary" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="downloadSettings">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountId" type="xsd:string" />
+            <xsd:element name="dockingStationSn" type="xsd:string" />
+            <xsd:element name="settingsVersion" nillable="true" type="xsd:dateTime" />
+            <xsd:element name="dockingStationSoftwareVersion" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="downloadSettingsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="settings" type="impl:SETTINGS" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="downloadCriticalErrors">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="accountId" type="xsd:string" />
+            <xsd:element name="dockingStationSn" nillable="true" type="xsd:string" />
+            <xsd:element name="criticalErrorsVersion" nillable="true" type="xsd:dateTime" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="downloadCriticalErrorsResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="criticalErrors" type="impl:CRITICAL_ERRORS" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:complexType name="SETTINGS">
+        <xsd:sequence>
+          <xsd:element name="dockingStationSettings" type="impl:DOCKING_STATION_SETTINGS" />
+          <xsd:element name="manifoldsAttached" type="impl:ArrayOfAttachedManifold" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="manualCylinders" type="impl:MANUAL_CYLINDERS" />
+          <xsd:element name="instrumentsToDeny" type="impl:ArrayOf_1068739491_nillable_string" />
+          <xsd:element name="replacedInstruments" type="impl:ArrayOf_1068739491_nillable_string" />
+          <xsd:element name="isDockingStationReplaced" type="xsd:boolean" />
+          <xsd:element name="settingsVersion" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="instrumentSettings" type="impl:INSTRUMENT_SETTINGS_GROUP" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="defaultInstrumentSettings" type="impl:DEFAULT_INSTRUMENT_SETTINGS" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="instrumentSpecificSettings" type="impl:INSTRUMENT_SPECIFIC_SETTINGS" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CRITICAL_ERRORS">
+        <xsd:sequence>
+          <xsd:element name="criticalErrorsVersion" nillable="true" type="xsd:dateTime" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="criticalError" type="impl:CRITICAL_ERROR" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CRITICAL_ERROR">
+        <xsd:sequence>
+          <xsd:element name="code" type="xsd:string" />
+          <xsd:element name="description" type="xsd:string" />
+          <xsd:element name="parsetext" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ATTACHED_MANIFOLD">
+        <xsd:sequence>
+          <xsd:element name="port" type="xsd:int" />
+          <xsd:element name="uid" type="xsd:string" />
+          <xsd:element name="partNumber" type="xsd:string" />
+          <xsd:element name="installTime" type="xsd:dateTime" />
+          <xsd:element name="expirationDate" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DOCKING_STATION_SETTINGS">
+        <xsd:sequence>
+          <xsd:element name="language" type="xsd:string" />
+          <xsd:element name="menuLocked" type="xsd:boolean" />
+          <xsd:element name="useAudibleAlarm" type="xsd:boolean" />
+          <xsd:element name="logCapacity" type="xsd:int" />
+          <xsd:element name="logLevel" type="xsd:string" />
+          <xsd:element name="webAppEnabled" type="xsd:boolean" />
+          <xsd:element name="webAppPassword" type="xsd:string" />
+          <xsd:element name="iNetURL" type="xsd:string" />
+          <xsd:element name="iNetPingInterval" type="xsd:int" />
+          <xsd:element name="iNetUserName" type="xsd:string" />
+          <xsd:element name="iNetPassword" type="xsd:string" />
+          <xsd:element name="allowSingleSensorMode" type="xsd:boolean" />
+          <xsd:element name="printPerformedBy" type="xsd:boolean" />
+          <xsd:element name="printReceivedBy" type="xsd:boolean" />
+          <xsd:element name="port1AllowFreshAir" type="xsd:boolean" />
+          <xsd:element name="port1AllowZeroAir" type="xsd:boolean" />
+          <xsd:element name="clearPeaksOnDocking" type="xsd:boolean" />
+          <xsd:element name="purgeGasesAfterBump" type="xsd:boolean" />
+          <xsd:element name="timezone" type="impl:TIMEZONE" />
+          <xsd:element name="ReferenceID" type="xsd:long" />
+          <xsd:element name="networkSettings" type="impl:NETWORK_SETTINGS" />
+          <xsd:element name="useExpiredCylinders" type="xsd:boolean" />
+          <xsd:element name="stopOnFailedBumptest" type="xsd:boolean" />
+          <xsd:element name="upgradeOnErrorFail" type="xsd:boolean" />
+          <xsd:element name="offlineDeadband" type="xsd:int" />
+          <xsd:element name="highTimeout" type="xsd:int" />
+          <xsd:element name="mediumTimeout" type="xsd:int" />
+          <xsd:element name="lowTimeout" type="xsd:int" />
+          <xsd:element name="lelBumpTestGas" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="sensorCalibrationLimits" type="impl:SENSOR_CALIBRATION_LIMITS" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="NETWORK_SETTINGS">
+        <xsd:sequence>
+          <xsd:element name="dhcpEnabled" type="xsd:boolean" />
+          <xsd:element name="ipAddress" type="xsd:string" />
+          <xsd:element name="subnetMask" type="xsd:string" />
+          <xsd:element name="gateway" type="xsd:string" />
+          <xsd:element name="dnsPrimary" type="xsd:string" />
+          <xsd:element name="dnsSecondary" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TIMEZONE">
+        <xsd:sequence>
+          <xsd:element name="bias" type="xsd:int" />
+          <xsd:element name="standardName" type="xsd:string" />
+          <xsd:element name="standardDate" type="impl:TIMEZONEDATE" />
+          <xsd:element name="standardBias" type="xsd:int" />
+          <xsd:element name="daylightName" type="xsd:string" />
+          <xsd:element name="daylightDate" type="impl:TIMEZONEDATE" />
+          <xsd:element name="daylightBias" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TIMEZONEDATE">
+        <xsd:sequence>
+          <xsd:element name="month" type="xsd:int" />
+          <xsd:element name="dayOfWeek" type="xsd:int" />
+          <xsd:element name="day" type="xsd:int" />
+          <xsd:element name="hour" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfAttachedManifold">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="AttachedManifold" type="impl:ATTACHED_MANIFOLD" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="INSTRUMENT_SETTINGS_BASE">
+        <xsd:sequence>
+          <xsd:element name="ReferenceID" type="xsd:long" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="sensorSettings" type="impl:SENSOR_SETTINGS" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="favoritePIDFactors" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="customPIDFactors" type="impl:CUSTOM_PID_FACTOR" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="options" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="wirelessSettings" type="impl:COMPONENT_SETTING" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="wirelessOptions" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SENSOR_SETTINGS">
+        <xsd:sequence>
+          <xsd:element name="sensorCode" type="xsd:string" />
+          <xsd:element name="enabled" type="xsd:boolean" />
+          <xsd:element minOccurs="0" maxOccurs="1" name="alert" nillable="true" type="xsd:float" />
+          <xsd:element name="low" type="xsd:float" />
+          <xsd:element name="high" type="xsd:float" />
+          <xsd:element name="STEL" type="xsd:float" />
+          <xsd:element name="TWA" type="xsd:float" />
+          <xsd:element name="gasDetected" type="xsd:string" />
+          <xsd:element name="calibrationGas" type="xsd:string" />
+          <xsd:element name="calibrationGasConcentration" type="xsd:float" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="INSTRUMENT_SETTINGS_GROUP">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="instrumentSerialNumbers" type="xsd:string" />
+          <xsd:element name="instrumentSettings" type="impl:INSTRUMENT_SETTINGS_BASE" />
+          <xsd:element name="changeType" type="impl:CHANGE_TYPE" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CUSTOM_PID_FACTOR">
+        <xsd:sequence>
+          <xsd:element name="gasCode" type="xsd:string" />
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="factor" type="xsd:float" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="DEFAULT_INSTRUMENT_SETTINGS">
+        <xsd:sequence>
+          <xsd:element name="instrumentSettings" type="impl:INSTRUMENT_SETTINGS_BASE" />
+          <xsd:element name="equipmentCode" type="xsd:string" />
+          <xsd:element name="changeType" type="impl:CHANGE_TYPE" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="INSTRUMENT_SPECIFIC_SETTINGS">
+        <xsd:sequence>
+          <xsd:element name="serialNumber" type="xsd:string" />
+          <xsd:element name="activeUser" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="users" type="xsd:string" />
+          <xsd:element name="activeSite" type="xsd:string" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="sites" type="xsd:string" />
+          <xsd:element name="accessLevel" nillable="true" type="xsd:short" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="PROPERTY">
+        <xsd:sequence>
+          <xsd:element name="name" type="xsd:string" />
+          <xsd:element name="value" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="MANUAL_CYLINDERS">
+        <xsd:sequence>
+          <xsd:element name="uid" type="xsd:string" />
+          <xsd:element name="port" type="xsd:int" />
+          <xsd:element name="partNumber" type="xsd:string" />
+          <xsd:element name="installTime" type="xsd:dateTime" />
+          <xsd:element name="expirationDate" type="xsd:dateTime" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SENSOR_CALIBRATION_LIMITS">
+        <xsd:sequence>
+          <xsd:element name="spanReserveThreshold" type="xsd:float" />
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="sensorAgeSettings" type="impl:SENSOR_AGE_SETTINGS" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="SENSOR_AGE_SETTINGS">
+        <xsd:sequence>
+          <xsd:element name="code" type="xsd:string" />
+          <xsd:element name="age" type="xsd:int" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="INSTRUMENT_SETTINGS">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:INSTRUMENT_SETTINGS_BASE">
+            <xsd:sequence>
+              <xsd:element name="accessCode" type="xsd:string" />
+              <xsd:element name="recordingInterval" type="xsd:int" />
+              <xsd:element name="TWATimeBase" type="xsd:int" />
+              <xsd:element name="bumpThreshold" type="xsd:int" />
+              <xsd:element name="bumpTimeout" type="xsd:int" />
+              <xsd:element default="0" name="backlightTimeout" type="xsd:int" />
+              <xsd:element name="magneticFieldDuration" type="xsd:int" />
+              <xsd:element name="language" type="xsd:string" />
+              <xsd:element name="bumpInterval" type="xsd:float" />
+              <xsd:element name="calInterval" type="xsd:float" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="INSTRUMENT_SETTINGS_HEADER">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:INSTRUMENT_SETTINGS_BASE">
+            <xsd:sequence>
+              <xsd:element minOccurs="0" maxOccurs="unbounded" name="instrumentSettings" type="impl:INSTRUMENT_SETTING" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="INSTRUMENT_SETTING">
+        <xsd:sequence>
+          <xsd:element name="name" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="INSTRUMENT_SETTING_STRING">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:INSTRUMENT_SETTING">
+            <xsd:sequence>
+              <xsd:element name="value" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="INSTRUMENT_SETTING_FLOAT">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:INSTRUMENT_SETTING">
+            <xsd:sequence>
+              <xsd:element name="value" type="xsd:float" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="INSTRUMENT_SETTING_INTEGER">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:INSTRUMENT_SETTING">
+            <xsd:sequence>
+              <xsd:element name="value" type="xsd:int" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="COMPONENT_SETTING">
+        <xsd:sequence>
+          <xsd:element name="name" type="xsd:string" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="COMPONENT_SETTING_STRING">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:COMPONENT_SETTING">
+            <xsd:sequence>
+              <xsd:element name="value" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="COMPONENT_SETTING_FLOAT">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:COMPONENT_SETTING">
+            <xsd:sequence>
+              <xsd:element name="value" type="xsd:float" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="COMPONENT_SETTING_INTEGER">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="impl:COMPONENT_SETTING">
+            <xsd:sequence>
+              <xsd:element name="value" type="xsd:int" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="downloadRecentEventsResponse">
+    <wsdl:part name="parameters" element="impl:downloadRecentEventsResponse" />
+  </wsdl:message>
+  <wsdl:message name="downloadCriticalErrorsResponse">
+    <wsdl:part name="parameters" element="impl:downloadCriticalErrorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="downloadKnownCylindersRequest">
+    <wsdl:part name="parameters" element="impl:downloadKnownCylinders" />
+  </wsdl:message>
+  <wsdl:message name="downloadRemovedEquipmentResponse">
+    <wsdl:part name="parameters" element="impl:downloadRemovedEquipmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="downloadCriticalErrorsRequest">
+    <wsdl:part name="parameters" element="impl:downloadCriticalErrors" />
+  </wsdl:message>
+  <wsdl:message name="exchangeStatusInformationResponse">
+    <wsdl:part name="parameters" element="impl:exchangeStatusInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="downloadRecentEventsRequest">
+    <wsdl:part name="parameters" element="impl:downloadRecentEvents" />
+  </wsdl:message>
+  <wsdl:message name="downloadSettingsRequest">
+    <wsdl:part name="parameters" element="impl:downloadSettings" />
+  </wsdl:message>
+  <wsdl:message name="downloadRemovedEquipmentRequest">
+    <wsdl:part name="parameters" element="impl:downloadRemovedEquipment" />
+  </wsdl:message>
+  <wsdl:message name="exchangeStatusInformationRequest">
+    <wsdl:part name="parameters" element="impl:exchangeStatusInformation" />
+  </wsdl:message>
+  <wsdl:message name="downloadEventSchedulesRequest">
+    <wsdl:part name="parameters" element="impl:downloadEventSchedules" />
+  </wsdl:message>
+  <wsdl:message name="downloadEventSchedulesResponse">
+    <wsdl:part name="parameters" element="impl:downloadEventSchedulesResponse" />
+  </wsdl:message>
+  <wsdl:message name="downloadSettingsResponse">
+    <wsdl:part name="parameters" element="impl:downloadSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="downloadFirmwareUpdateResponse">
+    <wsdl:part name="parameters" element="impl:downloadFirmwareUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="downloadKnownCylindersResponse">
+    <wsdl:part name="parameters" element="impl:downloadKnownCylindersResponse" />
+  </wsdl:message>
+  <wsdl:message name="downloadFirmwareUpdateRequest">
+    <wsdl:part name="parameters" element="impl:downloadFirmwareUpdate" />
+  </wsdl:message>
+  <wsdl:portType name="Configuration">
+    <wsdl:operation name="exchangeStatusInformation">
+      <wsdl:input name="exchangeStatusInformationRequest" message="impl:exchangeStatusInformationRequest" />
+      <wsdl:output name="exchangeStatusInformationResponse" message="impl:exchangeStatusInformationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="downloadKnownCylinders">
+      <wsdl:input name="downloadKnownCylindersRequest" message="impl:downloadKnownCylindersRequest" />
+      <wsdl:output name="downloadKnownCylindersResponse" message="impl:downloadKnownCylindersResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="downloadEventSchedules">
+      <wsdl:input name="downloadEventSchedulesRequest" message="impl:downloadEventSchedulesRequest" />
+      <wsdl:output name="downloadEventSchedulesResponse" message="impl:downloadEventSchedulesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="downloadRecentEvents">
+      <wsdl:input name="downloadRecentEventsRequest" message="impl:downloadRecentEventsRequest" />
+      <wsdl:output name="downloadRecentEventsResponse" message="impl:downloadRecentEventsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="downloadRemovedEquipment">
+      <wsdl:input name="downloadRemovedEquipmentRequest" message="impl:downloadRemovedEquipmentRequest" />
+      <wsdl:output name="downloadRemovedEquipmentResponse" message="impl:downloadRemovedEquipmentResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="downloadFirmwareUpdate">
+      <wsdl:input name="downloadFirmwareUpdateRequest" message="impl:downloadFirmwareUpdateRequest" />
+      <wsdl:output name="downloadFirmwareUpdateResponse" message="impl:downloadFirmwareUpdateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="downloadSettings">
+      <wsdl:input name="downloadSettingsRequest" message="impl:downloadSettingsRequest" />
+      <wsdl:output name="downloadSettingsResponse" message="impl:downloadSettingsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="downloadCriticalErrors">
+      <wsdl:input name="downloadCriticalErrorsRequest" message="impl:downloadCriticalErrorsRequest" />
+      <wsdl:output name="downloadCriticalErrorsResponse" message="impl:downloadCriticalErrorsResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ConfigurationSoapBinding" type="impl:Configuration">
+    <wsaw:UsingAddressing wsdl:required="false" />
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="exchangeStatusInformation">
+      <wsdlsoap:operation soapAction="exchangeStatusInformation" />
+      <wsdl:input name="exchangeStatusInformationRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="exchangeStatusInformationResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadKnownCylinders">
+      <wsdlsoap:operation soapAction="downloadKnownCylinders" />
+      <wsdl:input name="downloadKnownCylindersRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="downloadKnownCylindersResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadEventSchedules">
+      <wsdlsoap:operation soapAction="downloadEventSchedules" />
+      <wsdl:input name="downloadEventSchedulesRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="downloadEventSchedulesResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadRecentEvents">
+      <wsdlsoap:operation soapAction="downloadRecentEvents" />
+      <wsdl:input name="downloadRecentEventsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="downloadRecentEventsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadRemovedEquipment">
+      <wsdlsoap:operation soapAction="downloadRemovedEquipment" />
+      <wsdl:input name="downloadRemovedEquipmentRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="downloadRemovedEquipmentResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadFirmwareUpdate">
+      <wsdlsoap:operation soapAction="downloadFirmwareUpdate" />
+      <wsdl:input name="downloadFirmwareUpdateRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="downloadFirmwareUpdateResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadSettings">
+      <wsdlsoap:operation soapAction="downloadSettings" />
+      <wsdl:input name="downloadSettingsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="downloadSettingsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="downloadCriticalErrors">
+      <wsdlsoap:operation soapAction="downloadCriticalErrors" />
+      <wsdl:input name="downloadCriticalErrorsRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="downloadCriticalErrorsResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ConfigurationService">
+    <wsdl:port name="Configuration" binding="impl:ConfigurationSoapBinding">
+      <wsdlsoap:address location="http://inetuploaddev01.indsci.com:80/UploadWeb/secureServices/Configuration" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

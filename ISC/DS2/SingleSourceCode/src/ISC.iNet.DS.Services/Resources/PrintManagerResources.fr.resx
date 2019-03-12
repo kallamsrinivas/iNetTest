@@ -1,0 +1,854 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BP001" xml:space="preserve">
+    <value>Pile 9v</value>
+  </data>
+  <data name="BP002" xml:space="preserve">
+    <value>Piles lithium</value>
+  </data>
+  <data name="BP003" xml:space="preserve">
+    <value>Piles lithium</value>
+  </data>
+  <data name="BP004" xml:space="preserve">
+    <value>Piles alcalines</value>
+  </data>
+  <data name="BP005" xml:space="preserve">
+    <value>Piles alcalines</value>
+  </data>
+  <data name="BP006" xml:space="preserve">
+    <value>Piles lithium à 2 éléments</value>
+  </data>
+  <data name="BP007" xml:space="preserve">
+    <value>Piles lithium à 3 éléments</value>
+  </data>
+  <data name="BP008" xml:space="preserve">
+    <value>Piles alcalines</value>
+  </data>
+  <data name="BP009" xml:space="preserve">
+    <value>Batterie au lithium-ion</value>
+  </data>
+  <data name="BP010" xml:space="preserve">
+    <value>Batterie au lithium-ion</value>
+  </data>
+  <data name="BP011" xml:space="preserve">
+    <value>Batterie au lithium-ion</value>
+  </data>
+  <data name="BP012" xml:space="preserve">
+    <value>Batterie au lithium-ion</value>
+  </data>
+  <data name="BP013" xml:space="preserve">
+    <value>Pack batterie au lithium-ion double cellules</value>
+  </data>
+  <data name="BP014" xml:space="preserve">
+    <value>Pack batterie au lithium-ion double cellules</value>
+  </data>
+  <data name="BP015" xml:space="preserve">
+    <value>Pack batterie au lithium-ion double cellules</value>
+  </data>
+  <data name="BP016" xml:space="preserve">
+    <value>Pack batterie au lithium-ion double cellules</value>
+  </data>
+  <data name="Column_AlarmHigh" xml:space="preserve">
+    <value>Alarme haute</value>
+  </data>
+  <data name="Column_AlarmLow" xml:space="preserve">
+    <value>Alarme basse</value>
+  </data>
+  <data name="Column_AlarmSTEL" xml:space="preserve">
+    <value>Alarme VLE</value>
+  </data>
+  <data name="Column_AlarmTWA" xml:space="preserve">
+    <value>Alarme VME</value>
+  </data>
+  <data name="Column_BumpDateTime" xml:space="preserve">
+    <value>Date/heure test de bon fonctionnement</value>
+  </data>
+  <data name="Column_CalDateTime" xml:space="preserve">
+    <value>Date/heure étalonnage</value>
+  </data>
+  <data name="Column_CylinderExp" xml:space="preserve">
+    <value>Exp bouteille</value>
+  </data>
+  <data name="Column_CylinderID" xml:space="preserve">
+    <value>ID bouteille</value>
+  </data>
+  <data name="Column_Factor" xml:space="preserve">
+    <value>Coefficient</value>
+  </data>
+  <data name="Column_GasType" xml:space="preserve">
+    <value>Type de gaz</value>
+  </data>
+  <data name="Column_PassedFailed" xml:space="preserve">
+    <value>Réussi / échec</value>
+  </data>
+  <data name="Column_SensorReading" xml:space="preserve">
+    <value>Mesure Capteur</value>
+  </data>
+  <data name="Column_SensorSN" xml:space="preserve">
+    <value>N.S. capteur</value>
+  </data>
+  <data name="Column_SensorType" xml:space="preserve">
+    <value>Type de détecteur</value>
+  </data>
+  <data name="Column_SpanGas" xml:space="preserve">
+    <value>Gaz de réglage d'échelle</value>
+  </data>
+  <data name="Column_SpanReserve" xml:space="preserve">
+    <value>Réserve d'échelle</value>
+  </data>
+  <data name="Column_ZeroCylinderExp" xml:space="preserve">
+    <value>Exp Cylindre à Zéro</value>
+  </data>
+  <data name="Column_ZeroCylinderID" xml:space="preserve">
+    <value>ID Cylindre a Zéro</value>
+  </data>
+  <data name="FRESHAIR" xml:space="preserve">
+    <value>FRESHAIR</value>
+  </data>
+  <data name="G0001" xml:space="preserve">
+    <value>Monoxyde de carbone</value>
+  </data>
+  <data name="G0002" xml:space="preserve">
+    <value>Sulfure d'hydrogène</value>
+  </data>
+  <data name="G0003" xml:space="preserve">
+    <value>Dioxyde de soufre</value>
+  </data>
+  <data name="G0004" xml:space="preserve">
+    <value>Dioxyde d’azote</value>
+  </data>
+  <data name="G0005" xml:space="preserve">
+    <value>Chlore</value>
+  </data>
+  <data name="G0006" xml:space="preserve">
+    <value>Dioxyde de chlore</value>
+  </data>
+  <data name="G0007" xml:space="preserve">
+    <value>Acide cyanhydrique</value>
+  </data>
+  <data name="G0008" xml:space="preserve">
+    <value>Phosphine</value>
+  </data>
+  <data name="G0009" xml:space="preserve">
+    <value>Hydrogène</value>
+  </data>
+  <data name="G0011" xml:space="preserve">
+    <value>Dioxyde de carbone</value>
+  </data>
+  <data name="G0012" xml:space="preserve">
+    <value>Acide nitrique</value>
+  </data>
+  <data name="G0013" xml:space="preserve">
+    <value>Ammoniac</value>
+  </data>
+  <data name="G0014" xml:space="preserve">
+    <value>Chlorure d’hydrogène</value>
+  </data>
+  <data name="G0015" xml:space="preserve">
+    <value>Ozone</value>
+  </data>
+  <data name="G0016" xml:space="preserve">
+    <value>Phosgène</value>
+  </data>
+  <data name="G0017" xml:space="preserve">
+    <value>Fluorure d'hydrogène</value>
+  </data>
+  <data name="G0018" xml:space="preserve">
+    <value>Méthane-IR</value>
+  </data>
+  <data name="G0019" xml:space="preserve">
+    <value>Combustible PPM</value>
+  </data>
+  <data name="G0020" xml:space="preserve">
+    <value>Oxygène</value>
+  </data>
+  <data name="G0021" xml:space="preserve">
+    <value>Méthane</value>
+  </data>
+  <data name="G0022" xml:space="preserve">
+    <value>Gaz explo %LIE</value>
+  </data>
+  <data name="G0023" xml:space="preserve">
+    <value>Hexane</value>
+  </data>
+  <data name="G0026" xml:space="preserve">
+    <value>Pentane</value>
+  </data>
+  <data name="G0027" xml:space="preserve">
+    <value>Propane</value>
+  </data>
+  <data name="G0028" xml:space="preserve">
+    <value>Butanediol,1,4-</value>
+  </data>
+  <data name="G0029" xml:space="preserve">
+    <value>Dioxane,1,4-</value>
+  </data>
+  <data name="G0030" xml:space="preserve">
+    <value>Triméthylbenzène,1,2,4-</value>
+  </data>
+  <data name="G0031" xml:space="preserve">
+    <value>Triméthylbenzène,1,2,3-</value>
+  </data>
+  <data name="G0032" xml:space="preserve">
+    <value>Dibromoéthane,1,2-</value>
+  </data>
+  <data name="G0033" xml:space="preserve">
+    <value>Dichlorobenzène,1,2-</value>
+  </data>
+  <data name="G0034" xml:space="preserve">
+    <value>Triméthylbenzène1,3,5-</value>
+  </data>
+  <data name="G0035" xml:space="preserve">
+    <value>Butanol,1-</value>
+  </data>
+  <data name="G0036" xml:space="preserve">
+    <value>Méthoxypropanol</value>
+  </data>
+  <data name="G0037" xml:space="preserve">
+    <value>Propanol,1-</value>
+  </data>
+  <data name="G0038" xml:space="preserve">
+    <value>Acétate de méthyle</value>
+  </data>
+  <data name="G0039" xml:space="preserve">
+    <value>Acrylate de méthyle</value>
+  </data>
+  <data name="G0040" xml:space="preserve">
+    <value>Acétoacétate de méthyle</value>
+  </data>
+  <data name="G0041" xml:space="preserve">
+    <value>Benzoate de méthyle</value>
+  </data>
+  <data name="G0042" xml:space="preserve">
+    <value>Méthacrylate de méthyle</value>
+  </data>
+  <data name="G0043" xml:space="preserve">
+    <value>Butanone,2-</value>
+  </data>
+  <data name="G0044" xml:space="preserve">
+    <value>Formamide de méthyle</value>
+  </data>
+  <data name="G0045" xml:space="preserve">
+    <value>Méthoxyéthanol</value>
+  </data>
+  <data name="G0046" xml:space="preserve">
+    <value>Pentanone,2-</value>
+  </data>
+  <data name="G0047" xml:space="preserve">
+    <value>Picoline,2-</value>
+  </data>
+  <data name="G0048" xml:space="preserve">
+    <value>Propanol,2-</value>
+  </data>
+  <data name="G0049" xml:space="preserve">
+    <value>Diméthylformamide</value>
+  </data>
+  <data name="G0050" xml:space="preserve">
+    <value>Acétamide diméthylique</value>
+  </data>
+  <data name="G0051" xml:space="preserve">
+    <value>Picoline,3-</value>
+  </data>
+  <data name="G0052" xml:space="preserve">
+    <value>Diacétone-alcool</value>
+  </data>
+  <data name="G0053" xml:space="preserve">
+    <value>Acétaldéhyde</value>
+  </data>
+  <data name="G0054" xml:space="preserve">
+    <value>Acétone</value>
+  </data>
+  <data name="G0055" xml:space="preserve">
+    <value>Acétophénone</value>
+  </data>
+  <data name="G0056" xml:space="preserve">
+    <value>Alcool allylique</value>
+  </data>
+  <data name="G0057" xml:space="preserve">
+    <value>Ammoniac</value>
+  </data>
+  <data name="G0058" xml:space="preserve">
+    <value>Acétate d’amyle</value>
+  </data>
+  <data name="G0059" xml:space="preserve">
+    <value>Benzène</value>
+  </data>
+  <data name="G0060" xml:space="preserve">
+    <value>Bromure de Méthyle</value>
+  </data>
+  <data name="G0061" xml:space="preserve">
+    <value>Butadiène</value>
+  </data>
+  <data name="G0062" xml:space="preserve">
+    <value>Butoxyéthanol</value>
+  </data>
+  <data name="G0063" xml:space="preserve">
+    <value>Acétate de butyle</value>
+  </data>
+  <data name="G0064" xml:space="preserve">
+    <value>Tétrachloroéthylène</value>
+  </data>
+  <data name="G0065" xml:space="preserve">
+    <value>Dichloroéthane,1,1-</value>
+  </data>
+  <data name="G0066" xml:space="preserve">
+    <value>Éthylbenzène</value>
+  </data>
+  <data name="G0067" xml:space="preserve">
+    <value>Trichloroéthylène</value>
+  </data>
+  <data name="G0068" xml:space="preserve">
+    <value>Acétoacétate d’éthyle</value>
+  </data>
+  <data name="G0069" xml:space="preserve">
+    <value>Chlorobenzène</value>
+  </data>
+  <data name="G0070" xml:space="preserve">
+    <value>Cumène</value>
+  </data>
+  <data name="G0071" xml:space="preserve">
+    <value>Cyclohexane</value>
+  </data>
+  <data name="G0072" xml:space="preserve">
+    <value>Cyclohexanone</value>
+  </data>
+  <data name="G0073" xml:space="preserve">
+    <value>Décane</value>
+  </data>
+  <data name="G0074" xml:space="preserve">
+    <value>Diéthylamine</value>
+  </data>
+  <data name="G0075" xml:space="preserve">
+    <value>Diméthoxyméhane</value>
+  </data>
+  <data name="G0076" xml:space="preserve">
+    <value>Épichlorhydrine</value>
+  </data>
+  <data name="G0077" xml:space="preserve">
+    <value>Éthanol</value>
+  </data>
+  <data name="G0078" xml:space="preserve">
+    <value>Éthylène glycol</value>
+  </data>
+  <data name="G0079" xml:space="preserve">
+    <value>Acétate d'éthyle</value>
+  </data>
+  <data name="G0080" xml:space="preserve">
+    <value>Éthylène</value>
+  </data>
+  <data name="G0081" xml:space="preserve">
+    <value>Oxyde d'éthylène</value>
+  </data>
+  <data name="G0082" xml:space="preserve">
+    <value>Butyrolactone</value>
+  </data>
+  <data name="G0083" xml:space="preserve">
+    <value>Sulfure d'hydrogène</value>
+  </data>
+  <data name="G0084" xml:space="preserve">
+    <value>Heptane</value>
+  </data>
+  <data name="G0085" xml:space="preserve">
+    <value>Hexane</value>
+  </data>
+  <data name="G0086" xml:space="preserve">
+    <value>Hydrazine</value>
+  </data>
+  <data name="G0087" xml:space="preserve">
+    <value>Acétate d'isoamyle</value>
+  </data>
+  <data name="G0088" xml:space="preserve">
+    <value>Isopropylamine</value>
+  </data>
+  <data name="G0089" xml:space="preserve">
+    <value>Éther d'isopropyle</value>
+  </data>
+  <data name="G0090" xml:space="preserve">
+    <value>Isobutanol</value>
+  </data>
+  <data name="G0091" xml:space="preserve">
+    <value>Isobutylène</value>
+  </data>
+  <data name="G0092" xml:space="preserve">
+    <value>Isooctane</value>
+  </data>
+  <data name="G0093" xml:space="preserve">
+    <value>Isophorone</value>
+  </data>
+  <data name="G0094" xml:space="preserve">
+    <value>Isopropanol</value>
+  </data>
+  <data name="G0095" xml:space="preserve">
+    <value>Kérosène Jet A</value>
+  </data>
+  <data name="G0096" xml:space="preserve">
+    <value>Kérosène Jet A1</value>
+  </data>
+  <data name="G0097" xml:space="preserve">
+    <value>Kérosène Jet JP5 et JP8</value>
+  </data>
+  <data name="G0098" xml:space="preserve">
+    <value>Méthyléthylcétone</value>
+  </data>
+  <data name="G0099" xml:space="preserve">
+    <value>Oxyde de mésityle</value>
+  </data>
+  <data name="G0100" xml:space="preserve">
+    <value>Méthylisobutylcétone</value>
+  </data>
+  <data name="G0101" xml:space="preserve">
+    <value>Monométhylamine</value>
+  </data>
+  <data name="G0102" xml:space="preserve">
+    <value>Oxyde de méthyle et de tert-butyle</value>
+  </data>
+  <data name="G0103" xml:space="preserve">
+    <value>Alcool méthylbenzylique</value>
+  </data>
+  <data name="G0104" xml:space="preserve">
+    <value>Xylène,m-</value>
+  </data>
+  <data name="G0105" xml:space="preserve">
+    <value>Méthyle pyrrolidine,n-</value>
+  </data>
+  <data name="G0106" xml:space="preserve">
+    <value>Octane</value>
+  </data>
+  <data name="G0107" xml:space="preserve">
+    <value>Xylène,o-</value>
+  </data>
+  <data name="G0108" xml:space="preserve">
+    <value>Alcool phényléthylique</value>
+  </data>
+  <data name="G0109" xml:space="preserve">
+    <value>Phénol</value>
+  </data>
+  <data name="G0110" xml:space="preserve">
+    <value>Phosphine</value>
+  </data>
+  <data name="G0111" xml:space="preserve">
+    <value>Propylène</value>
+  </data>
+  <data name="G0112" xml:space="preserve">
+    <value>Oxyde de propylène</value>
+  </data>
+  <data name="G0113" xml:space="preserve">
+    <value>Xylène,p-</value>
+  </data>
+  <data name="G0114" xml:space="preserve">
+    <value>Pyridine</value>
+  </data>
+  <data name="G0115" xml:space="preserve">
+    <value>Quinoléine</value>
+  </data>
+  <data name="G0116" xml:space="preserve">
+    <value>Styrène</value>
+  </data>
+  <data name="G0117" xml:space="preserve">
+    <value>tert- Butylamine</value>
+  </data>
+  <data name="G0118" xml:space="preserve">
+    <value>Dichlorométhene</value>
+  </data>
+  <data name="G0119" xml:space="preserve">
+    <value>Mercaptan tert-butylique</value>
+  </data>
+  <data name="G0120" xml:space="preserve">
+    <value>Alcool tert-butylique</value>
+  </data>
+  <data name="G0121" xml:space="preserve">
+    <value>Tétrahydrofuranne</value>
+  </data>
+  <data name="G0122" xml:space="preserve">
+    <value>Thiophène</value>
+  </data>
+  <data name="G0123" xml:space="preserve">
+    <value>Toluène</value>
+  </data>
+  <data name="G0124" xml:space="preserve">
+    <value>Essence de Térébenthine</value>
+  </data>
+  <data name="G0125" xml:space="preserve">
+    <value>Vinylcyclohexane</value>
+  </data>
+  <data name="G0126" xml:space="preserve">
+    <value>Acétate de vinyle</value>
+  </data>
+  <data name="G0127" xml:space="preserve">
+    <value>Chlorure de vinyle</value>
+  </data>
+  <data name="G0128" xml:space="preserve">
+    <value>Tube de benzène</value>
+  </data>
+  <data name="G0130" xml:space="preserve">
+    <value>Azote</value>
+  </data>
+  <data name="G0132" xml:space="preserve">
+    <value>Butadiène</value>
+  </data>
+  <data name="G0133" xml:space="preserve">
+    <value>Isobutane</value>
+  </data>
+  <data name="G0200" xml:space="preserve">
+    <value>Acétylène</value>
+  </data>
+  <data name="G0201" xml:space="preserve">
+    <value>Butane</value>
+  </data>
+  <data name="G0202" xml:space="preserve">
+    <value>Ethane</value>
+  </data>
+  <data name="G0203" xml:space="preserve">
+    <value>Méthanol</value>
+  </data>
+  <data name="G0205" xml:space="preserve">
+    <value>Kérosène JP4</value>
+  </data>
+  <data name="G0206" xml:space="preserve">
+    <value>Kérosène JP5</value>
+  </data>
+  <data name="G0207" xml:space="preserve">
+    <value>Kérosène JP8</value>
+  </data>
+  <data name="G0208" xml:space="preserve">
+    <value>Acide Acetique</value>
+  </data>
+  <data name="G0209" xml:space="preserve">
+    <value>Anhydride Acetique</value>
+  </data>
+  <data name="G0210" xml:space="preserve">
+    <value>Arsine</value>
+  </data>
+  <data name="G0211" xml:space="preserve">
+    <value>Bromine</value>
+  </data>
+  <data name="G0212" xml:space="preserve">
+    <value>Disulfure de carbone</value>
+  </data>
+  <data name="G0213" xml:space="preserve">
+    <value>Cyclohéxène</value>
+  </data>
+  <data name="G0214" xml:space="preserve">
+    <value>Gasoil</value>
+  </data>
+  <data name="G0215" xml:space="preserve">
+    <value>Diméthyl sulfoxide</value>
+  </data>
+  <data name="G0216" xml:space="preserve">
+    <value>Ether ethylique</value>
+  </data>
+  <data name="G0217" xml:space="preserve">
+    <value>Iode</value>
+  </data>
+  <data name="G0218" xml:space="preserve">
+    <value>Méthyl mercaptan</value>
+  </data>
+  <data name="G0219" xml:space="preserve">
+    <value>Naphtalène</value>
+  </data>
+  <data name="G0220" xml:space="preserve">
+    <value>Nitrobenzène</value>
+  </data>
+  <data name="G0221" xml:space="preserve">
+    <value>Méthoxyéthoxyéthanol,2-</value>
+  </data>
+  <data name="G0222" xml:space="preserve">
+    <value>Nonane</value>
+  </data>
+  <data name="G0248" xml:space="preserve">
+    <value>Hydrocarbures</value>
+  </data>
+  <data name="G9999" xml:space="preserve">
+    <value>Air extérieur</value>
+  </data>
+  <data name="Label_Battery" xml:space="preserve">
+    <value>Batterie :</value>
+  </data>
+  <data name="Label_BumpDate" xml:space="preserve">
+    <value>Date du test de bon fonctionnement :</value>
+  </data>
+  <data name="Label_BumpThreshold" xml:space="preserve">
+    <value>Seuil d'alarme Bump Test :</value>
+  </data>
+  <data name="Label_BumpTimeout" xml:space="preserve">
+    <value>Temporisation de la fonction :</value>
+  </data>
+  <data name="Label_CalibrationDate" xml:space="preserve">
+    <value>Date de l'étalonnage :</value>
+  </data>
+  <data name="Label_CreatedBy" xml:space="preserve">
+    <value>Créé par :</value>
+  </data>
+  <data name="Label_InstrumentSN" xml:space="preserve">
+    <value>N.S. instrument :</value>
+  </data>
+  <data name="Label_JobNumber" xml:space="preserve">
+    <value>Numéro de travail :</value>
+  </data>
+  <data name="Label_Notes" xml:space="preserve">
+    <value>Remarques:</value>
+  </data>
+  <data name="Label_PartNumber" xml:space="preserve">
+    <value>Numéro de référence :</value>
+  </data>
+  <data name="Label_PerformedBy" xml:space="preserve">
+    <value>Effectué par :</value>
+  </data>
+  <data name="Label_PumpAccessory" xml:space="preserve">
+    <value>Pompe accessoire :</value>
+  </data>
+  <data name="Label_ReceivedBy" xml:space="preserve">
+    <value>Reçu par :</value>
+  </data>
+  <data name="Label_SetupDate" xml:space="preserve">
+    <value>Date d’installation :</value>
+  </data>
+  <data name="Label_SetupTechnician" xml:space="preserve">
+    <value>Technicien d’installation :</value>
+  </data>
+  <data name="S0001" xml:space="preserve">
+    <value>Cellule d’oxyde de carbone</value>
+  </data>
+  <data name="S0002" xml:space="preserve">
+    <value>Cellule de sulfure d’hydrogène</value>
+  </data>
+  <data name="S0003" xml:space="preserve">
+    <value>Cellule de dioxyde de soufre</value>
+  </data>
+  <data name="S0004" xml:space="preserve">
+    <value>Cellule de dioxyde d’azote</value>
+  </data>
+  <data name="S0005" xml:space="preserve">
+    <value>Cellule de chlore</value>
+  </data>
+  <data name="S0006" xml:space="preserve">
+    <value>Cellule de bioxyde de chlore</value>
+  </data>
+  <data name="S0007" xml:space="preserve">
+    <value>Cellule d’acide cyanhydrique</value>
+  </data>
+  <data name="S0008" xml:space="preserve">
+    <value>Cellule d’hydrogène sulfuré</value>
+  </data>
+  <data name="S0009" xml:space="preserve">
+    <value>Cellule d’hydrogène</value>
+  </data>
+  <data name="S0011" xml:space="preserve">
+    <value>Cellule de dioxyde de carbone </value>
+  </data>
+  <data name="S0012" xml:space="preserve">
+    <value>Cellule d’oxyde nitrique</value>
+  </data>
+  <data name="S0013" xml:space="preserve">
+    <value>Cellule d’ammoniac</value>
+  </data>
+  <data name="S0014" xml:space="preserve">
+    <value>Cellule de chlorure d’hydrogène</value>
+  </data>
+  <data name="S0015" xml:space="preserve">
+    <value>Cellule d’ozone</value>
+  </data>
+  <data name="S0016" xml:space="preserve">
+    <value>Cellule de phosgène</value>
+  </data>
+  <data name="S0017" xml:space="preserve">
+    <value>Cellule de fluorure d'hydrogène</value>
+  </data>
+  <data name="S0018" xml:space="preserve">
+    <value>Cellule de méthane</value>
+  </data>
+  <data name="S0019" xml:space="preserve">
+    <value>Cellule explo en PPM</value>
+  </data>
+  <data name="S0020" xml:space="preserve">
+    <value>Cellule d’oxygène</value>
+  </data>
+  <data name="S0021" xml:space="preserve">
+    <value>Cellule explo en CH4</value>
+  </data>
+  <data name="S0022" xml:space="preserve">
+    <value>Cellule explo en LIE</value>
+  </data>
+  <data name="S0024" xml:space="preserve">
+    <value>LIE Infrarouge de méthane</value>
+  </data>
+  <data name="S0026" xml:space="preserve">
+    <value>Cellule de pentane</value>
+  </data>
+  <data name="S0027" xml:space="preserve">
+    <value>Cellule de propane</value>
+  </data>
+  <data name="S0050" xml:space="preserve">
+    <value>Cellule PID</value>
+  </data>
+  <data name="S0081" xml:space="preserve">
+    <value>Cellule d'oxyde d'éthylène</value>
+  </data>
+  <data name="S0248" xml:space="preserve">
+    <value>Capteur d'hydrocarbures</value>
+  </data>
+  <data name="Title_BumpCertificate" xml:space="preserve">
+    <value>Certificat du test de bon fonctionnement</value>
+  </data>
+  <data name="Title_CalibrationCertificate" xml:space="preserve">
+    <value>Certificat d'étalonnage</value>
+  </data>
+  <data name="Value_Aborted" xml:space="preserve">
+    <value>Annulé</value>
+  </data>
+  <data name="Value_BumpFailedFreshAirFailed" xml:space="preserve">
+    <value>Échec</value>
+  </data>
+  <data name="Value_BumpFailedFreshAirPassed" xml:space="preserve">
+    <value>Echec Basse</value>
+  </data>
+  <data name="Value_BumpPassedFreshAirFailed" xml:space="preserve">
+    <value>Echec Haute</value>
+  </data>
+  <data name="Value_Failed" xml:space="preserve">
+    <value>Échec</value>
+  </data>
+  <data name="Value_FreshAir" xml:space="preserve">
+    <value>Air extérieur</value>
+  </data>
+  <data name="Value_Installed" xml:space="preserve">
+    <value>Installée</value>
+  </data>
+  <data name="Value_Marginal" xml:space="preserve">
+    <value>Marginal</value>
+  </data>
+  <data name="Value_NA" xml:space="preserve">
+    <value>S.O.</value>
+  </data>
+  <data name="Value_O2RecoveryFailed" xml:space="preserve">
+    <value>Echec Haute</value>
+    <comment>Currently same as Value_BumpPassedFreshAirFailed, but left as separate label in case we differentiate</comment>
+  </data>
+  <data name="Value_Passed" xml:space="preserve">
+    <value>Réussi</value>
+  </data>
+  <data name="Value_Skipped" xml:space="preserve">
+    <value>Omis</value>
+    <comment>or, "Omitted"</comment>
+  </data>
+  <data name="Value_Uninstalled" xml:space="preserve">
+    <value>Désinstallée</value>
+  </data>
+</root>
