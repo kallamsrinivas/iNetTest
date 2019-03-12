@@ -6,7 +6,7 @@ namespace xUnitSolution
         //default constructorsss
         public MyClass()
         {
-            //test comment
+            //test comment//
         }
     }
 }
